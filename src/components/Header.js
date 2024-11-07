@@ -7,31 +7,31 @@ function Header() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    // Se estiver na rota '/login', retorna null (não exibe o cabeçalho)
-    if (location.pathname === '/login') {
+    // Não exibe o cabeçalho se estiver nas rotas '/login' ou '/dashboard'
+    if (location.pathname === '/login' || location.pathname === '/dashboard') {
         return null;
     }
 
     return (
         <header>
-                <div className={styles.headerLogo}></div>
-                <img className={styles.imgLogo} src="/img/Group.png" alt="Logo" />
-                <nav>
-                    <ul>
-                        <li><Link to="/como-doar">COMO DOAR</Link></li>
-                        <li><Link to="/contate">CONTATE </Link></li>
-                        <li><Link to="/contate"></Link></li>
-                        <li>
-                            <button 
-                                id="loginButton" 
-                                className={styles.loginButton} 
-                                onClick={() => navigate('/login')}
-                            >
-                                ENTRAR
-                            </button>
-                        </li>
-                    </ul>
-                </nav>
+            <div className={styles.headerLogo}></div>
+            <img className={styles.imgLogo} src="/img/Group.png" alt="Logo" />
+            <nav>
+                <ul>
+                    <li><Link to="/como-doar">COMO DOAR</Link></li>
+                    <li><Link to="/contate">CONTATE </Link></li>
+                    <li><Link to="/contate"></Link></li>
+                    <li>
+                        <button 
+                            id="loginButton" 
+                            className={styles.loginButton} 
+                            onClick={() => navigate('/login')}
+                        >
+                            ENTRAR
+                        </button>
+                    </li>
+                </ul>
+            </nav>
             <div className={styles.line}></div>
         </header>
     );

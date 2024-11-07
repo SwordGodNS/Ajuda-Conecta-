@@ -1,14 +1,29 @@
-/* src/styles/Dashboard.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #F8F9FA;
+    overflow-x: hidden;
+}
+
 .container {
     display: flex;
-    font-family: "Poppins", sans-serif;
 }
 
 .navBarContainer {
     width: 300px;
-    background-color: #F8F9FA;
+    position: fixed;
+    height: 100vh; /* Altura total da tela */
+    background-color: #FFFFFF;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Permite rolagem vertical se necessário */
 }
 
 .logo {
@@ -16,34 +31,154 @@
     height: 70px;
     background-color: #84DA15;
     border-radius: 50%;
-    margin: 20px auto;
+    margin: 20px auto; /* Centraliza o logo */
 }
 
 .dashboardLine {
+    background-color: #d1d1d1;
     height: 2px;
     width: 100%;
-    background-color: #d1d1d1;
-    margin: 20px 0;
+    margin: 10px 0; /* Margens ao redor da linha */
 }
 
-.navItem {
-    margin: 15px 0;
-    padding: 10px;
-    background-color: #84DA15;
-    color: white;
-    border-radius: 5px;
-    text-align: center;
+.containerWhiteDashboard,
+.containerWhiteUser,
+.containerWhiteCatastrofes,
+.containerWhiteDoacoes,
+.containerWhiteDelivery,
+.containerWhitePages,
+.containerWhiteLogout {
+    position: relative;
+    width: 100%; /* Ocupa toda a largura disponível */
+    height: 50px;
+    background-color: #FFFFFF; /* Fundo branco */
+    border-radius: 10px;
+    margin: 10px 0; /* Espaçamento entre as opções do menu */
     cursor: pointer;
-    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para efeito de profundidade */
 }
 
-.dashboardContent {
-    flex: 1;
-    padding: 40px;
+.containerIcon {
+    display: flex; /* Alinha ícone e texto horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 10px; /* Adiciona espaçamento interno */
 }
 
-.title {
+.nav {
+    width: 23px; /* Tamanho do ícone */
+    height: 23px;
+    margin-right: 10px; /* Espaçamento entre ícone e texto */
+}
+
+.pagesTitle {
+    margin-top: 20px; /* Espaçamento acima do título de páginas */
+    font-weight: bold;
+}
+
+.dashboardsContainer {
+    margin-left: 300px; /* Espaço para a barra de navegação */
+    padding: 20px; /* Adiciona espaçamento interno */
+    overflow-y: auto; /* Permite rolagem vertical na área do dashboard */
+}
+
+.topBoardContainer {
+    display: flex;
+    justify-content: space-between; /* Espaça o conteúdo da linha superior */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+h1 {
     font-size: 28px;
+    margin: 10px 0; /* Espaçamento ao redor do título */
+}
+
+input {
+    width: 256px;
+    height: 36px;
+    border-radius: 10px;
+    border: 2px solid #ccc; /* Borda cinza */
+    padding: 5px; /* Adiciona espaçamento interno */
+}
+
+button {
+    border: 2px solid #84DA15;
+    border-radius: 10px;
+    color: #84DA15;
     font-weight: 600;
-    color: #686868;
+    background-color: transparent;
+    padding: 5px 10px; /* Adiciona espaçamento interno */
+}
+
+.donationTodayContainer,
+.usersTodayContainer,
+.deliveryTodayContainer {
+    width: 280px;
+    height: 65px;
+    background-color: #fff;
+    border-radius: 15px;
+    margin: 10px 0; /* Margem entre contêineres */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1); /* Sombra para efeito de profundidade */
+}
+
+.todayContainer {
+    display: flex;
+    align-items: center;
+}
+
+.today {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px; /* Margem esquerda */
+}
+
+.todayText {
+    font-size: 25px;
+}
+
+.dashboardDelivery,
+.catastrofesContainer,
+.usersContainer,
+.containerDoacoesDashboard {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Adiciona espaçamento interno */
+    margin-top: 20px; /* Espaçamento acima */
+}
+
+/* Seções de filtros e títulos */
+h2 {
+    margin-top: 10px;
+    margin-bottom: 5px; /* Espaço abaixo do título */
+}
+
+.filtroDelivery,
+.usersFiltro,
+.donationsFiltro {
+    margin-top: 10px; /* Espaço acima do seletor */
+}
+
+.containerVisoesDetalhadas {
+    width: 985px;
+    margin-top: 20px; /* Espaço acima */
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px; /* Adiciona espaçamento interno */
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1); /* Sombra para efeito de profundidade */
+}
+
+.containerOptions {
+    display: flex; /* Exibe os elementos em linha */
+    flex-wrap: wrap; /* Permite quebra de linha se necessário */
+    justify-content: space-between; /* Espaça os elementos */
+}
+
+.line {
+    width: 100%; /* Largura total */
+    height: 1px; /* Espessura da linha */
+    background-color: #eeeeee; /* Cor da linha */
+    margin-top: 20px; /* Espaço acima */
 }
