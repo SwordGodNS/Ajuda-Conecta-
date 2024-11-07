@@ -5,28 +5,23 @@
     height: 100vh;
     background-color: white;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 /* Seção esquerda */
 .left {
-    width: 50%;
-    background-color: #7ed321;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    color: white;
-    padding: 60px 40px;
-    text-align: left;
-    position: relative;
+    background-color: #84DA15;
+    width: 45%;
+    height: 100vh;
 }
 
 .logo {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 40px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-left: 14%;
+    margin-top: 10%;
 }
 
 .circle {
@@ -36,23 +31,35 @@
     border-radius: 50%;
     margin-bottom: 10px;
 }
-
-.logo span {
-    font-weight: bold;
-    font-size: 18px;
+.logo span, .subtext{
+    position:fixed;
+    color: #fff;
 }
-
+.logo span {
+    font-size: 18px;
+    margin-left:4.5%;
+    margin-top: -4%;
+}
+.logo{
+    font-weight: bold;
+}
 .subtext {
+    display: block;
     font-size: 12px;
     font-style: italic;
-    font-weight: 300;
-}
+    font-weight: 200;
+    margin-left: 20%;
+    padding-left: 0cap;
+    padding-top: 1.5cap;
 
-h1 {
+}
+.h1Login{
+    color: #fff;
+    font-family: "Poppins", sans-serif;
     font-size: 48px;
     font-weight: 300;
-    line-height: 1.2;
     margin-bottom: 200px;
+    margin-top: 30%;
 }
 
 h1 strong {
@@ -61,10 +68,12 @@ h1 strong {
 
 /* Botão Log in e Link Sign Up */
 .btn, .signup {
+    width: 100px;
+    height: 50px;
     padding: 6px 12px;
     background-color: transparent;
     color: white;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     text-align: center;
     border: none;
@@ -79,18 +88,18 @@ h1 strong {
 
 .btn, .signup {
     position: absolute;
-    right: 40px;
-    width: auto;
+    right: 56%;
 }
 
 .btn {
-    top: 50%;
-    transform: translateY(-50%);
+    top: 70%;
 }
 
 .signup {
-    top: calc(50% + 45px);
-    transform: translateY(-50%);
+    width: 70px;
+    height: 40px;
+    top: 80%;
+    align-items: center;
 }
 
 /* Seção direita */
@@ -104,7 +113,7 @@ h1 strong {
 }
 
 .right h2 {
-    font-size: 24px;
+    font-size: 40px;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -112,6 +121,7 @@ h1 strong {
 .right p {
     color: #888;
     margin-bottom: 20px;
+    font-size: 16px;
 }
 
 form {
@@ -127,6 +137,8 @@ form {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 14px;
+    width: 350px;
+    margin-left: -10%;
 }
 
 .options {
@@ -153,6 +165,9 @@ form {
     cursor: pointer;
     border-radius: 5px;
     margin-bottom: 20px;
+    margin-top: 5%;
+    width: 370px;
+    margin-left: -9%;
 }
 
 .divider {
@@ -188,23 +203,182 @@ form {
     cursor: pointer;
     transition: transform 0.2s;
 }
-
+label[for='name']{
+    margin-left: -183%;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+.inputName{
+    width: 600px;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 30px;
+    font-size: 14px;
+    margin-left: -50%;
+    margin-bottom: 10px;
+}
+label[for='email']{
+    margin-left: -90%;
+    width: 300px;
+    font-size: 15px;
+}
+.inputEmail{
+    width: 300px;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 30px;
+    font-size: 14px;
+    margin-left: -62%;
+    margin-top: 10%;
+}
+label[for='password']{
+    position: absolute;
+    margin-left: 13.5%;
+}
+.inputPassword{
+    position: absolute;
+    width: 265px;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 30px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    margin-top: 2.3%;
+    margin-left: 13.5%;
+}
+label[for='cpf']{
+    position: absolute;
+    margin-left: -10.6%;
+}
 .cpfInput {
+    width: 125px;
     padding: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 14px;
-    width: 100%;
     box-sizing: border-box;
     outline: none;
+    height: 30px;
+    margin-left: -49%;
+    margin-top: 10%;
 }
 
-.cpfInput:focus {
-    border-color: #7ed321;
-    box-shadow: none;
+label[for='date']{
+    position: absolute;
+    margin-left: 3.8%;
 }
 
+.inputDate{
+    width: 170px;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+    height: 30px;
+    margin-left: 30%;
+    margin-top: 18%;
+}
+.selectSex{
+    position: absolute;
+    margin-top: -3.6%;
+    margin-left: 9%;
+    width: 170px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 30px;
+    font-size: 14px;
+}
+label[for='sex']{
+    position: absolute;
+    margin-left: 9%;
+    margin-top: -6%;
+}
+label[for='text']{
+    margin-top: -2%;
+    margin-left: -48%;
+}
+
+.inputLong{
+    
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+    height: 30px;
+    margin-left: -38%;
+    margin-top: 9%;
+    width: 400px;
+}
+label[for='text-2']{
+    position: absolute;
+    margin-top: -0.4%;
+    margin-left: 20.2%;
+}
+.inputNumber{
+    position: absolute;
+    width: 170px;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+    height: 30px;
+    margin-top: 1.95%;
+    margin-left: 20%;
+}
+
+label[for='cidade']{
+    position: absolute;
+    margin-left: -10.5%;
+}
+.inputCity{
+    position: absolute;
+    width: 400px;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+    height: 30px;
+    margin-top: 1.95%;
+    margin-left: -10.5%;
+}
+label[for='estado']{
+    position: absolute;
+    margin-left: 20.2%;
+}
+.inputState{
+    position: absolute;
+    width: 170px;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+    height: 30px;
+    margin-top: 1.95%;
+    margin-left: 20%;
+}
 .icon:hover {
     transform: scale(1.1);
 }
@@ -230,7 +404,7 @@ form {
 }
 
 .formContainer h2 {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
     margin-bottom: 5px;
 }
@@ -257,7 +431,6 @@ form {
 .doubleInput {
     display: flex;
     gap: 10px;
-    width: 100%;
     margin-bottom: 15px;
 }
 
@@ -274,7 +447,7 @@ form {
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
-    margin-top: 20px;
+    margin-top: 70px;
     width: 100%;
 }
 

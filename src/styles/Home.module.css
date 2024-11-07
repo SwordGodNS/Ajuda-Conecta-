@@ -26,12 +26,6 @@ img {
     opacity: 0.43;
 }
 
-.headerContainer {
-    height: 119px;
-    width: 100%;
-    position: fixed;
-    display: inline-flex;
-}
 
 .headerLogo {
     position: absolute;
@@ -43,17 +37,19 @@ img {
 }
 
 .imgLogo {
-    width: 80px;
-    height: 80px;
+    width: 85px;
+    height: 85px;
     margin-left: 1.25%;
-    margin-top: 0.7%;
     position: fixed; 
     object-fit: cover; 
     z-index: 2; 
     opacity: 2;
+    margin-left: 1.5%;
+    margin-top: 1.4%;
 }
 
 li a {
+    position: absolute;
     color: #FFFFFF;
     list-style-type: none;
     text-decoration: none;
@@ -71,7 +67,8 @@ li {
 }
 
 li:first-child {
-    margin-left: 13%;
+    margin-left:14%;
+    margin-right: 5%;
 }
 
 button {
@@ -89,10 +86,11 @@ button {
     position: absolute; 
     top: 30px; 
     right: 50px; 
+
 }
 
 .line {
-    position: relative;
+    position: absolute;
     width: 1200px;
     height: 1px;
     background-color: #FFFFFF;
@@ -105,12 +103,13 @@ h1, .p1, .donationButton, .subtitle {
     margin-left: 7%;
 }
 
-h1 {
-    margin-top: 10%;
+.h1Home { 
     letter-spacing: 8px;
     font-size: 70px;
     color: #FFFFFF;
     font-family: "SUSE";
+    font-weight: 600;
+    margin-top: 10%;
 }
 
 .subtitle {

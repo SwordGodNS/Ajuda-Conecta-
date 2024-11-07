@@ -57,7 +57,7 @@ function Login() {
                     <span>AJUDA</span>
                     <span className={styles.subtext}>CONECTA</span>
                 </div>
-                <h1>Olá, <br /> <strong>Bem-Vindo!</strong></h1>
+                <h1 className={styles.h1Login}>Olá, <br /> <strong>Bem-Vindo!</strong></h1>
                 
                 <button
                     className={`${styles.btn} ${!isSignUp ? styles.selected : ''}`}

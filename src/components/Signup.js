@@ -48,83 +48,124 @@ function Signup({ onSignupSuccess }) {
             <h2>Cadastrando</h2>
             <p>Preencha seus dados pessoais para criar uma conta</p>
             <form onSubmit={handleSignup}>
+                <label for='name'>Nome</label>
                 <input 
                     type="text" 
                     placeholder="Nome" 
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required 
-                    className={styles.fullWidthInput} 
+                    className={styles.inputName} 
                 />
                 
                 <div className={styles.doubleInput}>
+                    <label for='email'>E-mail</label>
                     <input 
                         type="email" 
                         placeholder="Email" 
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required 
-                        className={styles.input} 
+                        className={styles.inputEmail} 
                     />
+                    <label for='password'>Senha</label>
                     <input 
                         type="password" 
                         placeholder="Senha" 
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required 
-                        className={styles.input} 
+                        className={styles.inputPassword} 
                     />
                 </div>
                 
                 <div className={styles.doubleInput}>
+                    <label for='cpf'>CPF</label>
                     <input 
                         type="text" 
                         placeholder="CPF" 
                         value={cpf}
                         onChange={handleCpfChange}
                         required 
-                        className={styles.cpfInput} // Aplica a classe de estilo cpfInput
+                        className={styles.cpfInput} 
                         maxLength="14"
                     />
                     <div>
-                        <label className={styles.label}>Data de Nascimento</label>
+                        <label for='date'>Data de Nascimento</label>
                         <input 
                             type="date" 
                             value={birthDate}
                             onChange={(e) => setBirthDate(e.target.value)}
                             required 
-                            className={styles.input} 
+                            className={styles.inputDate} 
                         />
                     </div>
                 </div>
+                <div>
+                    <label for='sex'>Sexo</label>
+                    <select className={styles.selectSex}>
+                        <option>Selecione</option>
+                        <option>Masculino</option>
+                        <option>Feminino</option>
+                        <option>Transgênero</option>
+                        <option>Prefiro não Inoformar</option>
+                    </select>
+                </div>
                 
                 <div className={styles.doubleInput}>
+                    <label for='text'>Longradouro</label>
                     <input 
                         type="text" 
-                        placeholder="Bairro" 
+                        placeholder="Longradouro" 
                         required 
-                        className={styles.input} 
+                        className={styles.inputLong} 
                     />
+                    <label for='text-2'>Número</label>
                     <input 
                         type="text" 
                         placeholder="Número" 
                         required 
-                        className={styles.input} 
+                        className={styles.inputNumber} 
                     />
                 </div>
                 
                 <div className={styles.doubleInput}>
+                    <label for='cidade'>Cidade</label>
                     <input 
                         type="text" 
                         placeholder="Cidade" 
                         required 
-                        className={styles.input} 
+                        className={styles.inputCity} 
                     />
-                    <select required className={styles.input}>
-                        <option value="">Estado</option>
-                        <option value="SC">SC</option>
-                        <option value="RJ">RJ</option>
-                        <option value="SP">SP</option>
+                    <label for='estado'>Estado</label>
+                    <select required className={styles.inputState}>
+                    <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
                     </select>
                 </div>
 

@@ -12,9 +12,8 @@ function Home() {
 
     return (
         <div>
-            <img src="/img/Home Page PHOTO.svg" alt="Background" className={styles.backgroundImage} />
             <main>
-                <h1>AJUDACONECTA</h1>
+                <h1 className={styles.h1Home}>AJUDACONECTA</h1>
                 <p className={styles.subtitle}>Seu site que conecta doações</p>
                 <p className={styles.p1}>
                     Seu gesto pode fazer a diferença na reconstrução de vidas e na 

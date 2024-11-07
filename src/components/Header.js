@@ -14,14 +14,13 @@ function Header() {
 
     return (
         <header>
-            <div className={styles.headerContainer}>
                 <div className={styles.headerLogo}></div>
                 <img className={styles.imgLogo} src="/img/Group.png" alt="Logo" />
                 <nav>
                     <ul>
                         <li><Link to="/como-doar">COMO DOAR</Link></li>
-                        <li><Link to="/sobre-nos">SOBRE NÓS</Link></li>
-                        <li><Link to="/contate">CONTATE</Link></li>
+                        <li><Link to="/contate">CONTATE </Link></li>
+                        <li><Link to="/contate"></Link></li>
                         <li>
                             <button 
                                 id="loginButton" 
@@ -33,7 +32,6 @@ function Header() {
                         </li>
                     </ul>
                 </nav>
-            </div>
             <div className={styles.line}></div>
         </header>
     );
