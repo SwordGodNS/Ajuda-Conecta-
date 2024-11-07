@@ -1,0 +1,149 @@
+/* src/styles/Contate.module.css */
+
+:global(body) {
+    background-color: #E7E7E7;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: #D3D3D3;
+    margin-top: 10px;
+}
+
+.mainContent {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+    gap: 20px;
+}
+
+.contactLeft {
+    width: 50%;
+    padding-right: 20px;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.description {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.contactDetails {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.containerMessage {
+    background-color: #84DA15;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.emailIcon {
+    width: 30px;
+    height: 30px;
+}
+
+.contactLabel {
+    font-size: 16px;
+    font-weight: 500;
+    color: #44700b;
+}
+
+.contactEmail {
+    font-size: 14px;
+    color: #666;
+}
+
+.containerForm {
+    width: 45%;
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.formTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.formGroup {
+    margin-bottom: 15px;
+}
+
+.formGroup label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #686868;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.inputField {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.textArea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    font-size: 14px;
+    resize: vertical;
+    height: 120px;
+}
+
+.submitButton {
+    width: 100%;
+    padding: 15px;
+    background-color: #84DA15;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.submitButton:hover {
+    background-color: #6AAD11;
+    transform: translateY(-2px);
+}
+
+.submitButton:active {
+    transform: translateY(0);
+}

@@ -1,0 +1,28 @@
+/* src/styles/AcompanharUser.module.css */
+.container {
+    padding: 20px;
+    font-family: "Poppins", sans-serif;
+    background-color: #F8F9FA;
+    text-align: center;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 600;
+    color: #84DA15;
+    margin-bottom: 20px;
+}
+
+.donationStatus {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.donationItem {
+    padding: 15px;
+    border-bottom: 1px solid #dfdfdf;
+    color: #686868;
+    font-weight: 600;
+}
