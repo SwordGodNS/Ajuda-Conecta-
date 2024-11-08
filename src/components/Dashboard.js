@@ -1,56 +1,99 @@
-import React from 'react';
-import styles from '../styles/Dashboard.module.css'; 
+// src/components/Dashboard.js
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import styles from '../styles/Dashboard.module.css';
 
 function Dashboard() {
+    const [activeTab, setActiveTab] = useState('Dashboard'); // Define 'Dashboard' como a aba ativa por padrão
+    const navigate = useNavigate();
+
+    const handleTabClick = (tab) => {
+        setActiveTab(tab);
+        if (tab === 'Usuarios') {
+            navigate('/user'); // Navegar para a rota de Usuários
+        }
+    };
+
+    const handleLogout = () => {
+        navigate('/'); // Redireciona para a página inicial ("/") ao clicar em "Sair"
+    };
+
     return (
         <div className={styles['dashboard-container']}>
+            {/* Barra lateral */}
             <div className={styles['dashboard-navBarContainer']}>
                 <div className={styles['dashboard-logo']}></div>
                 <div className={styles['dashboard-dashboardLine']}></div>
-                <div className={styles['dashboard-containerWhiteDashboard']}>
-                    <div id='dashboardNav'className={styles['dashboard-containerIcon']}>
-                        <img className={styles['dashboard-nav']}  src="../img/Performance Macbook.svg" alt="Dashboard" />
+                
+                <div
+                    className={`${styles['dashboard-tab']} ${activeTab === 'Dashboard' ? styles['activeTab'] : ''}`}
+                    onClick={() => handleTabClick('Dashboard')}
+                >
+                    <div id='dashboardNav' className={styles['dashboard-containerIcon']}>
+                        <img className={styles['dashboard-nav']} src="../img/Performance Macbook.svg" alt="Dashboard" />
                         <p className={styles['dashboard-navText']}>Dashboard</p>
                     </div>
                 </div>
-                <div className={styles['dashboard-containerWhiteUser']}>
-                    <div id='userNav'className={styles['dashboard-containerIcon']}>
+
+                <div
+                    className={`${styles['dashboard-tab']} ${activeTab === 'Usuarios' ? styles['activeTab'] : ''}`}
+                    onClick={() => handleTabClick('Usuarios')}
+                >
+                    <div id='userNav' className={styles['dashboard-containerIcon']}>
                         <img className={styles['dashboard-nav']} src="../img/User-nav.svg" alt="Usuários" />
                         <p className={styles['dashboard-navText']}>Usuários</p>
                     </div>
                 </div>
-                <div className={styles['dashboard-containerWhiteCatastrofes']}>
+
+                <div
+                    className={`${styles['dashboard-tab']} ${activeTab === 'Catastrofes' ? styles['activeTab'] : ''}`}
+                    onClick={() => handleTabClick('Catastrofes')}
+                >
                     <div className={styles['dashboard-containerIcon']}>
-                        <img className={styles['dashboard-nav']} src="../img/Tornado.svg" alt="Catastrofes" />
+                        <img className={styles['dashboard-nav']} src="../img/Tornado.svg" alt="Catástrofes" />
                         <p className={styles['dashboard-navText']}>Catástrofes</p>
                     </div>
                 </div>
-                <div className={styles['dashboard-containerWhiteDoacoes']}>
+
+                <div
+                    className={`${styles['dashboard-tab']} ${activeTab === 'Doacoes' ? styles['activeTab'] : ''}`}
+                    onClick={() => handleTabClick('Doacoes')}
+                >
                     <div className={styles['dashboard-containerIcon']}>
                         <img className={styles['dashboard-nav']} src="../img/Successful Delivery.svg" alt="Doações" />
                         <p className={styles['dashboard-navText']}>Doações</p>
                     </div>
                 </div>
-                <div className={styles['dashboard-containerWhiteDelivery']}>
+
+                <div
+                    className={`${styles['dashboard-tab']} ${activeTab === 'Entregas' ? styles['activeTab'] : ''}`}
+                    onClick={() => handleTabClick('Entregas')}
+                >
                     <div className={styles['dashboard-containerIcon']}>
                         <img className={styles['dashboard-nav']} src="../img/Truck-nav.svg" alt="Entregas" />
                         <p className={styles['dashboard-navText']}>Entregas</p>
                     </div>
                 </div>
+                
                 <p className={styles['dashboard-pagesTitle']}>Páginas</p>
+                
                 <div className={styles['dashboard-containerWhitePages']}>
                     <div className={styles['dashboard-containerIcon']}>
                         <img className={styles['dashboard-nav']} src="../img/User-nav.svg" alt="Perfil" />
                         <p className={styles['dashboard-navText']}>Perfil</p>
                     </div>
                 </div>
-                <div className={styles['dashboard-containerWhiteLogout']}>
+                
+                {/* Botão de Sair com handleLogout */}
+                <div className={styles['dashboard-containerWhiteLogout']} onClick={handleLogout}>
                     <div className={styles['dashboard-containerIcon']}>
                         <img className={styles['dashboard-nav']} src="../img/Logout.svg" alt="Sair" />
                         <p className={styles['dashboard-navText']}>Sair</p>
                     </div>
                 </div>
             </div>
+
+            {/* Conteúdo da Dashboard */}
             <div className={styles['dashboard-dashboardsContainer']}>
                 <div className={styles['dashboard-topBoardContainer']}>
                     <nav className={styles['dashboard-navContainer']}>
@@ -101,6 +144,7 @@ function Dashboard() {
                         <option>Anual</option>
                     </select>
                 </div>
+                
                 <div className={styles['dashboard-catastrofesContainer']}>
                     <h2 className={styles['dashboard-sectionTitle']}>Catástrofes</h2>
                 </div>

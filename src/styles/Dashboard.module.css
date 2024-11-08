@@ -1,12 +1,13 @@
-body{
-    overflow-y:auto;
+body {
+    overflow-y: auto;
 }
 
-.dashboard-navBarContainer{
+.dashboard-navBarContainer {
     width: 334px;
     position: fixed;
 }
-.dashboard-logo{
+
+.dashboard-logo {
     width: 70px;
     height: 70px;
     background-color: #84DA15;
@@ -14,25 +15,36 @@ body{
     margin-left: 35%;
     margin-top: -2%;
 }
-.dashboard-dashboardLine{
+
+.dashboard-dashboardLine {
     background-color: #d1d1d1;
     height: 2px;
     width: 261px;
     margin-left: 10%;
     margin-top: 6%;
 }
-.dashboard-containerWhiteDashboard{
+
+/* Default styling for all tabs */
+.dashboard-tab {
     position: relative;
     width: 261px;
     height: 50px;
-    background-color: #fff;
+    background-color: transparent;
     border-radius: 10px;
     margin-left: 10%;
-    margin-top: 10%;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 3%;
     cursor: pointer;
+    transition: background-color 0.3s, border-left 0.3s;
 }
-.dashboard-containerIcon{
+
+/* Active tab styling */
+.activeTab {
+    border-left: 5px solid #84DA15;
+    background-color: #ffffff;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-containerIcon {
     position: absolute;
     background-color: #84DA15;
     width: 38px;
@@ -42,13 +54,15 @@ body{
     margin-top: 3%;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 }
-.dashboard-nav{
+
+.dashboard-nav {
     width: 23px;
     height: 23px;
     padding-left: 0.65cap;
     padding-top: 0.5cap;
 }
-.dashboard-navText{
+
+.dashboard-navText {
     position: absolute;
     display: inline;
     padding-left: 2cap;
@@ -57,42 +71,60 @@ body{
     font-weight: 600;
     font-size: 14px;
 }
-.dashboard-containerWhiteUser,.dashboard-containerWhiteCatastrofes,.dashboard-containerWhiteDoacoes,.dashboard-containerWhiteDelivery,.dashboard-containerWhitePages,.dashboard-containerWhiteLogout{
-    position: relative;
-    width: 261px;
-    height: 50px;
-    background-color: transparent;
-    border-radius: 10px;
-    margin-left: 10%;
-    margin-top: 3%;
-    cursor: pointer;
-}
-.dashboard-pagesTitle{
+
+.dashboard-pagesTitle {
     display: flex;
     margin-left: 12%;
     padding-top: 2cap;
     color: #000;
     font-weight: 700;
 }
-.dashboard-dashboardsContainer{
+
+/* Ajuste para "Perfil" e "Sair" com efeito de clique */
+.dashboard-containerWhitePages,
+.dashboard-containerWhiteLogout {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    width: 150px;
+    margin-left: 0%;
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.dashboard-containerWhitePages:active,
+.dashboard-containerWhiteLogout:active {
+    border-left: 10px solid #84DA15; /* Borda verde à esquerda */
+    background-color: #ffffff; /* Fundo branco */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.dashboard-dashboardsContainer {
     position: relative;
     width: 1107px;
     height: 100%;
     margin-left: 23.1%;
     margin-top: 2%;
 }
-.dashboard-navItem1, .dashboard-navItem2{
+
+/* Restante do CSS */
+.dashboard-navItem1, .dashboard-navItem2 {
     display: inline;
     color: #686868;
 }
-.dashboard-navItem1{
+
+.dashboard-navItem1 {
     font-weight: 300;
     margin-left: 3%;
 }
-.dashboard-title{
-    margin-left:3%;
+
+.dashboard-title {
+    margin-left: 3%;
 }
-.dashboard-searchInput{
+
+.dashboard-searchInput {
     position: absolute;
     width: 256px;
     height: 36px;
@@ -101,10 +133,12 @@ body{
     border: none;
     margin-top: -6%;
 }
-.dashboard-searchInput[placeholder]{
+
+.dashboard-searchInput[placeholder] {
     padding-left: 2cap;
 }
-.dashboard-button{
+
+.dashboard-button {
     position: absolute;
     width: 182px;
     height: 36px;
@@ -116,7 +150,8 @@ body{
     font-weight: 600;
     background-color: transparent;
 }
-.dashboard-donationTodayContainer{
+
+.dashboard-donationTodayContainer {
     width: 280px;
     height: 65px;
     background-color: #fff;
@@ -125,30 +160,34 @@ body{
     border-radius: 15px;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
-.dashboard-todayLabel{
+
+.dashboard-todayLabel {
     display: flex;
     color: #686868;
     margin-left: 6%;
-    padding:0.5cap;
+    padding: 0.5cap;
     font-size: 14px;
 }
-.dashboard-todayContainer{
+
+.dashboard-todayContainer {
     position: absolute;
     width: 48px;
     height: 43px;
     background: linear-gradient(to bottom right, #84DA15, #66A910, #3B6109);
     border-radius: 10px;
     margin-left: 19%;
-    margin-top: -2%; 
+    margin-top: -2%;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
-.dashboard-today{
+
+.dashboard-today {
     width: 30px;
     height: 30px;
     padding-left: 0.7cap;
     padding-top: 0.5cap;
 }
-.dashboard-usersTodayContainer{
+
+.dashboard-usersTodayContainer {
     width: 280px;
     height: 65px;
     background-color: #fff;
@@ -157,7 +196,8 @@ body{
     border-radius: 15px;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
-.dashboard-deliveryTodayContainer{
+
+.dashboard-deliveryTodayContainer {
     width: 280px;
     height: 65px;
     background-color: #fff;
@@ -166,13 +206,15 @@ body{
     border-radius: 15px;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
-.dashboard-todayText{
+
+.dashboard-todayText {
     position: absolute;
     margin-left: -395%;
     font-size: 25px;
     margin-top: -60%;
 }
-.dashboard-dashboardDelivery{
+
+.dashboard-dashboardDelivery {
     width: 556px;
     height: 278px;
     background-color: #fff;
@@ -181,20 +223,24 @@ body{
     margin-left: 2%;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
-.dashboard-sectionLabel1{
+
+.dashboard-sectionLabel1 {
     padding-top: 1cap;
     padding-left: 2cap;
 }
-.dashboard-sectionTitle{
+
+.dashboard-sectionTitle {
     padding-left: 1cap;
     margin-top: -5%;
 }
-.dashboard-sectionLabel2{
+
+.dashboard-sectionLabel2 {
     margin-left: 60%;
     font-weight: 400;
     margin-top: -4.5%;
 }
-.dashboard-filtroDelivery{
+
+.dashboard-filtroDelivery {
     position: absolute;
     border: none;
     border-radius: 5px;
@@ -205,7 +251,8 @@ body{
     margin-top: -3.5%;
     margin-left: 30%;
 }
-.dashboard-catastrofesContainer{
+
+.dashboard-catastrofesContainer {
     width: 360px;
     height: 278px;
     background: linear-gradient(to bottom right, #84DA15, #3B6109);
@@ -214,7 +261,8 @@ body{
     margin-top: -25.25%;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
-.dashboard-usersContainer{
+
+.dashboard-usersContainer {
     position: relative;
     background-color: #fff;
     width: 350px;
@@ -224,7 +272,8 @@ body{
     margin-top: 2%;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
-.dashboard-usersGraficoContainer{
+
+.dashboard-usersGraficoContainer {
     position: absolute;
     width: 330px;
     height: 247px;
@@ -234,34 +283,40 @@ body{
     margin-top: 2%;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
-.dashboard-usersLabel1{
+
+.dashboard-usersLabel1 {
     position: absolute;
     margin-top: 75%;
     margin-left: 5%;
 }
-.dashboard-usersText1{
+
+.dashboard-usersText1 {
     position: absolute;
     margin-top: 82%;
     margin-left: 5%;
 }
-.dashboard-usersLabel2{
+
+.dashboard-usersLabel2 {
     position: absolute;
     margin-top: 93%;
     margin-left: 5%;
 }
-.dashboard-usersText2{
+
+.dashboard-usersText2 {
     position: absolute;
     margin-top: 100%;
     margin-left: 5%;
 }
-.dashboard-usersLabel{
+
+.dashboard-usersLabel {
     position: absolute;
     margin-top: 75%;
     margin-left: 70%;
     font-weight: 300;
     font-size: 14px;
 }
-.dashboard-usersFiltro{
+
+.dashboard-usersFiltro {
     position: absolute;
     margin-top: 85%;
     margin-left: 70%;
@@ -272,7 +327,8 @@ body{
     font-weight: 600;
     width: 100px;
 }
-.dashboard-containerDoacoesDashboard{
+
+.dashboard-containerDoacoesDashboard {
     background-color: #fff;
     width: 600px;
     height: 578px;
@@ -281,16 +337,19 @@ body{
     margin-top: -38.7%;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
-.dashboard-sectionLabel3{
+
+.dashboard-sectionLabel3 {
     position: absolute;
     margin-left: 40%;
     margin-top: -6.5%;
 }
-.dashboard-sectionLabel4{
+
+.dashboard-sectionLabel4 {
     padding-left: 2.5cap;
     padding-top: 3cap;
 }
-.dashboard-donationsFiltro{
+
+.dashboard-donationsFiltro {
     position: absolute;
     border: none;
     border-radius: 5px;
@@ -302,25 +361,7 @@ body{
     margin-top: -4%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.dashboard-containerFastView{
+.dashboard-containerFastView {
     display: flex;
     width: 350px;
     height: 109px;
@@ -330,7 +371,8 @@ body{
     margin-top: -10%;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
-.dashboard-containerIcons{
+
+.dashboard-containerIcons {
     margin-top: 8%;
     margin-left: 8.5%;
     width: 50px;
@@ -340,13 +382,15 @@ body{
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
-.dashboard-userIcon{
+
+.dashboard-userIcon {
     width: 30px;
     height: 30px;
     padding-left: 0.8cap;
     padding-top: 0.8cap;
 }
-.dashboard-containerVisoesDetalhadas{
+
+.dashboard-containerVisoesDetalhadas {
     width: 985px;
     height: 415px;
     margin-left: 2%;
@@ -355,34 +399,36 @@ body{
     margin-top: 2%;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
-.dashboard-sectionLabel5{
+
+.dashboard-sectionLabel5 {
     padding-top: 2cap;
     padding-left: 3cap;
 }
-.dashboard-sectionTitle{
+
+.dashboard-sectionTitle {
     padding-left: 2cap;
     padding-top: 2cap;
 }
-.dashboard-sectionTitle2{
+
+.dashboard-sectionTitle2 {
     padding-left: 2cap;
     padding-top: 2cap;
 }
-.dashboard-containerOptions{
+
+.dashboard-containerOptions {
     display: flex;
 }
-.dashboard-optionLabel{
+
+.dashboard-optionLabel {
     font-size: 14px;
-    color:#686868;
+    color: #686868;
     font-weight: 600;
     margin-left: 3.5%;
     margin-top: 4%;
 }
-.dashboard-line{
+
+.dashboard-line {
     width: 985px;
     height: 1px;
     background-color: #eeeeee;
-}
-.dashboard-sectionLabel5{
-    padding-top: 2cap;
-    padding-left: 3cap;
 }

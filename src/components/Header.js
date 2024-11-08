@@ -7,8 +7,9 @@ function Header() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    // Não exibe o cabeçalho se estiver nas rotas '/login' ou '/dashboard'
-    if (location.pathname === '/login' || location.pathname === '/dashboard' || location.pathname === '/user') {
+    // Exibe o cabeçalho apenas nas rotas '/', '/como-doar' e '/contate'
+    const allowedRoutes = ['/', '/como-doar', '/contate'];
+    if (!allowedRoutes.includes(location.pathname)) {
         return null;
     }
 
@@ -20,7 +21,6 @@ function Header() {
                 <ul>
                     <li><Link to="/como-doar">COMO DOAR</Link></li>
                     <li><Link to="/contate">CONTATE </Link></li>
-                    <li><Link to="/contate"></Link></li>
                     <li>
                         <button 
                             id="loginButton" 

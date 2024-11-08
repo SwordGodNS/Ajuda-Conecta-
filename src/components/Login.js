@@ -32,16 +32,28 @@ function Login() {
                 result = await signInWithEmailAndPassword(auth, email, password);
             }
             alert(`Logado com ${provider}: ${result.user.displayName || result.user.email}`);
-            navigate('/user'); // Redireciona para o Dashboard após o login
+            navigate('/usermenu'); // Redireciona para o UserMenu após o login
         } catch (error) {
             alert(`Erro ao autenticar com ${provider}: ${error.message}`);
             setError('Erro ao fazer login. Verifique suas credenciais.');
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        handleLogin(); // Call handleLogin without provider for email/password login
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            // Verifica se o login é com o e-mail do admin
+            if (email === 'admin@gmail.com' && password === 'admin123') {
+                navigate('/dashboard'); // Redireciona para o Dashboard se for admin
+            } else {
+                navigate('/usermenu'); // Redireciona para o UserMenu se não for admin
+            }
+        } catch (error) {
+            setError('Erro ao fazer login. Verifique suas credenciais.');
+        }
     };
 
     // Função para redirecionar após cadastro
