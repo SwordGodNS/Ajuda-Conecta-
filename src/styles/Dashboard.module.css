@@ -1,19 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
-
-/* Isolate styles by ensuring they only apply to the Dashboard component */
-.dashboard {
-    font-family: "Poppins", sans-serif;
-    background-color: #F8F9FA;
-    overflow-x: hidden;
+body{
+    overflow-y:auto;
 }
 
-/* Navigation Bar */
-.navBarContainer {
+.dashboard-navBarContainer{
     width: 334px;
     position: fixed;
 }
-
-.logo {
+.dashboard-logo{
     width: 70px;
     height: 70px;
     background-color: #84DA15;
@@ -21,41 +14,25 @@
     margin-left: 35%;
     margin-top: -2%;
 }
-
-.dashboardLine {
+.dashboard-dashboardLine{
     background-color: #d1d1d1;
     height: 2px;
     width: 261px;
     margin-left: 10%;
     margin-top: 6%;
 }
-
-/* Containers */
-.containerWhiteDashboard, 
-.containerWhiteUser, 
-.containerWhiteCatastrofes, 
-.containerWhiteDoacoes, 
-.containerWhiteDelivery, 
-.containerWhitePages, 
-.containerWhiteLogout {
+.dashboard-containerWhiteDashboard{
     position: relative;
     width: 261px;
     height: 50px;
+    background-color: #fff;
     border-radius: 10px;
     margin-left: 10%;
-    margin-top: 3%;
-    cursor: pointer;
-    background-color: transparent;
-}
-
-.containerWhiteDashboard {
-    background-color: #fff;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
     margin-top: 10%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
-
-/* Icon containers */
-.containerIcon {
+.dashboard-containerIcon{
     position: absolute;
     background-color: #84DA15;
     width: 38px;
@@ -65,46 +42,57 @@
     margin-top: 3%;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 }
-
-.nav {
+.dashboard-nav{
     width: 23px;
     height: 23px;
     padding-left: 0.65cap;
     padding-top: 0.5cap;
 }
-
-.pagesLabel {
+.dashboard-navText{
+    position: absolute;
+    display: inline;
+    padding-left: 2cap;
+    padding-top: 0.8cap;
+    color: #686868;
+    font-weight: 600;
+    font-size: 14px;
+}
+.dashboard-containerWhiteUser,.dashboard-containerWhiteCatastrofes,.dashboard-containerWhiteDoacoes,.dashboard-containerWhiteDelivery,.dashboard-containerWhitePages,.dashboard-containerWhiteLogout{
+    position: relative;
+    width: 261px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 10px;
+    margin-left: 10%;
+    margin-top: 3%;
+    cursor: pointer;
+}
+.dashboard-pagesTitle{
     display: flex;
     margin-left: 12%;
     padding-top: 2cap;
     color: #000;
     font-weight: 700;
 }
-
-/* Dashboard Content */
-.dashboardsContainer {
+.dashboard-dashboardsContainer{
     position: relative;
     width: 1107px;
     height: 100%;
     margin-left: 23.1%;
     margin-top: 2%;
 }
-
-.topBoardContainer nav ul li {
+.dashboard-navItem1, .dashboard-navItem2{
     display: inline;
     color: #686868;
+}
+.dashboard-navItem1{
     font-weight: 300;
-}
-
-.topBoardContainer nav ul li:first-child {
     margin-left: 3%;
 }
-
-h1 {
-    margin-left: 3%;
+.dashboard-title{
+    margin-left:3%;
 }
-
-.searchInput {
+.dashboard-searchInput{
     position: absolute;
     width: 256px;
     height: 36px;
@@ -112,10 +100,12 @@ h1 {
     border-radius: 10px;
     border: none;
     margin-top: -6%;
+}
+.dashboard-searchInput[placeholder]{
     padding-left: 2cap;
 }
-
-.userVersionButton {
+.dashboard-button{
+    position: absolute;
     width: 182px;
     height: 36px;
     margin-left: 75%;
@@ -126,79 +116,85 @@ h1 {
     font-weight: 600;
     background-color: transparent;
 }
-
-/* Today Containers */
-.donationTodayContainer, .usersTodayContainer, .deliveryTodayContainer {
+.dashboard-donationTodayContainer{
     width: 280px;
     height: 65px;
     background-color: #fff;
     margin-top: 4%;
+    margin-left: 2%;
     border-radius: 15px;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
-
-.todayText {
-    position: absolute;
-    margin-left: -395%;
-    font-size: 25px;
-    margin-top: -60%;
+.dashboard-todayLabel{
+    display: flex;
+    color: #686868;
+    margin-left: 6%;
+    padding:0.5cap;
+    font-size: 14px;
 }
-
-.todayContainer {
+.dashboard-todayContainer{
     position: absolute;
     width: 48px;
     height: 43px;
     background: linear-gradient(to bottom right, #84DA15, #66A910, #3B6109);
     border-radius: 10px;
     margin-left: 19%;
-    margin-top: -2%;
+    margin-top: -2%; 
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
-
-.today {
+.dashboard-today{
     width: 30px;
     height: 30px;
     padding-left: 0.7cap;
     padding-top: 0.5cap;
 }
-
-/* Detailed Containers */
-.dashboardDelivery, .catastrofesContainer, .usersContainer, .containerDoacoesDashboard, .containerFastView, .containerVisoesDetalhadas {
+.dashboard-usersTodayContainer{
+    width: 280px;
+    height: 65px;
     background-color: #fff;
+    margin-top: -5.9%;
+    margin-left: 33%;
     border-radius: 15px;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
-
-/* Specific Styles for Detailed Sections */
-.dashboardDelivery {
+.dashboard-deliveryTodayContainer{
+    width: 280px;
+    height: 65px;
+    background-color: #fff;
+    margin-top: -5.9%;
+    margin-left: 65%;
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+.dashboard-todayText{
+    position: absolute;
+    margin-left: -395%;
+    font-size: 25px;
+    margin-top: -60%;
+}
+.dashboard-dashboardDelivery{
     width: 556px;
     height: 278px;
+    background-color: #fff;
+    border-radius: 15px;
     margin-top: 5%;
     margin-left: 2%;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
-
-.catastrofesContainer {
-    width: 360px;
-    height: 278px;
-    background: linear-gradient(to bottom right, #84DA15, #3B6109);
-    margin-left: 58%;
-    margin-top: -25.25%;
+.dashboard-sectionLabel1{
+    padding-top: 1cap;
+    padding-left: 2cap;
 }
-
-.usersContainer {
-    width: 350px;
-    height: 429px;
-    margin-left: 2%;
-    margin-top: 2%;
+.dashboard-sectionTitle{
+    padding-left: 1cap;
+    margin-top: -5%;
 }
-
-/* Filters */
-.filtro, .filtroDelivery, .filtroTituloUsers, .usersFiltro, .filtroTituloDonations, .donationsFiltro {
-    margin-left: 30%;
+.dashboard-sectionLabel2{
+    margin-left: 60%;
     font-weight: 400;
+    margin-top: -4.5%;
 }
-
-select {
+.dashboard-filtroDelivery{
     position: absolute;
     border: none;
     border-radius: 5px;
@@ -206,44 +202,187 @@ select {
     color: #686868;
     font-weight: 600;
     width: 100px;
+    margin-top: -3.5%;
+    margin-left: 30%;
+}
+.dashboard-catastrofesContainer{
+    width: 360px;
+    height: 278px;
+    background: linear-gradient(to bottom right, #84DA15, #3B6109);
+    border-radius: 15px;
+    margin-left: 58%;
+    margin-top: -25.25%;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+.dashboard-usersContainer{
+    position: relative;
+    background-color: #fff;
+    width: 350px;
+    height: 429px;
+    margin-left: 2%;
+    border-radius: 15px;
+    margin-top: 2%;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+.dashboard-usersGraficoContainer{
+    position: absolute;
+    width: 330px;
+    height: 247px;
+    background: linear-gradient(to left, #203505, #65C213);
+    border-radius: 15px;
+    margin-left: 3.3%;
+    margin-top: 2%;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+.dashboard-usersLabel1{
+    position: absolute;
+    margin-top: 75%;
+    margin-left: 5%;
+}
+.dashboard-usersText1{
+    position: absolute;
+    margin-top: 82%;
+    margin-left: 5%;
+}
+.dashboard-usersLabel2{
+    position: absolute;
+    margin-top: 93%;
+    margin-left: 5%;
+}
+.dashboard-usersText2{
+    position: absolute;
+    margin-top: 100%;
+    margin-left: 5%;
+}
+.dashboard-usersLabel{
+    position: absolute;
+    margin-top: 75%;
+    margin-left: 70%;
+    font-weight: 300;
+    font-size: 14px;
+}
+.dashboard-usersFiltro{
+    position: absolute;
+    margin-top: 85%;
+    margin-left: 70%;
+    border: none;
+    border-radius: 5px;
+    background-color: #D9D9D9;
+    color: #686868;
+    font-weight: 600;
+    width: 100px;
+}
+.dashboard-containerDoacoesDashboard{
+    background-color: #fff;
+    width: 600px;
+    height: 578px;
+    margin-left: 37%;
+    border-radius: 15px;
+    margin-top: -38.7%;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+.dashboard-sectionLabel3{
+    position: absolute;
+    margin-left: 40%;
+    margin-top: -6.5%;
+}
+.dashboard-sectionLabel4{
+    padding-left: 2.5cap;
+    padding-top: 3cap;
+}
+.dashboard-donationsFiltro{
+    position: absolute;
+    border: none;
+    border-radius: 5px;
+    background-color: #D9D9D9;
+    color: #686868;
+    font-weight: 600;
+    width: 100px;
+    margin-left: 39.8%;
+    margin-top: -4%;
 }
 
-/* Legend Indicators */
-.entregasConcluidas, .circulo1, .circulo2, .circulo3, .circulo4 {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-left: 50%;
-    margin-top: 6%;
-}
 
-.circulo1 {
-    background-color: #2353AF;
-}
 
-.circulo2 {
-    background-color: #9666E4;
-}
 
-.circulo3 {
-    background-color: #EFE92B;
-}
 
-.circulo4 {
-    background-color: #E1410F;
-}
 
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 10px;
-}
 
-::-webkit-scrollbar-thumb {
-    background-color: #cfcfcf;
-    border-radius: 10px;
-}
 
-::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
-    border-radius: 10px;
+
+
+
+
+
+
+
+
+
+
+
+.dashboard-containerFastView{
+    display: flex;
+    width: 350px;
+    height: 109px;
+    background-color: #fff;
+    border-radius: 15px;
+    margin-left: 2%;
+    margin-top: -10%;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+.dashboard-containerIcons{
+    margin-top: 8%;
+    margin-left: 8.5%;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(to bottom right, #84DA15, #66A910, #3B6109);
+    border-radius: 5px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+.dashboard-userIcon{
+    width: 30px;
+    height: 30px;
+    padding-left: 0.8cap;
+    padding-top: 0.8cap;
+}
+.dashboard-containerVisoesDetalhadas{
+    width: 985px;
+    height: 415px;
+    margin-left: 2%;
+    background-color: #fff;
+    border-radius: 15px;
+    margin-top: 2%;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+.dashboard-sectionLabel5{
+    padding-top: 2cap;
+    padding-left: 3cap;
+}
+.dashboard-sectionTitle{
+    padding-left: 2cap;
+    padding-top: 2cap;
+}
+.dashboard-sectionTitle2{
+    padding-left: 2cap;
+    padding-top: 2cap;
+}
+.dashboard-containerOptions{
+    display: flex;
+}
+.dashboard-optionLabel{
+    font-size: 14px;
+    color:#686868;
+    font-weight: 600;
+    margin-left: 3.5%;
+    margin-top: 4%;
+}
+.dashboard-line{
+    width: 985px;
+    height: 1px;
+    background-color: #eeeeee;
+}
+.dashboard-sectionLabel5{
+    padding-top: 2cap;
+    padding-left: 3cap;
 }

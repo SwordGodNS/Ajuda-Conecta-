@@ -112,26 +112,26 @@ h1 strong {
     justify-content: center;
 }
 
-.right h2 {
-    font-size: 40px;
+.loginTitle {
+    font-size: 30px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-.right p {
+.loginP{
     color: #888;
     margin-bottom: 20px;
     font-size: 16px;
 }
 
-form {
+.loginForm {
     width: 100%;
     max-width: 300px;
     display: flex;
     flex-direction: column;
 }
 
-.input {
+.inputLoginEmail, .inputLoginPassword {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ddd;
@@ -203,12 +203,13 @@ form {
     cursor: pointer;
     transition: transform 0.2s;
 }
-label[for='name']{
-    margin-left: -183%;
+.label1{
     margin-bottom: 5px;
     font-size: 15px;
+    margin-left: -100%;
 }
 .inputName{
+    position: absolute;
     width: 600px;
     padding: 8px;
     box-sizing: border-box;
@@ -216,13 +217,16 @@ label[for='name']{
     border-radius: 4px;
     height: 30px;
     font-size: 14px;
-    margin-left: -50%;
     margin-bottom: 10px;
+    margin-top: 2.1%;
+    margin-left: -3.3%;
+
 }
-label[for='email']{
-    margin-left: -90%;
+.label2{
     width: 300px;
     font-size: 15px;
+    margin-top: 7%;
+    margin-left: -24.1%;
 }
 .inputEmail{
     width: 300px;
@@ -232,12 +236,13 @@ label[for='email']{
     border-radius: 4px;
     height: 30px;
     font-size: 14px;
-    margin-left: -62%;
-    margin-top: 10%;
+    margin-left: -30.5%;
+    margin-top: 11.5%;
 }
-label[for='password']{
+.label3{
     position: absolute;
-    margin-left: 13.5%;
+    margin-left: 23%;
+    margin-top: 3%;
 }
 .inputPassword{
     position: absolute;
@@ -249,12 +254,13 @@ label[for='password']{
     height: 30px;
     font-size: 14px;
     margin-bottom: 10px;
-    margin-top: 2.3%;
-    margin-left: 13.5%;
+    margin-top: 5.15%;
+    margin-left: 23%;
 }
-label[for='cpf']{
+.label4{
     position: absolute;
-    margin-left: -10.6%;
+    margin-left: -1.6%;
+    margin-top: -0.5%;
 }
 .cpfInput {
     width: 125px;
@@ -266,13 +272,14 @@ label[for='cpf']{
     box-sizing: border-box;
     outline: none;
     height: 30px;
-    margin-left: -49%;
-    margin-top: 10%;
+    margin-left: -4%;
+    margin-top: 3.5%;
 }
 
-label[for='date']{
+.label5{
     position: absolute;
-    margin-left: 3.8%;
+    margin-left: 3.5%;
+    margin-top: -0.4%;
 }
 
 .inputDate{
@@ -285,13 +292,13 @@ label[for='date']{
     box-sizing: border-box;
     outline: none;
     height: 30px;
-    margin-left: 30%;
-    margin-top: 18%;
+    margin-left: 28%;
+    margin-top: 12%;
 }
 .selectSex{
     position: absolute;
     margin-top: -3.6%;
-    margin-left: 9%;
+    margin-left: 7.6%;
     width: 170px;
     box-sizing: border-box;
     border: 1px solid #ccc;
@@ -299,14 +306,14 @@ label[for='date']{
     height: 30px;
     font-size: 14px;
 }
-label[for='sex']{
+.label6{
     position: absolute;
-    margin-left: 9%;
-    margin-top: -6%;
+    margin-left: 7.5%;
+    margin-top: -5.5%;
 }
-label[for='text']{
+.label7{
     margin-top: -2%;
-    margin-left: -48%;
+    margin-left: -3%;
 }
 
 .inputLong{
@@ -319,14 +326,14 @@ label[for='text']{
     box-sizing: border-box;
     outline: none;
     height: 30px;
-    margin-left: -38%;
-    margin-top: 9%;
+    margin-left: -19%;
+    margin-top: 3%;
     width: 400px;
 }
-label[for='text-2']{
+.label8{
     position: absolute;
-    margin-top: -0.4%;
-    margin-left: 20.2%;
+    margin-top: -0.7%;
+    margin-left: 30%;
 }
 .inputNumber{
     position: absolute;
@@ -339,13 +346,14 @@ label[for='text-2']{
     box-sizing: border-box;
     outline: none;
     height: 30px;
-    margin-top: 1.95%;
-    margin-left: 20%;
+    margin-top: 1.3%;
+    margin-left: 30%;
 }
 
-label[for='cidade']{
+.label9{
     position: absolute;
-    margin-left: -10.5%;
+    margin-left: -1.5%;
+    margin-top: -0.5%;
 }
 .inputCity{
     position: absolute;
@@ -358,12 +366,13 @@ label[for='cidade']{
     box-sizing: border-box;
     outline: none;
     height: 30px;
-    margin-top: 1.95%;
-    margin-left: -10.5%;
+    margin-top: 1.5%;
+    margin-left: -1.5%;
 }
-label[for='estado']{
+.label10{
     position: absolute;
-    margin-left: 20.2%;
+    margin-left: 30%;
+    margin-top: -0.5%;
 }
 .inputState{
     position: absolute;
@@ -376,8 +385,8 @@ label[for='estado']{
     box-sizing: border-box;
     outline: none;
     height: 30px;
-    margin-top: 1.95%;
-    margin-left: 20%;
+    margin-top: 1.5%;
+    margin-left: 30%;
 }
 .icon:hover {
     transform: scale(1.1);
@@ -403,29 +412,20 @@ label[for='estado']{
     margin: auto;
 }
 
-.formContainer h2 {
+.cadastroTitle {
     font-size: 30px;
     font-weight: bold;
     margin-bottom: 5px;
 }
 
-.formContainer p {
+.cadastroP{
     color: #888;
     margin-bottom: 20px;
 }
 
-/* Estilo dos inputs */
-.input, .fullWidthInput {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-}
 
-.fullWidthInput {
-    width: 100%;
-    margin-bottom: 15px;
-}
+
+
 
 /* Layout de pares de inputs */
 .doubleInput {
@@ -447,8 +447,9 @@ label[for='estado']{
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
-    margin-top: 70px;
+    margin-top: 60px;
     width: 100%;
+    margin-left: -7%;
 }
 
 /* Responsividade */

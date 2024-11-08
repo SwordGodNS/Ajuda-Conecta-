@@ -78,14 +78,14 @@ function Login() {
             <div className={styles.right}>
                 {!isSignUp ? (
                     <div className={styles.formContainer}>
-                        <h2>Selecione o método de Login</h2>
-                        <p>Preencha os dados abaixo para entrar</p>
-                        <form onSubmit={handleSubmit}>
+                        <h2 className={styles.loginTitle}>Selecione o método de Login</h2>
+                        <p className={styles.loginP}>Preencha os dados abaixo para entrar</p>
+                        <form className={styles.loginForm} onSubmit={handleSubmit}>
                             <input
                                 type="email"
                                 placeholder="E-mail"
                                 required
-                                className={styles.input}
+                                className={styles.inputLoginEmail}
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                             />
@@ -93,7 +93,7 @@ function Login() {
                                 type="password"
                                 placeholder="Senha"
                                 required
-                                className={styles.input}
+                                className={styles.inputLoginPassword}
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
