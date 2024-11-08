@@ -1,31 +1,33 @@
 // src/components/User.js
-import React, { useState } from 'react';
+import React from 'react';
 import styles from '../styles/User.module.css';
 
 function User() {
-    const [isModalOpen, setModalOpen] = useState(false);
-
     return (
-        <div className={styles.container}>
-            <button className={styles.addButton} onClick={() => setModalOpen(true)}>Adicionar Usuário</button>
-            <div className={styles.userTable}>
-                <div className={styles.tableHeader}>Lista de Usuários</div>
-                {/* Tabela de usuários com dados fictícios para exemplo */}
-                <div className={styles.userRow}>Usuário 1</div>
-                <div className={styles.userRow}>Usuário 2</div>
-                {/* Mais linhas da tabela aqui */}
+        <div className={styles.userContainer}>
+            <h1>Usuários</h1>
+            <div className={styles.addDonationContainer}>
+                <button className={styles.addDonationButton}>
+                    <img src="/img/Add User Male.svg" alt="Adicionar Doação" />
+                </button>
             </div>
-            {isModalOpen && (
-                <div className={styles.overlay} onClick={() => setModalOpen(false)}>
-                    <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-                        <h4>Adicionar Novo Usuário</h4>
-                        <input type="text" placeholder="Nome" className={styles.inputField} />
-                        <input type="text" placeholder="Email" className={styles.inputField} />
-                        <button className={styles.modalButton}>Cadastrar</button>
-                        <button className={styles.closeModal} onClick={() => setModalOpen(false)}>Fechar</button>
-                    </div>
-                </div>
-            )}
+            <div className={styles.userListContainer}>
+                <h2>Lista de Usuários</h2>
+                <table className={styles.userTable}>
+                    <thead>
+                        <tr>
+                            <th>ID Usuário</th>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Doações</th>
+                            <th>Último Acesso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {/* Adicione as linhas da tabela aqui */}
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 }

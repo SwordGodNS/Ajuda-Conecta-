@@ -8,7 +8,7 @@ function Header() {
     const location = useLocation();
 
     // Não exibe o cabeçalho se estiver nas rotas '/login' ou '/dashboard'
-    if (location.pathname === '/login' || location.pathname === '/dashboard') {
+    if (location.pathname === '/login' || location.pathname === '/dashboard' || location.pathname === '/usermenu') {
         return null;
     }
 

@@ -45,10 +45,10 @@ function Signup({ onSignupSuccess }) {
 
     return (
         <div className={styles.formContainer}>
-            <h2>Cadastrando</h2>
-            <p>Preencha seus dados pessoais para criar uma conta</p>
-            <form onSubmit={handleSignup}>
-                <label for='name'>Nome</label>
+            <h2 className={styles.cadastroTitle}>Cadastrando</h2>
+            <p className={styles.cadastroP}>Preencha seus dados pessoais para criar uma conta</p>
+            <form className={styles.cadastroForm} onSubmit={handleSignup}>
+                <label className={styles.label1} for='name'>Nome</label>
                 <input 
                     type="text" 
                     placeholder="Nome" 
@@ -59,7 +59,7 @@ function Signup({ onSignupSuccess }) {
                 />
                 
                 <div className={styles.doubleInput}>
-                    <label for='email'>E-mail</label>
+                    <label className={styles.label2} for='email'>E-mail</label>
                     <input 
                         type="email" 
                         placeholder="Email" 
@@ -68,7 +68,7 @@ function Signup({ onSignupSuccess }) {
                         required 
                         className={styles.inputEmail} 
                     />
-                    <label for='password'>Senha</label>
+                    <label className={styles.label3} for='password'>Senha</label>
                     <input 
                         type="password" 
                         placeholder="Senha" 
@@ -80,7 +80,7 @@ function Signup({ onSignupSuccess }) {
                 </div>
                 
                 <div className={styles.doubleInput}>
-                    <label for='cpf'>CPF</label>
+                    <label className={styles.label4} for='cpf'>CPF</label>
                     <input 
                         type="text" 
                         placeholder="CPF" 
@@ -91,7 +91,7 @@ function Signup({ onSignupSuccess }) {
                         maxLength="14"
                     />
                     <div>
-                        <label for='date'>Data de Nascimento</label>
+                        <label className={styles.label5} for='date'>Data de Nascimento</label>
                         <input 
                             type="date" 
                             value={birthDate}
@@ -102,7 +102,7 @@ function Signup({ onSignupSuccess }) {
                     </div>
                 </div>
                 <div>
-                    <label for='sex'>Sexo</label>
+                    <label className={styles.label6}for='sex'>Sexo</label>
                     <select className={styles.selectSex}>
                         <option>Selecione</option>
                         <option>Masculino</option>
@@ -113,14 +113,14 @@ function Signup({ onSignupSuccess }) {
                 </div>
                 
                 <div className={styles.doubleInput}>
-                    <label for='text'>Longradouro</label>
+                    <label className={styles.label7} for='text'>Longradouro</label>
                     <input 
                         type="text" 
                         placeholder="Longradouro" 
                         required 
                         className={styles.inputLong} 
                     />
-                    <label for='text-2'>Número</label>
+                    <label className={styles.label8} for='text-2'>Número</label>
                     <input 
                         type="text" 
                         placeholder="Número" 
@@ -130,14 +130,14 @@ function Signup({ onSignupSuccess }) {
                 </div>
                 
                 <div className={styles.doubleInput}>
-                    <label for='cidade'>Cidade</label>
+                    <label className={styles.label9} for='cidade'>Cidade</label>
                     <input 
                         type="text" 
                         placeholder="Cidade" 
                         required 
                         className={styles.inputCity} 
                     />
-                    <label for='estado'>Estado</label>
+                    <label className={styles.label10}>Estado</label>
                     <select required className={styles.inputState}>
                     <option value="AC">Acre</option>
                         <option value="AL">Alagoas</option>

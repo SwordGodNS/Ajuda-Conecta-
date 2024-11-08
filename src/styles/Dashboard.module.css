@@ -1,29 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+/* Isolate styles by ensuring they only apply to the Dashboard component */
+.dashboard {
     font-family: "Poppins", sans-serif;
-}
-
-body {
     background-color: #F8F9FA;
     overflow-x: hidden;
 }
 
-.container {
-    display: flex;
-}
-
+/* Navigation Bar */
 .navBarContainer {
-    width: 300px;
+    width: 334px;
     position: fixed;
-    height: 100vh; /* Altura total da tela */
-    background-color: #FFFFFF;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    overflow-y: auto; /* Permite rolagem vertical se necessário */
 }
 
 .logo {
@@ -31,154 +18,232 @@ body {
     height: 70px;
     background-color: #84DA15;
     border-radius: 50%;
-    margin: 20px auto; /* Centraliza o logo */
+    margin-left: 35%;
+    margin-top: -2%;
 }
 
 .dashboardLine {
     background-color: #d1d1d1;
     height: 2px;
-    width: 100%;
-    margin: 10px 0; /* Margens ao redor da linha */
+    width: 261px;
+    margin-left: 10%;
+    margin-top: 6%;
 }
 
-.containerWhiteDashboard,
-.containerWhiteUser,
-.containerWhiteCatastrofes,
-.containerWhiteDoacoes,
-.containerWhiteDelivery,
-.containerWhitePages,
+/* Containers */
+.containerWhiteDashboard, 
+.containerWhiteUser, 
+.containerWhiteCatastrofes, 
+.containerWhiteDoacoes, 
+.containerWhiteDelivery, 
+.containerWhitePages, 
 .containerWhiteLogout {
     position: relative;
-    width: 100%; /* Ocupa toda a largura disponível */
+    width: 261px;
     height: 50px;
-    background-color: #FFFFFF; /* Fundo branco */
     border-radius: 10px;
-    margin: 10px 0; /* Espaçamento entre as opções do menu */
+    margin-left: 10%;
+    margin-top: 3%;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para efeito de profundidade */
+    background-color: transparent;
 }
 
+.containerWhiteDashboard {
+    background-color: #fff;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 10%;
+}
+
+/* Icon containers */
 .containerIcon {
-    display: flex; /* Alinha ícone e texto horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    padding: 10px; /* Adiciona espaçamento interno */
+    position: absolute;
+    background-color: #84DA15;
+    width: 38px;
+    height: 35px;
+    border-radius: 5px;
+    margin-left: 6%;
+    margin-top: 3%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .nav {
-    width: 23px; /* Tamanho do ícone */
+    width: 23px;
     height: 23px;
-    margin-right: 10px; /* Espaçamento entre ícone e texto */
+    padding-left: 0.65cap;
+    padding-top: 0.5cap;
 }
 
-.pagesTitle {
-    margin-top: 20px; /* Espaçamento acima do título de páginas */
-    font-weight: bold;
-}
-
-.dashboardsContainer {
-    margin-left: 300px; /* Espaço para a barra de navegação */
-    padding: 20px; /* Adiciona espaçamento interno */
-    overflow-y: auto; /* Permite rolagem vertical na área do dashboard */
-}
-
-.topBoardContainer {
+.pagesLabel {
     display: flex;
-    justify-content: space-between; /* Espaça o conteúdo da linha superior */
-    align-items: center; /* Centraliza verticalmente */
+    margin-left: 12%;
+    padding-top: 2cap;
+    color: #000;
+    font-weight: 700;
+}
+
+/* Dashboard Content */
+.dashboardsContainer {
+    position: relative;
+    width: 1107px;
+    height: 100%;
+    margin-left: 23.1%;
+    margin-top: 2%;
+}
+
+.topBoardContainer nav ul li {
+    display: inline;
+    color: #686868;
+    font-weight: 300;
+}
+
+.topBoardContainer nav ul li:first-child {
+    margin-left: 3%;
 }
 
 h1 {
-    font-size: 28px;
-    margin: 10px 0; /* Espaçamento ao redor do título */
+    margin-left: 3%;
 }
 
-input {
+.searchInput {
+    position: absolute;
     width: 256px;
     height: 36px;
+    margin-left: 45%;
     border-radius: 10px;
-    border: 2px solid #ccc; /* Borda cinza */
-    padding: 5px; /* Adiciona espaçamento interno */
+    border: none;
+    margin-top: -6%;
+    padding-left: 2cap;
 }
 
-button {
+.userVersionButton {
+    width: 182px;
+    height: 36px;
+    margin-left: 75%;
+    margin-top: -6%;
     border: 2px solid #84DA15;
     border-radius: 10px;
     color: #84DA15;
     font-weight: 600;
     background-color: transparent;
-    padding: 5px 10px; /* Adiciona espaçamento interno */
 }
 
-.donationTodayContainer,
-.usersTodayContainer,
-.deliveryTodayContainer {
+/* Today Containers */
+.donationTodayContainer, .usersTodayContainer, .deliveryTodayContainer {
     width: 280px;
     height: 65px;
     background-color: #fff;
+    margin-top: 4%;
     border-radius: 15px;
-    margin: 10px 0; /* Margem entre contêineres */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1); /* Sombra para efeito de profundidade */
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.todayText {
+    position: absolute;
+    margin-left: -395%;
+    font-size: 25px;
+    margin-top: -60%;
 }
 
 .todayContainer {
-    display: flex;
-    align-items: center;
+    position: absolute;
+    width: 48px;
+    height: 43px;
+    background: linear-gradient(to bottom right, #84DA15, #66A910, #3B6109);
+    border-radius: 10px;
+    margin-left: 19%;
+    margin-top: -2%;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 .today {
     width: 30px;
     height: 30px;
-    margin-left: 10px; /* Margem esquerda */
+    padding-left: 0.7cap;
+    padding-top: 0.5cap;
 }
 
-.todayText {
-    font-size: 25px;
-}
-
-.dashboardDelivery,
-.catastrofesContainer,
-.usersContainer,
-.containerDoacoesDashboard {
+/* Detailed Containers */
+.dashboardDelivery, .catastrofesContainer, .usersContainer, .containerDoacoesDashboard, .containerFastView, .containerVisoesDetalhadas {
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
-    padding: 20px; /* Adiciona espaçamento interno */
-    margin-top: 20px; /* Espaçamento acima */
 }
 
-/* Seções de filtros e títulos */
-h2 {
-    margin-top: 10px;
-    margin-bottom: 5px; /* Espaço abaixo do título */
+/* Specific Styles for Detailed Sections */
+.dashboardDelivery {
+    width: 556px;
+    height: 278px;
+    margin-top: 5%;
+    margin-left: 2%;
 }
 
-.filtroDelivery,
-.usersFiltro,
-.donationsFiltro {
-    margin-top: 10px; /* Espaço acima do seletor */
+.catastrofesContainer {
+    width: 360px;
+    height: 278px;
+    background: linear-gradient(to bottom right, #84DA15, #3B6109);
+    margin-left: 58%;
+    margin-top: -25.25%;
 }
 
-.containerVisoesDetalhadas {
-    width: 985px;
-    margin-top: 20px; /* Espaço acima */
-    background-color: #fff;
-    border-radius: 15px;
-    padding: 20px; /* Adiciona espaçamento interno */
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1); /* Sombra para efeito de profundidade */
+.usersContainer {
+    width: 350px;
+    height: 429px;
+    margin-left: 2%;
+    margin-top: 2%;
 }
 
-.containerOptions {
-    display: flex; /* Exibe os elementos em linha */
-    flex-wrap: wrap; /* Permite quebra de linha se necessário */
-    justify-content: space-between; /* Espaça os elementos */
+/* Filters */
+.filtro, .filtroDelivery, .filtroTituloUsers, .usersFiltro, .filtroTituloDonations, .donationsFiltro {
+    margin-left: 30%;
+    font-weight: 400;
 }
 
-.line {
-    width: 100%; /* Largura total */
-    height: 1px; /* Espessura da linha */
-    background-color: #eeeeee; /* Cor da linha */
-    margin-top: 20px; /* Espaço acima */
+select {
+    position: absolute;
+    border: none;
+    border-radius: 5px;
+    background-color: #D9D9D9;
+    color: #686868;
+    font-weight: 600;
+    width: 100px;
+}
+
+/* Legend Indicators */
+.entregasConcluidas, .circulo1, .circulo2, .circulo3, .circulo4 {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 50%;
+    margin-top: 6%;
+}
+
+.circulo1 {
+    background-color: #2353AF;
+}
+
+.circulo2 {
+    background-color: #9666E4;
+}
+
+.circulo3 {
+    background-color: #EFE92B;
+}
+
+.circulo4 {
+    background-color: #E1410F;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #cfcfcf;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 10px;
 }
