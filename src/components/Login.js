@@ -32,7 +32,7 @@ function Login() {
                 result = await signInWithEmailAndPassword(auth, email, password);
             }
             alert(`Logado com ${provider}: ${result.user.displayName || result.user.email}`);
-            navigate('/dashboard'); // Redireciona para o Dashboard após o login
+            navigate('/user'); // Redireciona para o Dashboard após o login
         } catch (error) {
             alert(`Erro ao autenticar com ${provider}: ${error.message}`);
             setError('Erro ao fazer login. Verifique suas credenciais.');
