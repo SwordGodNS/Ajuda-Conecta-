@@ -22,6 +22,7 @@ function Home() {
             <main>
                 <div className={styles.logo} onClick={handleLogoClick}> {/* Adiciona o evento de clique */}
                     <div className={styles.circle}></div>
+                    <img className={styles.imgHome} src='/img/Home Page PHOTO.svg'></img>
                 </div>
                 <h1 className={styles.h1Home}>AJUDACONECTA</h1>
                 <p className={styles.subtitle}>Seu site que conecta doações</p>

@@ -8,6 +8,10 @@ function ComoDoar() {
 
     return (
         <div className={styles.comoDoarContainer}>
+            <img className={styles.comoDoarImg} src='/img/donation.webp'></img>
+            <div className={styles.comoDoarImgContainer}></div>
+            <h1 className={styles.comoDoarImgInfo}>Doe</h1>
+            <button className={styles.comoDoarButton}></button>
             <div className={styles.section}>
                 <h1 className={styles.h1HowDonate}>POR QUE DOAR?</h1>
                 <div className={styles.row}>
