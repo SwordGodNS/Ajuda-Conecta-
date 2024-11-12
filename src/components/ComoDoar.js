@@ -8,7 +8,7 @@ function ComoDoar() {
 
     return (
         <div className={styles.comoDoarContainer}>
-            <img className={styles.comoDoarImg} src='/img/donation.webp'></img>
+            <img className={styles.comoDoarImg} src='#'></img>
             <div className={styles.comoDoarImgContainer}></div>
             <h1 className={styles.comoDoarImgInfo}>Doe</h1>
             <button className={styles.comoDoarButton}></button>
