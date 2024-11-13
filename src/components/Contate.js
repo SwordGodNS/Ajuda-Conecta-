@@ -1,18 +1,14 @@
 // src/components/Contate.js
 import React from 'react';
 import styles from '../styles/Contate.module.css';
-function Contate() {
-    return (
-        <div className={styles.container}>
-            <header className={styles.headerContainer}>
-                <div className={styles.headerLogo}></div>
-                {/* Itens de navegação removidos */}
-            </header>
-            <div className={styles.line}></div>
+import { useNavigate } from 'react-router-dom';
 
+    function Contate() {
+        const navigate = useNavigate();
+    return (
             <main className={styles.mainContent}>
                 <div className={styles.contactLeft}>
-                    <h1 className={styles.title}>CONTATE</h1>
+                    <h1 className={styles.titleH1Contate}>CONTATE</h1>
                     <p className={styles.description}>
                         Queremos ouvir você! Se tiver alguma dúvida, sugestão ou deseja entrar em contato para oportunidades
                         de colaboração, fique à vontade para nos enviar uma mensagem. Estamos à disposição para responder
@@ -20,6 +16,7 @@ function Contate() {
                     </p>
                     <div className={styles.contactDetails}>
                         <div className={styles.containerMessage}>
+                            <img className={styles.emailIcon} src='/img/Email.svg'></img>
                         </div>
                         <p className={styles.contactLabel}>Contato</p>
                         <p className={styles.contactEmail}>exemplo@gmail.com</p>
@@ -29,23 +26,22 @@ function Contate() {
                 <div className={styles.containerForm}>
                     <form>
                         <p className={styles.formTitle}>Preencha o formulário de contato:</p>
-                        <label htmlFor="nome">Seu nome</label>
-                        <input type="text" id="nome" name="nome" className={styles.inputField} />
+                        <label className={styles.formLabelContact} htmlFor="nome">Seu nome</label>
+                        <input className={styles.formInputContact}type="text" id="nome" name="nome" />
 
-                        <label htmlFor="telefone">Telefone</label>
-                        <input type="text" id="telefone" name="telefone" className={styles.inputField} />
+                        <label className={styles.formLabelContact1} htmlFor="telefone">Telefone</label>
+                        <input className={styles.formInputContact1} type="text" id="telefone" name="telefone"  />
 
-                        <label htmlFor="email">E-mail</label>
-                        <input type="email" id="email" name="email" className={styles.inputField} />
+                        <label className={styles.formLabelContact2} htmlFor="email">E-mail</label>
+                        <input className={styles.formInputContact2} type="email" id="email" name="email"/>
 
-                        <label htmlFor="mensagem">Escreva sua mensagem</label>
-                        <textarea id="mensagem" name="mensagem" className={styles.textArea}></textarea>
+                        <label className={styles.formLabelContact3} htmlFor="mensagem">Escreva sua mensagem</label>
+                        <textarea className={styles.formInputContact3} id="mensagem" name="mensagem"></textarea>
 
                         <button type="submit" className={styles.submitButton}>Contatar</button>
                     </form>
                 </div>
             </main>
-        </div>
     );
 }
 

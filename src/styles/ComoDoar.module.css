@@ -62,7 +62,7 @@
     font-size: 35px;
     color: #000;
     font-weight: bold;
-    margin-top: 5%;
+    margin-top: 2.5%;
 }
 .text{
     font-size: 14px;
@@ -95,14 +95,16 @@
     width: 110vh;
     height: 500px;
     background-color: #373737;
+    z-index: 2;
 }
 .greenContainer{
     position: absolute;
     width: 104vh;
     height: 50vh;
     background-color: #84DA15;
-    margin-top: -26%;
-    z-index: 1;
+    margin-top: -31%;
+    margin-left: 50%;
+    z-index: -1;
 }
 .cardRow {
     display: flex;
@@ -127,10 +129,10 @@
 }
 
 .titleCard{
-    margin-top: 50%;
+    margin-top: 7%;
     font-size: 20px;
     font-weight: 500;
-    color: #000;
+    color: #84DA15;
 }
 .textCard{
     font-size: 14px;
@@ -152,6 +154,10 @@
 }
 h4{
     font-size: 30px;
+}
+.imgFinal{
+    position: absolute;
+    width: 100%;
 }
 .stats {
     display: flex;

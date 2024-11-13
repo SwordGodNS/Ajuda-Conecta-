@@ -1,6 +1,6 @@
 /* src/styles/Contate.module.css */
 
-:global(body) {
+body {
     background-color: #f1f1f1;
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -32,12 +32,15 @@
     padding-right: 20px;
 }
 
-.title {
+.titleH1Contate {
+    margin-top: 10%;
     font-size: 28px;
     font-weight: 600;
-    color: #333;
+    color: #000000;
     margin-bottom: 20px;
     text-transform: uppercase;
+    font-size: 40px;
+    margin-left: 10.5%;
 }
 
 .description {
@@ -45,6 +48,7 @@
     font-size: 16px;
     line-height: 1.5;
     margin-bottom: 20px;
+    margin-left: 11%;
 }
 
 .contactDetails {
@@ -62,6 +66,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 5px;
+    margin-left: 11%;
+    margin-top: 5%;
 }
 
 .emailIcon {
@@ -72,12 +78,17 @@
 .contactLabel {
     font-size: 16px;
     font-weight: 500;
-    color: #44700b;
+    color: #84DA15;
+    margin-top: 18%;
+    margin-left: -9%;
+    font-size: 20px;
 }
 
 .contactEmail {
     font-size: 14px;
     color: #666;
+    margin-top: 24%;
+    margin-left: -13.5%;
 }
 
 .containerForm {
@@ -95,34 +106,32 @@
     margin-bottom: 15px;
 }
 
-.formGroup {
-    margin-bottom: 15px;
-}
-
-.formGroup label {
-    font-size: 14px;
-    font-weight: 500;
-    color: #686868;
-    margin-bottom: 5px;
+.formInputContact{
     display: block;
-}
-
-.inputField {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #D3D3D3;
-    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid #686868;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-bottom: 4%;
+    margin-top: 4%;
     font-size: 14px;
 }
-
-.textArea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #D3D3D3;
-    border-radius: 5px;
-    font-size: 14px;
-    resize: vertical;
-    height: 120px;
+.formLabelContact1{
+    position: absolute;
+    margin-top: -6.8%;
+    margin-left: 20%;
+}
+.formInputContact1{
+    position: absolute;
+    display: block;
+    background-color: transparent;
+    border: 1px solid #686868;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-top: -3.2%;
+    margin-left: 20%;
 }
 
 .submitButton {

@@ -38,19 +38,22 @@ function ComoDoar() {
                 <h2>O caminho da sua doação</h2>
                 <div className={styles.cardRow}>
                     <div className={styles.card}>
-                        <img className={styles.Icon1} src='../../public/img/User.svg'></img>
+                        <img className={styles.Icon1} src='/img/User.svg'></img>
                         <p className={styles.titleCard}>CRIE SUA CONTA</p>
                         <p className={styles.textCard}>Comece criando uma conta para acompanhar suas doações e ver seu impacto.</p>
                     </div>
                     <div className={styles.card}>
+                        <img className={styles.Icon1} src='/img/Charity.svg'></img>
                         <p className={styles.titleCard}>DOE</p>
                         <p className={styles.textCard}>Selecione o que deseja doar e insira as informações da sua doação.</p>
                     </div>
                     <div className={styles.card}>
+                    <img className={styles.Icon1} src='/img/Open Parcel.svg'></img>
                         <p className={styles.titleCard}>ENTREGUE</p>
                         <p className={styles.textCard}>Escolha o melhor dia e hora para a entrega dos itens.</p>
                     </div>
                     <div className={styles.card}>
+                    <img className={styles.Icon1} src='/img/Guardian.svg'></img>
                         <p className={styles.titleCard}>ACOMPANHE</p>
                         <p className={styles.textCard}>Rastreie e acompanhe sua entrega até uma família necessitada.</p>
                     </div>
@@ -58,6 +61,7 @@ function ComoDoar() {
             </div>
 
             <div className={styles.section} style={{ backgroundColor: '#373737', color: 'white' }}>
+                <img className={styles.imgFinal} src='#'></img>
                 <h4 >SEJA UM DOADOR</h4>
                 <p>Milhares de famílias podem estar esperando sua ajuda</p>
                 <button className={styles.donateButton} onClick={() => navigate('/login')}>
