@@ -67,7 +67,6 @@ body {
     justify-content: center;
     border-radius: 5px;
     margin-left: 11%;
-    margin-top: 5%;
 }
 
 .emailIcon {
@@ -79,24 +78,27 @@ body {
     font-size: 16px;
     font-weight: 500;
     color: #84DA15;
-    margin-top: 18%;
-    margin-left: -9%;
+    margin-top: 13%;
+    margin-left: -9.5%;
     font-size: 20px;
 }
 
 .contactEmail {
     font-size: 14px;
     color: #666;
-    margin-top: 24%;
-    margin-left: -13.5%;
+    margin-top: 20%;
+    margin-left: -14%;
 }
 
 .containerForm {
-    width: 45%;
+    position: absolute;
+    width: 30%;
     background-color: #FFFFFF;
     padding: 25px;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 60%;
+    margin-top: 2%;
 }
 
 .formTitle {
@@ -119,8 +121,8 @@ body {
 }
 .formLabelContact1{
     position: absolute;
-    margin-top: -6.8%;
-    margin-left: 20%;
+    margin-top: -18%;
+    margin-left: 42%;
 }
 .formInputContact1{
     position: absolute;
@@ -130,10 +132,34 @@ body {
     border-top: none;
     border-left: none;
     border-right: none;
-    margin-top: -3.2%;
-    margin-left: 20%;
+    margin-top: -8%;
+    margin-left: 43%;
+    width: 180px;
 }
-
+.formInputContact2{
+    display: block;
+    background-color: transparent;
+    border: 1px solid #686868;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-bottom: 4%;
+    margin-top: 4%;
+    font-size: 14px;
+    width: 380px;
+}
+.formInputContact3{
+    display: block;
+    background-color: transparent;
+    border: 1px solid #686868;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin-bottom: 4%;
+    margin-top: 4%;
+    width: 380px;
+    font-size: 14px;
+}
 .submitButton {
     width: 100%;
     padding: 15px;
