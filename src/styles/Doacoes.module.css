@@ -1,28 +1,236 @@
-/* src/styles/Doacoes.module.css */
-.container {
-    padding: 20px;
-    font-family: "Poppins", sans-serif;
+body {
     background-color: #F8F9FA;
-    text-align: center;
+    overflow-y: scroll;
 }
 
-.title {
-    font-size: 32px;
-    font-weight: 600;
-    color: #84DA15;
+.doacoesDashboardsContainer {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2%;
+}
+
+.doacoesTopBoardContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
 }
 
-.donationsList {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+.doacoesList {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.donationItem {
-    padding: 15px;
-    border-bottom: 1px solid #dfdfdf;
+.doacoesListItem,
+.doacoesListItem2 {
+    color: #686868;
+    font-weight: 300;
+    margin-left: 5px;
+}
+
+.doacoesH1 {
+    font-size: 32px;
+    color: #000;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.doacoesInput {
+    position: absolute;
+    width: 256px;
+    height: 36px;
+    border-radius: 10px;
+    border: none;
+    top: 10px;
+    right: 280px;
+}
+
+.doacoesInput[placeholder] {
+    padding-left: 10px;
+}
+
+.doacoesVersion {
+    position: absolute;
+    width: 182px;
+    height: 36px;
+    border: 2px solid #84DA15;
+    border-radius: 10px;
+    color: #84DA15;
+    font-weight: 600;
+    background-color: transparent;
+    top: 10px;
+    right: 30px;
+    cursor: pointer;
+}
+
+.containerDoacoes {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.h2Doacoes {
+    font-size: 25px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.doacoesData {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
     color: #686868;
     font-weight: 600;
+    border-bottom: 1px solid #dfdfdf;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.doacoesDataBaseFirst {
+    flex: 2;
+    text-align: left;
+}
+
+.doacoesDataBase {
+    flex: 2;
+    text-align: center;
+}
+
+.doacoesLineCont {
+    background-color: #dfdfdf;
+    height: 1px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.add {
+    position: absolute;
+    top: 155px;
+    right: 80px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border-radius: 50%;
+    border: 2px solid #84DA15;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.imgButton {
+    width: 30px;
+    height: 30px;
+}
+
+/* Modal Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal Window */
+.modal {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 30px;
+    width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modalTitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.formGroup {
+    margin-bottom: 15px;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.formActions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.submitButton {
+    background-color: #84da15;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+    background-color: #72c212;
+}
+
+.closeButton {
+    background-color: #ddd;
+    color: #555;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.closeButton:hover {
+    background-color: #bbb;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.75);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
