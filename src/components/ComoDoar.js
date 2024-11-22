@@ -8,10 +8,13 @@ function ComoDoar() {
 
     return (
         <div className={styles.comoDoarContainer}>
-            <img className={styles.comoDoarImg} src='#'></img>
+            <img className={styles.comoDoarImg} src='/img/pexels-photo-14823614.jpeg'></img>
             <div className={styles.comoDoarImgContainer}></div>
             <h1 className={styles.comoDoarImgInfo}>Doe</h1>
-            <button className={styles.comoDoarButton}></button>
+            <p className={styles.comoDoarImgInfoP}>Ajude a transformar vidas</p>
+            <button className={styles.comoDoarButton}>Doar</button>
+            <button className={styles.acompanharButton}>Acompanhar</button>
+            <button className={styles.buttonNav}>></button>
             <div className={styles.section}>
                 <h1 className={styles.h1HowDonate}>POR QUE DOAR?</h1>
                 <div className={styles.row}>

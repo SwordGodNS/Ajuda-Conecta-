@@ -4,14 +4,13 @@ import styles from '../styles/AcompanharUser.module.css';
 
 function AcompanharUser() {
     return (
-        <div className={styles.container}>
-            <h1 className={styles.title}>Acompanhar Minhas Doações</h1>
-            <div className={styles.donationStatus}>
-                <div className={styles.donationItem}>Doação 1 - Status: Entregue</div>
-                <div className={styles.donationItem}>Doação 2 - Status: Em Trânsito</div>
-                {/* Outras doações e seus status */}
-            </div>
+        <main className={styles.mainContent}>
+        <div className={styles.colorVid}>
         </div>
+        <h1 className={styles.acompanharH1}>Acompanhe</h1>
+        <p className={styles.acompanharP}>Digite seu código de rastreio abaixo</p>
+        <input type='text' className={styles.acompanharInput}></input>
+    </main>
     );
 }
 

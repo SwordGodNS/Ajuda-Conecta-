@@ -8,7 +8,7 @@
     height: 100vh;
     object-fit: cover; 
     z-index: -1; 
-    opacity: 0.43;
+    opacity: 0.3;
     margin-top: -6.5%;
 
 }
@@ -32,21 +32,52 @@
 .comoDoarImgInfo{
     color: #fff;
     position: absolute;
-    margin-top: -30%;
+    margin-top: -35%;
     margin-left: 42%;
     font-size: 100px;
 }
-.comoDoarButton{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: transparent;
-    border: solid 3px #84DA15;
+.comoDoarImgInfoP{
+    color: #fff;
+    position: absolute;
+    margin-top: -25%;
+    margin-left: 31%;
+    font-size: 40px;
+    justify-content: center;
+    text-align: center;
 }
 .comoDoarButton{
+    width: 140px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #84DA15;
+    border: solid 3px #84DA15;
+    font-size: 16px;
     position: absolute;
     margin-top: -15%;
-    margin-left: 46%;
+    margin-left: 35%;
+}
+.acompanharButton{
+    position: absolute;
+    margin-top: -15%;
+    margin-left: 55%;
+    border-radius: 10px;
+    background-color: #84DA15;
+    border: solid 3px #84DA15;
+    font-size: 16px;
+    width: 140px;
+    height: 40px;
+}
+.buttonNav{
+    position: absolute;
+    margin-left: 47%;
+    margin-top: -8%;
+    border-radius: 50%;
+    transform: rotate(90deg);
+    font-size: 50px;
+    width: 100px;
+    height: 100px;
+    background-color: transparent;
+    color: #84DA15;
 }
 .h1HowDonate {
     color: #000;
