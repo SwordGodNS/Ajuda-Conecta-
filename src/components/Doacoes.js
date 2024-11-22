@@ -23,13 +23,9 @@ const Doacoes = () => {
       {/* Título e navegação */}
       <div className={styles.doacoesTopBoardContainer}>
         <nav>
-          <ul className={styles.doacoesList}>
-            <li className={styles.doacoesListItem}>
-              <a href="#" className={styles.doacoesLink}>
-                Admin/
-              </a>
-            </li>
-            <li className={styles.doacoesListItem2}>
+        <ul className={styles.navList}>
+            <li className={styles.navListItem}>Admin/</li>
+            <li className={styles.navListItem}>
               <strong>Doações</strong>
             </li>
           </ul>
@@ -43,7 +39,6 @@ const Doacoes = () => {
         className={styles.doacoesInput}
         placeholder="Pesquise aqui"
       />
-      <button className={styles.doacoesVersion}>VERSÃO USUÁRIO</button>
 
       {/* Lista de doações */}
       <div className={styles.containerDoacoes}>

@@ -18,11 +18,13 @@ function Home() {
     };
 
     return (
-        <div>
+        
+        <div className={styles.bodyColor}>
             <main>
                 <div className={styles.logo} onClick={handleLogoClick}> {/* Adiciona o evento de clique */}
                     <div className={styles.circle}></div>
                     <img className={styles.imgHome} src='/img/Home Page PHOTO.svg'></img>
+                    <div className={styles.colorBody}></div>
                 </div>
                 <h1 className={styles.h1Home}>AJUDACONECTA</h1>
                 <p className={styles.subtitle}>Seu site que conecta doações</p>
@@ -36,6 +38,13 @@ function Home() {
                     onClick={handleHowDonateClick} // Adiciona o evento de clique
                 >
                     Veja como Doar
+                </button>
+                <button 
+                    id="howDonate" 
+                    className={styles.donationButton} 
+                    onClick={handleHowDonateClick} // Adiciona o evento de clique
+                >
+                    ?
                 </button>
             </main>
         </div>

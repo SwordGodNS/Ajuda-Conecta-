@@ -19,10 +19,11 @@ function Header() {
             <img className={styles.imgLogo} src="/img/Group.png" alt="Logo" />
             <nav>
                 <ul>
-                    <li><Link to="/como-doar">COMO DOAR</Link></li>
+                    <li><Link to="/como-doar">ESPAÇO DOADOR</Link></li>
+                    <li><Link to="/contate">ESPAÇO ? </Link></li>
                     <li><Link to="/contate">CONTATE </Link></li>
                     <li>
-                        <button 
+                    <button 
                             id="loginButton" 
                             className={styles.loginButton} 
                             onClick={() => navigate('/login')}

@@ -42,17 +42,16 @@ const Catastrofes = () => {
             </li>
           </ul>
         </nav>
-        <h1 className={styles.headerTitle}>Catástrofes</h1>
+        <h1 className={styles.headerTitleCatastrofes}>Catástrofes</h1>
       </div>
       <input
         type="text"
         className={styles.searchInput}
         placeholder="Pesquise aqui"
       />
-      <button className={styles.userVersionButton}>VERSÃO USUÁRIO</button>
       <button className={styles.addButton} onClick={handleOpenModal}>
         <img
-          className={styles.imgButton}
+          className={styles.imgButtonCatastrofes}
           src="../img/Add User Male.svg"
           alt="Adicionar Catástrofe"
         />
