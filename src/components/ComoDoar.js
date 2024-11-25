@@ -8,12 +8,27 @@ function ComoDoar() {
 
     return (
         <div className={styles.comoDoarContainer}>
-            <img className={styles.comoDoarImg} src='/img/pexels-photo-14823614.jpeg'></img>
+            <img className={styles.comoDoarImg} src='/img/pexels-photo-14823614.jpeg' alt="Imagem de Doação"></img>
             <div className={styles.comoDoarImgContainer}></div>
             <h1 className={styles.comoDoarImgInfo}>Doe</h1>
             <p className={styles.comoDoarImgInfoP}>Ajude a transformar vidas</p>
-            <button className={styles.comoDoarButton}>Doar</button>
-            <button className={styles.acompanharButton}>Acompanhar</button>
+
+            {/* Botão Doar redirecionando para DoarUser */}
+            <button 
+                className={styles.comoDoarButton} 
+                onClick={() => navigate('/doar-user')}
+            >
+                Doar
+            </button>
+
+            {/* Botão Acompanhar redirecionando para AcompanharUser */}
+            <button 
+                className={styles.acompanharButton} 
+                onClick={() => navigate('/acompanhar-user')}
+            >
+                Acompanhar
+            </button>
+
             <button className={styles.buttonNav}>></button>
             <div className={styles.section}>
                 <h1 className={styles.h1HowDonate}>POR QUE DOAR?</h1>
@@ -41,22 +56,22 @@ function ComoDoar() {
                 <h2>O caminho da sua doação</h2>
                 <div className={styles.cardRow}>
                     <div className={styles.card}>
-                        <img className={styles.Icon1} src='/img/User.svg'></img>
+                        <img className={styles.Icon1} src='/img/User.svg' alt="Ícone Usuário"></img>
                         <p className={styles.titleCard}>CRIE SUA CONTA</p>
                         <p className={styles.textCard}>Comece criando uma conta para acompanhar suas doações e ver seu impacto.</p>
                     </div>
                     <div className={styles.card}>
-                        <img className={styles.Icon1} src='/img/Charity.svg'></img>
+                        <img className={styles.Icon1} src='/img/Charity.svg' alt="Ícone Doação"></img>
                         <p className={styles.titleCard}>DOE</p>
                         <p className={styles.textCard}>Selecione o que deseja doar e insira as informações da sua doação.</p>
                     </div>
                     <div className={styles.card}>
-                    <img className={styles.Icon1} src='/img/Open Parcel.svg'></img>
+                    <img className={styles.Icon1} src='/img/Open Parcel.svg' alt="Ícone Entrega"></img>
                         <p className={styles.titleCard}>ENTREGUE</p>
                         <p className={styles.textCard}>Escolha o melhor dia e hora para a entrega dos itens.</p>
                     </div>
                     <div className={styles.card}>
-                    <img className={styles.Icon1} src='/img/Guardian.svg'></img>
+                    <img className={styles.Icon1} src='/img/Guardian.svg' alt="Ícone Acompanhar"></img>
                         <p className={styles.titleCard}>ACOMPANHE</p>
                         <p className={styles.textCard}>Rastreie e acompanhe sua entrega até uma família necessitada.</p>
                     </div>
@@ -64,8 +79,8 @@ function ComoDoar() {
             </div>
 
             <div className={styles.section} style={{ backgroundColor: '#373737', color: 'white' }}>
-                <img className={styles.imgFinal} src='#'></img>
-                <h4 >SEJA UM DOADOR</h4>
+                <img className={styles.imgFinal} src='#' alt="Imagem Final"></img>
+                <h4>SEJA UM DOADOR</h4>
                 <p>Milhares de famílias podem estar esperando sua ajuda</p>
                 <button className={styles.donateButton} onClick={() => navigate('/login')}>
                     DOAR
