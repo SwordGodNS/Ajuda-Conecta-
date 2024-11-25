@@ -237,3 +237,27 @@ height: 13px;
         transform: scale(1);
     }
 }
+
+.formRow {
+    display: flex;
+    justify-content: space-between; /* Espaçamento entre os itens */
+    gap: 10px; /* Espaçamento horizontal */
+}
+
+.formRow .input {
+    flex: 1; /* Garante que os campos ocupem o mesmo espaço */
+}
+
+.formRow .inputDate {
+    flex: 1;
+}
+
+.doacaoItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #686868;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}

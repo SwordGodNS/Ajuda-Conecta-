@@ -74,7 +74,7 @@ const User = () => {
       {isModalOpen && (
         <div className={styles.overlay}>
           <div className={styles.modal}>
-            <h4 className={styles.modalTitle}>Cadastrar Novo Usuário</h4>
+            <h4 className={styles.modalTitle}>Cadastrar novo ponto</h4>
             <form className={styles.form} onSubmit={handleSubmit}>
               <div className={styles.formGroup}>
                 <label className={styles.label} htmlFor="username">

@@ -1,8 +1,20 @@
-import React, { useState } from "react";
+// src/components/Doacoes.js
+import React, { useState, useContext } from "react";
 import styles from "../styles/Doacoes.module.css";
+import { DoacoesContext } from '../context/DoacoesContext'; // Caminho corrigido
 
 const Doacoes = () => {
+  const { doacoes, addDoacao } = useContext(DoacoesContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [novaDoacao, setNovaDoacao] = useState({
+    doador: "",
+    cpf: "",
+    data: "",
+    tipo: "",
+    local: "",
+    destinatario: "",
+    status: "",
+  });
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -12,21 +24,37 @@ const Doacoes = () => {
     setIsModalOpen(false);
   };
 
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setNovaDoacao((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert("Doação cadastrada com sucesso!");
+    addDoacao(novaDoacao); // Usa o contexto para adicionar a doação
+    setNovaDoacao({
+      doador: "",
+      cpf: "",
+      data: "",
+      tipo: "",
+      local: "",
+      destinatario: "",
+      status: "",
+    }); // Reseta o formulário
     handleCloseModal();
   };
 
   return (
     <div className={styles.doacoesDashboardsContainer}>
       <div className={styles.doacoesTopBoardContainer}>
-      <nav>
+        <nav>
           <ul className={styles.navList}>
             <li className={styles.navListItem}>Admin/</li>
             <li className={styles.navListItem}>
-              <strong>Doações
-              </strong>
+              <strong>Doações</strong>
             </li>
           </ul>
         </nav>
@@ -41,7 +69,7 @@ const Doacoes = () => {
         <img
           className={styles.imgButtonCatastrofes}
           src="../img/Add User Male.svg"
-          alt="Adicionar Catástrofe"
+          alt="Adicionar Doação"
         />
       </button>
 
@@ -57,7 +85,18 @@ const Doacoes = () => {
           <p className={styles.doacoesDataBase}>Destinatário</p>
           <p className={styles.doacoesDataBase}>Status</p>
         </div>
-        
+        {/* Renderiza as doações cadastradas */}
+        {doacoes.map((doacao, index) => (
+          <div key={index} className={styles.doacaoItem}>
+            <p className={styles.doacoesDataBaseFirst}>{index + 1}</p>
+            <p className={styles.doacoesDataBase}>{doacao.doador}</p>
+            <p className={styles.doacoesDataBase}>{doacao.tipo}</p>
+            <p className={styles.doacoesDataBase}>{doacao.data}</p>
+            <p className={styles.doacoesDataBase}>{doacao.local}</p>
+            <p className={styles.doacoesDataBase}>{doacao.destinatario}</p>
+            <p className={styles.doacoesDataBase}>{doacao.status}</p>
+          </div>
+        ))}
       </div>
 
       {/* Modal de cadastro */}
@@ -75,38 +114,54 @@ const Doacoes = () => {
                   type="text"
                   id="doador"
                   name="doador"
+                  value={novaDoacao.doador}
+                  onChange={handleInputChange}
                   required
                 />
               </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="cpf" className={styles.label}>
-                  CPF
-                </label>
-                <input
-                  className={styles.input}
-                  type="text"
-                  id="cpf"
-                  name="cpf"
-                  required
-                />
-              </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="data" className={styles.label}>
-                  Data
-                </label>
-                <input
-                  className={styles.inputDate}
-                  type="date"
-                  id="data"
-                  name="data"
-                  required
-                />
+              <div className={styles.formRow}>
+                <div>
+                  <label htmlFor="cpf" className={styles.label}>
+                    CPF
+                  </label>
+                  <input
+                    className={styles.input}
+                    type="text"
+                    id="cpf"
+                    name="cpf"
+                    maxLength="14"
+                    value={novaDoacao.cpf}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="data" className={styles.label}>
+                    Data
+                  </label>
+                  <input
+                    className={styles.inputDate}
+                    type="date"
+                    id="data"
+                    name="data"
+                    value={novaDoacao.data}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor="tipo" className={styles.label}>
                   Tipo
                 </label>
-                <select className={styles.inputSelect} id="tipo" name="tipo" required>
+                <select
+                  className={styles.inputSelect}
+                  id="tipo"
+                  name="tipo"
+                  value={novaDoacao.tipo}
+                  onChange={handleInputChange}
+                  required
+                >
                   <option value="">Selecione</option>
                   <option value="alimentos">Alimentos não perecíveis</option>
                   <option value="agua">Água potável</option>
@@ -123,6 +178,8 @@ const Doacoes = () => {
                   type="text"
                   id="local"
                   name="local"
+                  value={novaDoacao.local}
+                  onChange={handleInputChange}
                   required
                 />
               </div>
@@ -135,6 +192,8 @@ const Doacoes = () => {
                   type="text"
                   id="destinatario"
                   name="destinatario"
+                  value={novaDoacao.destinatario}
+                  onChange={handleInputChange}
                   required
                 />
               </div>
@@ -142,12 +201,19 @@ const Doacoes = () => {
                 <label htmlFor="status" className={styles.label}>
                   Status
                 </label>
-                <select className={styles.inputSelect} id="status" name="status" required>
+                <select
+                  className={styles.inputSelect}
+                  id="status"
+                  name="status"
+                  value={novaDoacao.status}
+                  onChange={handleInputChange}
+                  required
+                >
                   <option value="">Selecione</option>
                   <option value="pendente">Pendente</option>
                   <option value="entregue">Entregue</option>
-                  <option value="entregue">A Caminho</option>
-                  <option value="entregue">Cancelado</option>
+                  <option value="a-caminho">A Caminho</option>
+                  <option value="cancelado">Cancelado</option>
                 </select>
               </div>
               <div className={styles.formActions}>

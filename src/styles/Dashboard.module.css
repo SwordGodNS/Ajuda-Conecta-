@@ -66,6 +66,7 @@ body {
     position: absolute;
     display: inline;
     padding-left: 2cap;
+    white-space: nowrap;
     padding-top: 0.8cap;
     color: #686868;
     font-weight: 600;
@@ -432,3 +433,4 @@ body {
     height: 1px;
     background-color: #eeeeee;
 }
+
