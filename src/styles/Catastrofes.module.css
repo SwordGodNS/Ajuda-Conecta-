@@ -30,16 +30,20 @@ body {
     color: #686868;
 }
 
-
+.headerTitleCatastrofes{
+    position: absolute;
+}
 
 .searchInput {
+    position: absolute;
     width: 200px;
     height: 36px;
     border-radius: 10px;
     border: 1px solid #ddd;
     padding: 0 10px;
     margin-right: 10px;
-    margin-left: 72.5%;
+    margin-left: 68.5%;
+    margin-top: -6%;
 }
 
 .userVersionButton {
@@ -101,6 +105,7 @@ body {
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
     margin-top: 6%;
+    font-weight: 600;
 }
 
 .dataColumn {
@@ -159,13 +164,24 @@ body {
     display: block;
 }
 
-.input {
+.input,.inputSelect, .inputDate {
     width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    height: 10px;
+    margin-bottom: 6px;
 }
-
+.inputSelect{
+    width: 105.2%;
+    height: 34px;
+    font-size: 14px;
+    padding: 0;
+    padding-left: 0.5cap;
+}
+.inputDate{
+height: 13px;
+}
 .formActions {
     display: flex;
     justify-content: space-between;

@@ -33,49 +33,44 @@ const User = () => {
   };
 
   return (
-    <div className={styles.userDashboardsContainer}>
-      <div className={styles.userTopBoardContainer}>
-        <nav>
-          <ul className={styles.userList}>
-            <li className={styles.userListItem}>
-              <a href="#" className={styles.userLink}>
-                Admin/
-              </a>
-            </li>
-            <li className={styles.userListItem2}>
-              <strong>Usuários</strong>
-            </li>
-          </ul>
-        </nav>
-        <h1 className={styles.userH1}>Usuários</h1>
-      </div>
-
-      <input
-        type="text"
-        className={styles.userInput}
-        placeholder="Pesquise aqui"
+    <div className={styles.catastrofesContainer}>
+    <div className={styles.topBoardContainer}>
+      <nav>
+        <ul className={styles.navList}>
+          <li className={styles.navListItem}>Admin/</li>
+          <li className={styles.navListItem}>
+            <strong>Pontos de Coleta</strong>
+          </li>
+        </ul>
+      </nav>
+      <h1 className={styles.headerTitleCatastrofes}>Pontos de Coleta</h1>
+    </div>
+    <input
+      type="text"
+      className={styles.searchInput}
+      placeholder="Pesquise aqui"
+    />
+    <button className={styles.addButton} onClick={handleOpenModal}>
+      <img
+        className={styles.imgButtonCatastrofes}
+        src="../img/Add User Male.svg"
+        alt="Adicionar Catástrofe"
       />
-      <button className={styles.userVersion}>VERSÃO USUÁRIO</button>
-
-      <div className={styles.containerUsers}>
-        <h2 className={styles.h2User2}>Lista de Usuários</h2>
-        <div className={styles.userData}>
-          <p className={styles.userDataBaseFirst}>ID Usuário</p>
-          <p className={styles.userDataBase}>Nome</p>
-          <p className={styles.userDataBase}>E-mail</p>
-          <p className={styles.userDataBase}>Doações</p>
-          <p className={styles.userDataBase}>Último Acesso</p>
-          <button className={styles.add} onClick={handleOpenModal}>
-            <img
-              className={styles.imgButton}
-              src="../img/Add User Male.svg"
-              alt="Adicionar Usuário"
-            />
-          </button>
-        </div>
-        <div className={styles.userLineCont}></div>
+    </button>
+    <div className={styles.listContainer}>
+      <h2 className={styles.listTitle}>Lista de Pontos de Coleta</h2>
+      <div className={styles.dataHeader}>
+        <p className={styles.dataColumn}>ID Ponto</p>
+        <p className={styles.dataColumn}>Nome</p>
+        <p className={styles.dataColumn}>Estado</p>
+        <p className={styles.dataColumn}>Cidade</p>
+        <p className={styles.dataColumn}>Rua</p>
+        <p className={styles.dataColumn}>Número</p>
+        <p className={styles.dataColumn}>Hórario de Funcionamento</p>
+        <p className={styles.dataColumn}>Doações Aceitas</p>
+        <p className={styles.dataColumn}>Status</p>
       </div>
-
+    </div>
       {isModalOpen && (
         <div className={styles.overlay}>
           <div className={styles.modal}>
@@ -92,51 +87,69 @@ const User = () => {
                   required
                 />
               </div>
-              <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="cpf">
-                  CPF
+              <label className={styles.label} htmlFor="username">
+                  Estado
                 </label>
                 <input
                   className={styles.input}
-                  id="cpf"
+                  id="username"
                   type="text"
-                  value={cpf}
-                  onChange={handleCpfChange}
-                  maxLength="14" // Limita o tamanho ao formato "XXX.XXX.XXX-XX"
                   required
                 />
-              </div>
               <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="email">
-                  E-mail
+                <label className={styles.label} htmlFor="cidade">
+                  Cidade
                 </label>
                 <input
                   className={styles.input}
-                  id="email"
-                  type="email"
+                  id="cidade"
+                  type="text"
                   required
                 />
               </div>
               <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="senha">
-                  Senha
+                <label className={styles.label} htmlFor="rua">
+                  Rua
                 </label>
                 <input
                   className={styles.input}
-                  id="senha"
-                  type="password"
+                  id="rua"
+                  type="text"
                   required
                 />
               </div>
               <div className={styles.formGroup}>
-                <label className={styles.label} htmlFor="type">
-                  Tipo
+                <label className={styles.label} htmlFor="numero">
+                  Número
                 </label>
-                <select className={styles.input} id="type" required>
-                  <option value="">Selecione</option>
-                  <option value="admin">Administrador</option>
-                  <option value="user">Usuário Comum</option>
-                </select>
+                <input
+                  className={styles.input}
+                  id="numero"
+                  type="number"
+                  required
+                />
+              </div>
+              <div className={styles.formGroup}>
+                <label className={styles.label} htmlFor="horario">
+                  Horário de Funcionamento
+                </label>
+                <input
+                  className={styles.input}
+                  id="numero"
+                  type="number"
+                  required
+                />
+              </div>
+              <div className={styles.formGroup}>
+                <label className={styles.label} htmlFor="doaçoes">
+                  Doações Aceitas
+                </label>
+                <input
+                  className={styles.input}
+                  id="doaçoes"
+                  type="text"
+                  required
+                />
               </div>
               <div className={styles.formActions}>
                 <button className={styles.submitButton} type="submit">

@@ -24,6 +24,7 @@ function UserMenu() {
                 <div className={styles.menuItem}>Perfil</div>
             </div>
         </div>
+
     );
 }
 

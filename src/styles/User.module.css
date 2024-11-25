@@ -3,141 +3,120 @@ body {
     overflow-y: scroll;
 }
 
-.containerUsers {
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    border-radius: 15px;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+.catastrofesContainer {
+    margin-left: 20px;
     padding: 20px;
-    margin-top: 30px;
-    margin-left: 5%; /* Reduzido para aproximar do menu lateral */
-    width: 90%; /* Ajustado para ocupar mais espaço horizontal */
+    font-family: Arial, sans-serif;
 }
 
-.userTopBoardContainer {
+.topBoardContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.userList {
-    display: flex;
+.navList {
     list-style: none;
+    display: flex;
     padding: 0;
-    margin: 0;
+    margin-top: -20%;
+    margin-left: -30%;
 }
 
-.userListItem,
-.userListItem2 {
+.navListItem {
+    margin-left: -23%;
+    font-size: 14px;
     color: #686868;
-    font-weight: 300;
-    margin-left: 5px;
 }
 
-.userH1 {
-    font-size: 32px;
-    color: #000;
-    font-weight: 700;
-    margin-bottom: 10px; /* Reduz o espaçamento abaixo do título */
-    text-align: left; /* Alinha o texto à esquerda */
-}
-
-.userInput {
+.headerTitleCatastrofes{
     position: absolute;
-    width: 256px;
+}
+
+.searchInput {
+    position: absolute;
+    width: 200px;
     height: 36px;
     border-radius: 10px;
-    border: none;
-    top: 10px;
-    right: 280px;
+    border: 1px solid #ddd;
+    padding: 0 10px;
+    margin-right: 10px;
+    margin-left: 68.5%;
+    margin-top: -6%;
 }
 
-.userInput[placeholder] {
-    padding-left: 10px;
-}
-
-.userVersion {
-    position: absolute;
-    width: 182px;
+.userVersionButton {
+    width: 180px;
     height: 36px;
     border: 2px solid #84DA15;
     border-radius: 10px;
     color: #84DA15;
-    font-weight: 600;
     background-color: transparent;
-    top: 10px;
-    right: 30px;
+    font-weight: bold;
     cursor: pointer;
+    margin-left: 10px;
 }
 
-.containerUsers {
+.addButton {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #84DA15;
+    background-color: transparent;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    top: 20px;
+    left:87%;
+}
+
+.imgButtonCatastrofes {
+    width: 30px;
+    height: 30px;
+}
+
+.listContainer {
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    margin-top: 30px; /* Espaçamento ajustado */
-    margin-left: 20px; /* Aproxima da barra lateral */
+    margin-top: 30px;
+    width: 90%;
+    margin-top: -5%;
 }
 
-.h2User2 {
+.listTitle {
     font-size: 25px;
-    font-weight: 700;
-    color: #000;
+    font-weight: bold;
+    color: #333;
     margin-bottom: 20px;
 }
 
-.userData {
+.dataHeader,
+.dataRow {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     font-size: 14px;
     color: #686868;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    margin-top: 6%;
     font-weight: 600;
-    border-bottom: 1px solid #dfdfdf;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
 }
 
-.userDataBaseFirst {
-    flex: 2;
-    text-align: left;
-}
-
-.userDataBase {
-    flex: 2;
+.dataColumn {
+    flex: 1;
     text-align: center;
 }
 
-.userLineCont {
-    background-color: #dfdfdf;
-    height: 1px;
-    width: 100%;
-    margin-top: 10px;
+.dataColumn:first-child {
+    text-align: left;
 }
 
-.add {
-    position: absolute;
-    top: 155px; /* Ajuste vertical */
-    right: 80px; /* Ajuste horizontal */
-    width: 40px;
-    height: 40px;
-    background-color: transparent;
-    border-radius: 50%;
-    border: 2px solid #84DA15;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-}
-
-.imgButton {
-    width: 30px;
-    height: 30px;
-}
 
 /* Overlay do Modal */
 .overlay {
@@ -180,7 +159,7 @@ body {
 
 /* Estilização dos Campos do Formulário */
 .formGroup {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .label {
@@ -196,6 +175,7 @@ body {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    height: 10px;
 }
 
 /* Botões do Formulário */

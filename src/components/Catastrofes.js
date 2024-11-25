@@ -97,19 +97,23 @@ const Catastrofes = () => {
               <input className={styles.input} name="cidade" required />
 
               <label className={styles.label}>Tipo</label>
-              <select className={styles.input} name="tipo" required>
+              <select className={styles.inputSelect} name="tipo" required>
                 <option value="">Selecione</option>
                 <option value="Terremoto">Terremoto</option>
                 <option value="Tsunami">Tsunami</option>
                 <option value="Furacão">Furacão</option>
                 <option value="Ciclone">Ciclone</option>
+                <option value="Ciclone">Ciclone</option>
+                <option value="Ciclone">Ciclone</option>
+                <option value="Ciclone">Ciclone</option>
+                <option value="Ciclone">Ciclone</option>
               </select>
 
               <label className={styles.label}>Data</label>
-              <input className={styles.input} type="date" name="data" required />
+              <input className={styles.inputDate} type="date" name="data" required />
 
               <label className={styles.label}>Gravidade</label>
-              <select className={styles.input} name="gravidade" required>
+              <select className={styles.inputSelect} name="gravidade" required>
                 <option value="">Selecione</option>
                 <option value="Alta">Alta</option>
                 <option value="Moderada">Moderada</option>
@@ -117,7 +121,7 @@ const Catastrofes = () => {
               </select>
 
               <label className={styles.label}>Status</label>
-              <select className={styles.input} name="status" required>
+              <select className={styles.inputSelect} name="status" required>
                 <option value="">Selecione</option>
                 <option value="Aviso Emitido">Aviso Emitido</option>
                 <option value="Em Curso">Em Curso</option>

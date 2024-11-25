@@ -7,6 +7,7 @@ function ComoDoar() {
     const navigate = useNavigate();
 
     return (
+        
         <div className={styles.comoDoarContainer}>
             <img className={styles.comoDoarImg} src='/img/pexels-photo-14823614.jpeg' alt="Imagem de Doação"></img>
             <div className={styles.comoDoarImgContainer}></div>
@@ -29,7 +30,7 @@ function ComoDoar() {
                 Acompanhar
             </button>
 
-            <button className={styles.buttonNav}></button>
+            <button className={styles.buttonNav}>></button>
             <div className={styles.section}>
                 <h1 className={styles.h1HowDonate}>POR QUE DOAR?</h1>
                 <div className={styles.row}>

@@ -20,28 +20,33 @@ const Doacoes = () => {
 
   return (
     <div className={styles.doacoesDashboardsContainer}>
-      {/* Título e navegação */}
       <div className={styles.doacoesTopBoardContainer}>
-        <nav>
-        <ul className={styles.navList}>
+      <nav>
+          <ul className={styles.navList}>
             <li className={styles.navListItem}>Admin/</li>
             <li className={styles.navListItem}>
-              <strong>Doações</strong>
+              <strong>Doações
+              </strong>
             </li>
           </ul>
         </nav>
-        <h1 className={styles.doacoesH1}>Doações</h1>
+        <h1 className={styles.headerTitleCatastrofes}>Doações</h1>
       </div>
-
-      {/* Campo de pesquisa */}
       <input
         type="text"
-        className={styles.doacoesInput}
+        className={styles.searchInput}
         placeholder="Pesquise aqui"
       />
+      <button className={styles.addButton} onClick={handleOpenModal}>
+        <img
+          className={styles.imgButtonCatastrofes}
+          src="../img/Add User Male.svg"
+          alt="Adicionar Catástrofe"
+        />
+      </button>
 
       {/* Lista de doações */}
-      <div className={styles.containerDoacoes}>
+      <div className={styles.containerDoacoes1}>
         <h2 className={styles.h2Doacoes}>Lista de Doações</h2>
         <div className={styles.doacoesData}>
           <p className={styles.doacoesDataBaseFirst}>ID Doação</p>
@@ -51,16 +56,8 @@ const Doacoes = () => {
           <p className={styles.doacoesDataBase}>Local da Entrega</p>
           <p className={styles.doacoesDataBase}>Destinatário</p>
           <p className={styles.doacoesDataBase}>Status</p>
-          {/* Botão de adicionar */}
-          <button className={styles.add} onClick={handleOpenModal}>
-            <img
-              className={styles.imgButton}
-              src="../img/Add User Male.svg"
-              alt="Adicionar Doação"
-            />
-          </button>
         </div>
-        <div className={styles.doacoesLineCont}></div>
+        
       </div>
 
       {/* Modal de cadastro */}
@@ -98,7 +95,7 @@ const Doacoes = () => {
                   Data
                 </label>
                 <input
-                  className={styles.input}
+                  className={styles.inputDate}
                   type="date"
                   id="data"
                   name="data"
@@ -109,7 +106,7 @@ const Doacoes = () => {
                 <label htmlFor="tipo" className={styles.label}>
                   Tipo
                 </label>
-                <select className={styles.input} id="tipo" name="tipo" required>
+                <select className={styles.inputSelect} id="tipo" name="tipo" required>
                   <option value="">Selecione</option>
                   <option value="alimentos">Alimentos não perecíveis</option>
                   <option value="agua">Água potável</option>
@@ -145,10 +142,12 @@ const Doacoes = () => {
                 <label htmlFor="status" className={styles.label}>
                   Status
                 </label>
-                <select className={styles.input} id="status" name="status" required>
+                <select className={styles.inputSelect} id="status" name="status" required>
                   <option value="">Selecione</option>
                   <option value="pendente">Pendente</option>
                   <option value="entregue">Entregue</option>
+                  <option value="entregue">A Caminho</option>
+                  <option value="entregue">Cancelado</option>
                 </select>
               </div>
               <div className={styles.formActions}>
