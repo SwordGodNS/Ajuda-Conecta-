@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { CatastrofesContext } from "../context/CatastrofesContext"; // Importa o contexto
 import styles from "../styles/Catastrofes.module.css";
 
 const Catastrofes = () => {
-  const [catastrofes, setCatastrofes] = useState([]);
+  const { catastrofes, adicionarCatastrofe } = useContext(CatastrofesContext); // Acessa o contexto
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
@@ -16,7 +17,7 @@ const Catastrofes = () => {
   const handleAddCatastrofe = (event) => {
     event.preventDefault();
 
-    const newCatastrofe = {
+    const novaCatastrofe = {
       id: `CAT${catastrofes.length + 1}`,
       nome: event.target.nome.value,
       estado: event.target.estado.value,
@@ -27,8 +28,8 @@ const Catastrofes = () => {
       status: event.target.status.value,
     };
 
-    setCatastrofes([...catastrofes, newCatastrofe]);
-    handleCloseModal();
+    adicionarCatastrofe(novaCatastrofe); // Adiciona a catástrofe no contexto
+    handleCloseModal(); // Fecha o modal
   };
 
   return (
@@ -103,14 +104,15 @@ const Catastrofes = () => {
                 <option value="Tsunami">Tsunami</option>
                 <option value="Furacão">Furacão</option>
                 <option value="Ciclone">Ciclone</option>
-                <option value="Ciclone">Ciclone</option>
-                <option value="Ciclone">Ciclone</option>
-                <option value="Ciclone">Ciclone</option>
-                <option value="Ciclone">Ciclone</option>
               </select>
 
               <label className={styles.label}>Data</label>
-              <input className={styles.inputDate} type="date" name="data" required />
+              <input
+                className={styles.inputDate}
+                type="date"
+                name="data"
+                required
+              />
 
               <label className={styles.label}>Gravidade</label>
               <select className={styles.inputSelect} name="gravidade" required>

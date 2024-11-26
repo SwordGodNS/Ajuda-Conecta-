@@ -8,7 +8,7 @@ function HeaderUser() {
     const location = useLocation();
 
     // Exibe o cabeçalho apenas nas rotas '/', '/como-doar' e '/contate'
-    const allowedRoutes = ['/doaruser', '/acompanharuser'];
+    const allowedRoutes = ['/doar-user', '/acompanhar-user'];
     if (!allowedRoutes.includes(location.pathname)) {
         return null;
     }
