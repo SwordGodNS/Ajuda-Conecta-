@@ -1,11 +1,13 @@
+// src/pages/Entregas.js
 import React, { useState, useContext } from "react";
 import { EntregasContext } from "../context/EntregasContext";
 import styles from "../styles/Entregas.module.css";
 
 function Entregas() {
   const [isRegistering, setIsRegistering] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [entregaSelecionada, setEntregaSelecionada] = useState(null);
   const [novaEntrega, setNovaEntrega] = useState({
-    id: "",
     cpf: "",
     cepDoador: "",
     cepDestinatario: "",
@@ -15,14 +17,39 @@ function Entregas() {
     status: "Pendente",
   });
 
-  const { entregas, adicionarEntrega } = useContext(EntregasContext);
+  const { entregas, adicionarEntrega, removerEntrega, editarEntrega } = useContext(EntregasContext);
+
+  const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
+  const [entregaParaDeletar, setEntregaParaDeletar] = useState(null);
 
   const handleAddClick = () => {
     setIsRegistering(true);
+    setIsEditing(false);
+    setNovaEntrega({
+      cpf: "",
+      cepDoador: "",
+      cepDestinatario: "",
+      itens: "",
+      lote: "",
+      data: "",
+      status: "Pendente",
+    });
+    setEntregaSelecionada(null);
   };
 
   const handleCloseForm = () => {
     setIsRegistering(false);
+    setIsEditing(false);
+    setEntregaSelecionada(null);
+    setNovaEntrega({
+      cpf: "",
+      cepDoador: "",
+      cepDestinatario: "",
+      itens: "",
+      lote: "",
+      data: "",
+      status: "Pendente",
+    });
   };
 
   const handleChange = (e) => {
@@ -32,19 +59,41 @@ function Entregas() {
 
   const handleSave = (e) => {
     e.preventDefault();
-    adicionarEntrega(novaEntrega); // Adiciona a nova entrega ao contexto
-    setNovaEntrega({
-      id: "",
-      cpf: "",
-      cepDoador: "",
-      cepDestinatario: "",
-      itens: "",
-      lote: "",
-      data: "",
-      status: "Pendente",
-    });
-    setIsRegistering(false);
+    if (isEditing) {
+      editarEntrega(entregaSelecionada.id, novaEntrega);
+    } else {
+      adicionarEntrega(novaEntrega);
+    }
+    handleCloseForm();
   };
+
+  const handleEditClick = (entrega) => {
+    setIsEditing(true);
+    setIsRegistering(true);
+    setEntregaSelecionada(entrega);
+    setNovaEntrega(entrega);
+  };
+
+  const handleDeleteClick = (entrega) => {
+    setEntregaParaDeletar(entrega);
+    setIsConfirmModalOpen(true);
+  };
+
+  const confirmDelete = () => {
+    if (entregaParaDeletar) {
+      removerEntrega(entregaParaDeletar.id);
+      setEntregaParaDeletar(null);
+      setIsConfirmModalOpen(false);
+    }
+  };
+
+  const cancelDelete = () => {
+    setEntregaParaDeletar(null);
+    setIsConfirmModalOpen(false);
+  };
+
+  // Log para verificar as funções do contexto
+  console.log("Funções do contexto:", { adicionarEntrega, removerEntrega, editarEntrega });
 
   return (
     <div className={styles.entregasContainer}>
@@ -84,10 +133,11 @@ function Entregas() {
           <p className={styles.entregasDataColumn}>Lote</p>
           <p className={styles.entregasDataColumn}>Data</p>
           <p className={styles.entregasDataColumn}>Status</p>
+          <p className={styles.entregasDataColumn}>Ações</p> {/* Nova coluna */}
         </div>
         {/* Renderiza as entregas cadastradas */}
-        {entregas.map((entrega, index) => (
-          <div key={index} className={styles.entregasDataRow}>
+        {entregas.map((entrega) => (
+          <div key={entrega.id} className={styles.entregasDataRow}>
             <p className={styles.entregasDataColumn}>{entrega.id}</p>
             <p className={styles.entregasDataColumn}>{entrega.cpf}</p>
             <p className={styles.entregasDataColumn}>{entrega.cepDoador}</p>
@@ -96,22 +146,37 @@ function Entregas() {
             <p className={styles.entregasDataColumn}>{entrega.lote}</p>
             <p className={styles.entregasDataColumn}>{entrega.data}</p>
             <p className={styles.entregasDataColumn}>{entrega.status}</p>
+            <div className={styles.entregasActionButtons}>
+              <button
+                onClick={() => handleEditClick(entrega)}
+                className={styles.editButton}
+              >
+                Editar
+              </button>
+              <button
+                onClick={() => handleDeleteClick(entrega)}
+                className={styles.deleteButton}
+              >
+                Excluir
+              </button>
+            </div>
           </div>
         ))}
       </div>
 
-      {/* Modal de Cadastro */}
+      {/* Modal de Cadastro e Edição */}
       {isRegistering && (
         <div className={styles.entregasModal}>
           <div className={styles.entregasModalContent}>
-            <h2>Cadastrar Nova Entrega</h2>
+            <h2>{isEditing ? "Editar Entrega" : "Cadastrar Nova Entrega"}</h2>
             <form onSubmit={handleSave}>
+              {/* Removido o campo de ID */}
               <div className={styles.entregasFormGroup}>
-                <label>ID Entrega:</label>
+                <label>CPF:</label>
                 <input
                   type="text"
-                  name="id"
-                  value={novaEntrega.id}
+                  name="cpf"
+                  value={novaEntrega.cpf}
                   onChange={handleChange}
                   required
                 />
@@ -158,16 +223,6 @@ function Entregas() {
               </div>
               <div className={styles.entregasInlineGroup}>
                 <div className={styles.entregasFormGroupInline}>
-                  <label>CPF Doador:</label>
-                  <input
-                    type="text"
-                    name="cpf"
-                    value={novaEntrega.cpf}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div className={styles.entregasFormGroupInline}>
                   <label>Data de Entrega:</label>
                   <input
                     type="date"
@@ -177,22 +232,22 @@ function Entregas() {
                     required
                   />
                 </div>
-              </div>
-              <div className={styles.entregasFormGroup}>
-                <label>Status:</label>
-                <select
-                  name="status"
-                  value={novaEntrega.status}
-                  onChange={handleChange}
-                  required
-                >
-                  <option value="Pendente">Pendente</option>
-                  <option value="Entregue">Entregue</option>
-                </select>
+                <div className={styles.entregasFormGroupInline}>
+                  <label>Status:</label>
+                  <select
+                    name="status"
+                    value={novaEntrega.status}
+                    onChange={handleChange}
+                    required
+                  >
+                    <option value="Pendente">Pendente</option>
+                    <option value="Entregue">Entregue</option>
+                  </select>
+                </div>
               </div>
               <div className={styles.entregasModalButtons}>
                 <button type="submit" className={styles.entregasSaveButton}>
-                  Salvar
+                  {isEditing ? "Atualizar" : "Salvar"}
                 </button>
                 <button
                   type="button"
@@ -203,6 +258,32 @@ function Entregas() {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* Modal de Confirmação de Exclusão */}
+      {isConfirmModalOpen && entregaParaDeletar && (
+        <div className={styles.entregasModal}>
+          <div className={styles.entregasModalContent}>
+            <h2>Confirmar Exclusão</h2>
+            <p>
+              Você tem certeza que deseja excluir a entrega <strong>ID: {entregaParaDeletar.id}</strong>?
+            </p>
+            <div className={styles.entregasModalButtons}>
+              <button
+                onClick={confirmDelete}
+                className={styles.entregasSaveButton}
+              >
+                Sim
+              </button>
+              <button
+                onClick={cancelDelete}
+                className={styles.entregasCancelButton}
+              >
+                Não
+              </button>
+            </div>
           </div>
         </div>
       )}

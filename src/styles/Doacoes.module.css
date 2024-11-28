@@ -261,3 +261,47 @@ height: 13px;
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
 }
+
+.actionButtons {
+    display: flex;
+    gap: 10px; /* Espaçamento entre os botões */
+    margin-top: 10px; /* Espaçamento acima dos botões */
+}
+
+/* Botão Editar */
+.editButton {
+    background-color: #4caf50; /* Verde */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.editButton:hover {
+    background-color: #45a049; /* Verde mais escuro no hover */
+}
+
+/* Botão Excluir */
+.deleteButton {
+    background-color: #f44336; /* Vermelho */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deleteButton:hover {
+    background-color: #d32f2f; /* Vermelho mais escuro no hover */
+}

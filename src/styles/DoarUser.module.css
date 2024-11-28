@@ -1,25 +1,140 @@
+/* src/styles/DoarUser.module.css */
+
 .container {
-    padding: 20px;
+  padding: 20px;
+  position: relative;
+}
+
+.content {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Novo Contêiner Quadrado para o Mapa */
+.mapContainer {
+  width: 500px; /* Largura fixa do contêiner */
+  height: 500px; /* Altura fixa do contêiner */
+  margin: 0 auto; /* Centraliza o contêiner horizontalmente */
+  border: 2px solid #ccc; /* Opcional: adiciona uma borda para visualizar os limites */
+  border-radius: 8px; /* Opcional: bordas arredondadas */
+  overflow: hidden; /* Impede que o mapa se expanda além do contêiner */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: adiciona sombra para destaque */
+}
+
+/* Estilo para os alfinetes de pontos de coleta */
+.marker {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.marker:hover {
+  transform: scale(1.2);
+}
+
+/* Animação para o marcador selecionado */
+.selected {
+  animation: ripple 1.5s infinite;
+}
+
+@keyframes ripple {
+  0% {
+    stroke: #0000FF;
+    stroke-width: 1;
+    fill: #0000FF;
+    opacity: 1;
   }
-  
-  .content {
-    text-align: center;
-    margin-top: 20px;
+  50% {
+    stroke: #0000FF;
+    stroke-width: 3;
+    fill: #0000FF;
+    opacity: 0.5;
   }
-  
-  .title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
+  100% {
+    stroke: #0000FF;
+    stroke-width: 1;
+    fill: #0000FF;
+    opacity: 1;
   }
-  
-  .mapContainer {
-    width: 100%;
-    max-width: 1200px; /* Largura máxima do mapa */
-    margin: 0 auto; /* Centralizar o mapa */
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
+}
+
+/* Estilo para o conteúdo da tooltip personalizada */
+.customTooltip {
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  width: 140px;
+  height: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(-10px) scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+/* Classe para mostrar a tooltip */
+.customTooltip.show {
+  opacity: 1;
+  transform: translateY(px) scale(1);
+}
+
+/* Pequeno triângulo apontando para o alfinete */
+.customTooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -8px; /* Posição do triângulo */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent;
+}
+
+/* Estilização dos títulos e parágrafos dentro da tooltip */
+.customTooltip h2 {
+  margin: 0 0 5px 0;
+  font-size: 14px;
+  color: #fff;
+}
+
+.customTooltip p {
+  margin: 4px 0;
+  font-size: 12px;
+  color: #ddd;
+}
+
+/* Botão de fechar dentro da tooltip */
+.closeButton {
+  margin-top: 8px;
+  padding: 4px 8px;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.closeButton:hover {
+  background-color: #ff7875;
+}
+
+/* Label dos estados */
+.markerText {
+  font-size: 6px;
+  font-weight: bold;
+  fill: #000;
+  pointer-events: none;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+}

@@ -1,12 +1,21 @@
-// src/components/Doacoes.js
+// src/pages/Doacoes.js
 import React, { useState, useContext } from "react";
 import styles from "../styles/Doacoes.module.css";
-import { DoacoesContext } from '../context/DoacoesContext'; // Caminho corrigido
+import { DoacoesContext } from "../context/DoacoesContext"; // Verifique o caminho
 
 const Doacoes = () => {
-  const { doacoes, addDoacao } = useContext(DoacoesContext);
+  const {
+    doacoes,
+    adicionarDoacao,
+    removerDoacao,
+    atualizarDoacao,
+  } = useContext(DoacoesContext); // Acessa o contexto
+
+  // Estados para o modal de cadastro/edição
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [editingDoacao, setEditingDoacao] = useState(null);
   const [novaDoacao, setNovaDoacao] = useState({
+    id: "",
     doador: "",
     cpf: "",
     data: "",
@@ -16,14 +25,43 @@ const Doacoes = () => {
     status: "",
   });
 
+  // Estados para o modal de confirmação de exclusão
+  const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
+  const [doacaoParaDeletar, setDoacaoParaDeletar] = useState(null);
+
+  // Função para abrir o modal de cadastro
   const handleOpenModal = () => {
+    setEditingDoacao(null);
+    setNovaDoacao({
+      id: "",
+      doador: "",
+      cpf: "",
+      data: "",
+      tipo: "",
+      local: "",
+      destinatario: "",
+      status: "",
+    });
     setIsModalOpen(true);
   };
 
+  // Função para fechar o modal de cadastro/edição
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    setEditingDoacao(null);
+    setNovaDoacao({
+      id: "",
+      doador: "",
+      cpf: "",
+      data: "",
+      tipo: "",
+      local: "",
+      destinatario: "",
+      status: "",
+    });
   };
 
+  // Função para lidar com as mudanças nos campos do formulário
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setNovaDoacao((prev) => ({
@@ -32,19 +70,46 @@ const Doacoes = () => {
     }));
   };
 
+  // Função para cadastrar uma nova doação
   const handleSubmit = (event) => {
     event.preventDefault();
-    addDoacao(novaDoacao); // Usa o contexto para adicionar a doação
-    setNovaDoacao({
-      doador: "",
-      cpf: "",
-      data: "",
-      tipo: "",
-      local: "",
-      destinatario: "",
-      status: "",
-    }); // Reseta o formulário
+    adicionarDoacao(novaDoacao);
     handleCloseModal();
+  };
+
+  // Função para atualizar uma doação existente
+  const handleUpdate = (event) => {
+    event.preventDefault();
+    atualizarDoacao(editingDoacao.id, novaDoacao);
+    handleCloseModal();
+  };
+
+  // Função para abrir o modal de edição com os dados da doação selecionada
+  const handleEdit = (doacao) => {
+    setEditingDoacao(doacao);
+    setNovaDoacao(doacao);
+    setIsModalOpen(true);
+  };
+
+  // Função para abrir o modal de confirmação de exclusão
+  const handleDelete = (doacao) => {
+    setDoacaoParaDeletar(doacao);
+    setIsConfirmModalOpen(true);
+  };
+
+  // Função para confirmar a exclusão
+  const confirmDelete = () => {
+    if (doacaoParaDeletar) {
+      removerDoacao(doacaoParaDeletar.id);
+      setDoacaoParaDeletar(null);
+      setIsConfirmModalOpen(false);
+    }
+  };
+
+  // Função para cancelar a exclusão
+  const cancelDelete = () => {
+    setDoacaoParaDeletar(null);
+    setIsConfirmModalOpen(false);
   };
 
   return (
@@ -84,27 +149,47 @@ const Doacoes = () => {
           <p className={styles.doacoesDataBase}>Local da Entrega</p>
           <p className={styles.doacoesDataBase}>Destinatário</p>
           <p className={styles.doacoesDataBase}>Status</p>
+          <p className={styles.doacoesDataBase}>Ações</p> {/* Nova coluna */}
         </div>
         {/* Renderiza as doações cadastradas */}
-        {doacoes.map((doacao, index) => (
-          <div key={index} className={styles.doacaoItem}>
-            <p className={styles.doacoesDataBaseFirst}>{index + 1}</p>
+        {doacoes.map((doacao) => (
+          <div key={doacao.id} className={styles.doacaoItem}>
+            <p className={styles.doacoesDataBaseFirst}>{doacao.id}</p>
             <p className={styles.doacoesDataBase}>{doacao.doador}</p>
             <p className={styles.doacoesDataBase}>{doacao.tipo}</p>
             <p className={styles.doacoesDataBase}>{doacao.data}</p>
             <p className={styles.doacoesDataBase}>{doacao.local}</p>
             <p className={styles.doacoesDataBase}>{doacao.destinatario}</p>
             <p className={styles.doacoesDataBase}>{doacao.status}</p>
+            <div className={styles.actionButtons}>
+              <button
+                onClick={() => handleEdit(doacao)}
+                className={styles.editButton}
+              >
+                Editar
+              </button>
+              <button
+                onClick={() => handleDelete(doacao)}
+                className={styles.deleteButton}
+              >
+                Excluir
+              </button>
+            </div>
           </div>
         ))}
       </div>
 
-      {/* Modal de cadastro */}
+      {/* Modal de Cadastro e Edição */}
       {isModalOpen && (
-        <div id="overlay" className={styles.overlay}>
-          <div id="modal" className={styles.modal}>
-            <h4 className={styles.modalTitle}>Cadastrar Nova Doação</h4>
-            <form id="doacaoForm" className={styles.form} onSubmit={handleSubmit}>
+        <div className={styles.overlay}>
+          <div className={styles.modal}>
+            <h4 className={styles.modalTitle}>
+              {editingDoacao ? "Editar Doação" : "Cadastrar Nova Doação"}
+            </h4>
+            <form
+              className={styles.form}
+              onSubmit={editingDoacao ? handleUpdate : handleSubmit}
+            >
               <div className={styles.formGroup}>
                 <label htmlFor="doador" className={styles.label}>
                   Doador
@@ -120,7 +205,7 @@ const Doacoes = () => {
                 />
               </div>
               <div className={styles.formRow}>
-                <div>
+                <div className={styles.formGroup}>
                   <label htmlFor="cpf" className={styles.label}>
                     CPF
                   </label>
@@ -135,7 +220,7 @@ const Doacoes = () => {
                     required
                   />
                 </div>
-                <div>
+                <div className={styles.formGroup}>
                   <label htmlFor="data" className={styles.label}>
                     Data
                   </label>
@@ -163,10 +248,14 @@ const Doacoes = () => {
                   required
                 >
                   <option value="">Selecione</option>
-                  <option value="alimentos">Alimentos não perecíveis</option>
-                  <option value="agua">Água potável</option>
-                  <option value="roupas">Roupas e Calçados</option>
-                  <option value="higiene">Produtos de Higiene Pessoal</option>
+                  <option value="Alimentos não perecíveis">
+                    Alimentos não perecíveis
+                  </option>
+                  <option value="Água potável">Água potável</option>
+                  <option value="Roupas e Calçados">Roupas e Calçados</option>
+                  <option value="Produtos de Higiene Pessoal">
+                    Produtos de Higiene Pessoal
+                  </option>
                 </select>
               </div>
               <div className={styles.formGroup}>
@@ -210,25 +299,52 @@ const Doacoes = () => {
                   required
                 >
                   <option value="">Selecione</option>
-                  <option value="pendente">Pendente</option>
-                  <option value="entregue">Entregue</option>
-                  <option value="a-caminho">A Caminho</option>
-                  <option value="cancelado">Cancelado</option>
+                  <option value="Pendente">Pendente</option>
+                  <option value="Entregue">Entregue</option>
+                  <option value="A Caminho">A Caminho</option>
+                  <option value="Cancelado">Cancelado</option>
                 </select>
               </div>
               <div className={styles.formActions}>
-                <button className={styles.submitButton} type="submit">
-                  Cadastrar
+                <button type="submit" className={styles.submitButton}>
+                  {editingDoacao ? "Atualizar" : "Cadastrar"}
                 </button>
                 <button
-                  className={styles.closeButton}
                   type="button"
                   onClick={handleCloseModal}
+                  className={styles.closeButton}
                 >
                   Fechar
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* Modal de Confirmação de Exclusão */}
+      {isConfirmModalOpen && doacaoParaDeletar && (
+        <div className={styles.overlay}>
+          <div className={styles.modal}>
+            <h4 className={styles.modalTitle}>Confirmar Exclusão</h4>
+            <p>
+              Você tem certeza que deseja excluir a doação de{" "}
+              <strong>{doacaoParaDeletar.doador}</strong>?
+            </p>
+            <div className={styles.formActions}>
+              <button
+                className={styles.submitButton}
+                onClick={confirmDelete}
+              >
+                Sim
+              </button>
+              <button
+                className={styles.closeButton}
+                onClick={cancelDelete}
+              >
+                Não
+              </button>
+            </div>
           </div>
         </div>
       )}
