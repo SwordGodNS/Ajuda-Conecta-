@@ -30,7 +30,7 @@ function ComoDoar() {
                 Acompanhar
             </button>
 
-            <button className={styles.buttonNav}></button>
+            <button className={styles.buttonNav}>></button>
             <div className={styles.section}>
                 <h1 className={styles.h1HowDonate}>POR QUE DOAR?</h1>
                 <div className={styles.row}>
@@ -58,8 +58,8 @@ function ComoDoar() {
                 <div className={styles.cardRow}>
                     <div className={styles.card}>
                         <img className={styles.Icon1} src='/img/User.svg' alt="Ícone Usuário"></img>
-                        <p className={styles.titleCard}>CRIE SUA CONTA</p>
-                        <p className={styles.textCard}>Comece criando uma conta para acompanhar suas doações e ver seu impacto.</p>
+                        <p className={styles.titleCard}>BUSQUE</p>
+                        <p className={styles.textCard}>Comece buscando um ponto de coleta já cadastrado.</p>
                     </div>
                     <div className={styles.card}>
                         <img className={styles.Icon1} src='/img/Charity.svg' alt="Ícone Doação"></img>
@@ -79,8 +79,9 @@ function ComoDoar() {
                 </div>
             </div>
 
-            <div className={styles.section} style={{ backgroundColor: '#373737', color: 'white' }}>
-                <img className={styles.imgFinal} src='#' alt="Imagem Final"></img>
+            <div className={styles.sectionFinal}>
+                <img className={styles.imgFinal} src='/img/doacoes-litoral-3-.webp'></img>
+                <div className={styles.colorFinal}></div>
                 <h4>SEJA UM DOADOR</h4>
                 <p>Milhares de famílias podem estar esperando sua ajuda</p>
                 <button className={styles.donateButton} onClick={() => navigate('/login')}>
