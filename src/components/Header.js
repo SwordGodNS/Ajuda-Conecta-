@@ -6,7 +6,7 @@ function Header() {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const allowedRoutes = ['/', '/como-doar', '/contate', '/como-coletar', '/doar-user', '/acompanhar-user'];
+    const allowedRoutes = ['/', '/como-doar', '/contate', '/como-coletar'];
     if (!allowedRoutes.includes(location.pathname)) {
         return null;
     }

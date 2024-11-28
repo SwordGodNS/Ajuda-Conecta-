@@ -30,7 +30,7 @@ function ComoDoar() {
                 Acompanhar
             </button>
 
-            <button className={styles.buttonNav}>></button>
+            <button className={styles.buttonNav}></button>
             <div className={styles.section}>
                 <h1 className={styles.h1HowDonate}>POR QUE DOAR?</h1>
                 <div className={styles.row}>
