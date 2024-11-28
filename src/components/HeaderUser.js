@@ -20,7 +20,7 @@ function HeaderUser() {
         <nav>
             <ul>
                 <li><Link to="/como-doar">HOME</Link></li>
-                <li><Link to="/contate">DOAR </Link></li>
+                <li className={styles.liSecond}><Link to="/contate">DOAR </Link></li>
                 <li><Link to="/contate">ACOMPANHAR </Link></li>
             </ul>
         </nav>

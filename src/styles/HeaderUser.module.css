@@ -40,8 +40,9 @@ li {
 
 li:first-child {
     margin-left:14%;
-    margin-right: 0%;
+    margin-right: 5%;
 }
+
 .line {
     position: absolute;
     width: 1200px;

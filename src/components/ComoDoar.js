@@ -51,7 +51,11 @@ function ComoDoar() {
                     </div>
                 </div>
             </div>
-            <div className={styles.greyContainer}></div>
+            <div className={styles.greyContainer}>
+            <h1 className={styles.h1GreyTitle}>SUA SEGURANÇA</h1>
+            <p className={styles.pGreyTitle}>Nosso site oferece a transparência que você merece para acompanhar cada etapa da sua doação.
+            Com o código de rastreio fornecido, você pode monitorar todo o trajeto da sua contribuição, desde a entrega inicial até o destino final. Assim, garantimos que sua ajuda chegue a quem mais precisa, com segurança e confiança.</p>
+            </div>
             <div className={styles.greenContainer}></div>
             <div className={styles.section}>
                 <h2>O caminho da sua doação</h2>

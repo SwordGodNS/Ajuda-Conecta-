@@ -14,10 +14,10 @@
 }
 .comoDoarImgContainer{
     width: 300vh;
-    height: 100vh;
+    height: 100.2vh;
     object-fit: cover; 
     z-index: -2; 
-    margin-top: -54.5%;
+    margin-top: -47.5%;
     background-color: #675757;
 }
 .section {
@@ -130,6 +130,19 @@
     height: 500px;
     background-color: #373737;
     z-index: 2;
+    text-align: center;
+    align-items: center;
+}
+.h1GreyTitle{
+    padding-top: 1.5cap;
+    color: #fff;
+    
+}
+.pGreyTitle{
+    padding-top: 21cap;
+    width: 600px;
+    padding-left: 4cap;
+    color: #fff;
 }
 .greenContainer{
     position: absolute;

@@ -45,7 +45,6 @@ li a {
     color: #FFFFFF;
     list-style-type: none;
     text-decoration: none;
-    font-weight: 400;
     font-size: 14px;
     z-index: 1;
 }
@@ -63,7 +62,9 @@ li:first-child {
     margin-left:14%;
     margin-right: 5%;
 }
-
+li:last-child{
+    margin-left: 8%;
+}
 button {
     border: none;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
