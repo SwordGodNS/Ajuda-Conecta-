@@ -53,22 +53,34 @@ function ComoDoar() {
             </div>
             <div className={styles.greyContainer}>
             <h1 className={styles.h1GreyTitle}>SUA SEGURANÇA</h1>
+            <div className={styles.imgsContainers}>
+            <img className={styles.triagem}src='/img/Successful Delivery.png'></img>
+            <img className={styles.triagem}src='/img/Split Files.png'></img>
+            <img className={styles.triagem}src='/img/Warehouse.png'></img>
+            <img className={styles.triagem}src='/img/DeliveryGreen.png'></img>
+            <img className={styles.triagem}src='/img/Full Family.png'></img>
+            <div className={styles.dotLine1}></div>
+            <div className={styles.dotLine2}></div>
+            <div className={styles.dotLine3}></div>
+            <div className={styles.dotLine4}></div>
+            </div>
             <p className={styles.pGreyTitle}>Nosso site oferece a transparência que você merece para acompanhar cada etapa da sua doação.
             Com o código de rastreio fornecido, você pode monitorar todo o trajeto da sua contribuição, desde a entrega inicial até o destino final. Assim, garantimos que sua ajuda chegue a quem mais precisa, com segurança e confiança.</p>
             </div>
             <div className={styles.greenContainer}></div>
+            <img className={styles.imgGreenContainer} src='/img/imagem_2023-09-12_062244764.png'></img>
             <div className={styles.section}>
                 <h2>O caminho da sua doação</h2>
                 <div className={styles.cardRow}>
                     <div className={styles.card}>
-                        <img className={styles.Icon1} src='/img/User.svg' alt="Ícone Usuário"></img>
+                        <img className={styles.Icon1} src='/img/GreyMap.png' alt="Ícone Usuário"></img>
                         <p className={styles.titleCard}>BUSQUE</p>
-                        <p className={styles.textCard}>Comece buscando um ponto de coleta já cadastrado.</p>
+                        <p className={styles.textCard}>Comece buscando um ponto de coleta já cadastrado em nosso mapa.</p>
                     </div>
                     <div className={styles.card}>
                         <img className={styles.Icon1} src='/img/Charity.svg' alt="Ícone Doação"></img>
                         <p className={styles.titleCard}>DOE</p>
-                        <p className={styles.textCard}>Selecione o que deseja doar e insira as informações da sua doação.</p>
+                        <p className={styles.textCard}>Selecione o que deseja doar e separe para a entrega física.</p>
                     </div>
                     <div className={styles.card}>
                     <img className={styles.Icon1} src='/img/Open Parcel.svg' alt="Ícone Entrega"></img>

@@ -49,11 +49,13 @@
     margin-left: 7.6%;
     margin-top: 11%;
     border-radius: 5px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
     border: 2px solid #84DA15;
 }
-.imgimgContainerColeta{
+.imgContainerColeta{
     margin-top: 2%;
+    width: 60px;
+    height: 60px;
 }
 .dashboardColetaTitle{
     margin-top: 10%;
@@ -78,14 +80,14 @@
     color: #84DA15;
 }
 .containerFinalColeta{
-    width: 70%;
+    width: 60%;
     height: 15%;
     background-color: #84DA15;
-    margin-left: 13%;
+    margin-left: 18%;
     margin-top: 4%;
     margin-bottom: 5%;
     padding:3cap;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
 .finalTextColeta{
@@ -95,13 +97,13 @@
 }
 .finalPColeta{
     font-size: 15px;
-    width: 700px;
+    width: 600px;
 }
 .finalButtonColeta{
     position: absolute;
     width: 10%;
-    height: 40px;
-    margin-left: 57%;
+    height: 50px;
+    margin-left: 48%;
     margin-top: -4%;
     cursor: pointer;
     border-width: 0;

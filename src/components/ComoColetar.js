@@ -14,7 +14,7 @@ function ComoColetar() {
             </div>
             <div className={styles.containersColeta}>
                 <div className={styles.containerColeta}>
-                    <img className={styles.imgContainerColeta} src="#" />
+                    <img className={styles.imgContainerColeta} src="/img/Performance Macbook.png" />
                     <h2 className={styles.dashboardColetaTitle}>Dashboards</h2>
                     <p className={styles.dashboardColetaP}>
                         Com dados em tempo real, você pode monitorar o status dos pontos de coleta, acompanhar a entrega de suprimentos e acessar gráficos detalhados sobre o que foi arrecadado e distribuído.
@@ -22,20 +22,20 @@ function ComoColetar() {
                     <button className={styles.dashboardButton}>Veja seu Dashboard</button>
                 </div>
                 <div className={styles.containerColeta}>
-                    <img className={styles.imgContainerColeta} src="#" />
+                    <img className={styles.imgContainerColeta} src="/img/Adjust.png" />
                     <h2 className={styles.dashboardColetaTitle}>Entidades</h2>
                     <p className={styles.dashboardColetaP}>
                         O sistema inclui funcionalidades completas de CRUD (Criar, Listar, Atualizar e Deletar) para gerenciar as principais entidades de doações, entregas e pontos de coleta.
                     </p>
-                    <button className={styles.dashboardButton}>Veja seu Dashboard</button>
+                    <button className={styles.dashboardButton}>Veja suas Entidades</button>
                 </div>
                 <div className={styles.containerColeta}>
-                    <img className={styles.imgContainerColeta} src="#" />
-                    <h2 className={styles.dashboardColetaTitle}>Dashboards</h2>
+                    <img className={styles.imgContainerColeta} src="/img/Map.png" />
+                    <h2 className={styles.dashboardColetaTitle}>Mapeando</h2>
                     <p className={styles.dashboardColetaP}>
-                        Com dados em tempo real, você pode monitorar o status dos pontos de coleta, acompanhar a entrega de suprimentos e acessar gráficos detalhados sobre o que foi arrecadado e distribuído.
+                    Você pode visualizar no mapa, o ponto de coleta vinculado à sua administração. Nosso sistema foi projetado para facilitar sua gestão e trazer mais transparência ao processo.
                     </p>
-                    <button className={styles.dashboardButton}>Veja seu Dashboard</button>
+                    <button className={styles.dashboardButton}>Veja o Mapa</button>
                 </div>
             </div>
             <div className={styles.containerFinalColeta}>
