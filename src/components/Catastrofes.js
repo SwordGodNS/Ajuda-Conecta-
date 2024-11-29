@@ -1,18 +1,16 @@
-// src/pages/Catastrofe.js
 import React, { useState, useContext } from "react";
-import { CatastrofesContext } from "../context/CatastrofesContext"; // Importa o contexto
-import styles from "../styles/Catastrofes.module.css"; // Importa os estilos
-import { estadosECidades } from "../components/brasil.js"; // Importa estados e cidades
+import { CatastrofesContext } from "../context/CatastrofesContext";
+import styles from "../styles/Catastrofes.module.css";
+import { estadosECidades } from "../components/brasil.js";
 
-const Catastrofe = () => {
+const Catastrofes = () => {
   const {
     catastrofes,
     adicionarCatastrofe,
     removerCatastrofe,
     atualizarCatastrofe,
-  } = useContext(CatastrofesContext); // Acessa o contexto
+  } = useContext(CatastrofesContext);
 
-  // Estados para o modal de cadastro/edição
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [estadoSelecionado, setEstadoSelecionado] = useState("");
   const [cidadeSelecionada, setCidadeSelecionada] = useState("");
@@ -28,11 +26,9 @@ const Catastrofe = () => {
     status: "",
   });
 
-  // Estados para o modal de confirmação de exclusão
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
   const [catastrofeParaDeletar, setCatastrofeParaDeletar] = useState(null);
 
-  // Função para abrir o modal de cadastro
   const handleOpenModal = () => {
     setEditingCatastrofe(null);
     setNovaCatastrofe({
@@ -50,7 +46,6 @@ const Catastrofe = () => {
     setIsModalOpen(true);
   };
 
-  // Função para fechar o modal de cadastro/edição
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setEditingCatastrofe(null);
@@ -68,7 +63,6 @@ const Catastrofe = () => {
     setCidadeSelecionada("");
   };
 
-  // Função para lidar com as mudanças nos campos do formulário
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setNovaCatastrofe((prev) => ({
@@ -77,21 +71,18 @@ const Catastrofe = () => {
     }));
   };
 
-  // Função para cadastrar uma nova catástrofe
   const handleSubmit = (event) => {
     event.preventDefault();
     adicionarCatastrofe(novaCatastrofe);
     handleCloseModal();
   };
 
-  // Função para atualizar uma catástrofe existente
   const handleUpdate = (event) => {
     event.preventDefault();
     atualizarCatastrofe(editingCatastrofe.id, novaCatastrofe);
     handleCloseModal();
   };
 
-  // Função para abrir o modal de edição com os dados da catástrofe selecionada
   const handleEdit = (catastrofe) => {
     setEditingCatastrofe(catastrofe);
     setNovaCatastrofe(catastrofe);
@@ -100,13 +91,11 @@ const Catastrofe = () => {
     setIsModalOpen(true);
   };
 
-  // Função para abrir o modal de confirmação de exclusão
   const handleDelete = (catastrofe) => {
     setCatastrofeParaDeletar(catastrofe);
     setIsConfirmModalOpen(true);
   };
 
-  // Função para confirmar a exclusão
   const confirmDelete = () => {
     if (catastrofeParaDeletar) {
       removerCatastrofe(catastrofeParaDeletar.id);
@@ -115,7 +104,6 @@ const Catastrofe = () => {
     }
   };
 
-  // Função para cancelar a exclusão
   const cancelDelete = () => {
     setCatastrofeParaDeletar(null);
     setIsConfirmModalOpen(false);
@@ -157,7 +145,7 @@ const Catastrofe = () => {
           <p className={styles.dataColumn}>Data</p>
           <p className={styles.dataColumn}>Gravidade</p>
           <p className={styles.dataColumn}>Status</p>
-          <p className={styles.dataColumn}>Ações</p> {/* Nova coluna */}
+          <p className={styles.dataColumn}>Ações</p>
         </div>
         {catastrofes.map((catastrofe) => (
           <div key={catastrofe.id} className={styles.dataRow}>
@@ -221,7 +209,15 @@ const Catastrofe = () => {
                   id="estado"
                   name="estado"
                   value={estadoSelecionado}
-                  onChange={(e) => setEstadoSelecionado(e.target.value)}
+                  onChange={(e) => {
+                    setEstadoSelecionado(e.target.value);
+                    setCidadeSelecionada(""); // Reseta a cidade ao mudar o estado
+                    setNovaCatastrofe((prev) => ({
+                      ...prev,
+                      estado: e.target.value,
+                      cidade: "",
+                    }));
+                  }}
                   required
                 >
                   <option value="">Selecione um estado</option>
@@ -241,7 +237,13 @@ const Catastrofe = () => {
                   id="cidade"
                   name="cidade"
                   value={cidadeSelecionada}
-                  onChange={(e) => setCidadeSelecionada(e.target.value)}
+                  onChange={(e) => {
+                    setCidadeSelecionada(e.target.value);
+                    setNovaCatastrofe((prev) => ({
+                      ...prev,
+                      cidade: e.target.value,
+                    }));
+                  }}
                   required
                   disabled={!estadoSelecionado}
                 >
@@ -372,4 +374,4 @@ const Catastrofe = () => {
   );
 };
 
-export default Catastrofe;
+export default Catastrofes;

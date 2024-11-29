@@ -103,11 +103,11 @@ function DoarUser() {
     }
   });
 
-  // Processa os pontos de coleta
+  // Processa os pontos de coleta com IDs únicos baseados no nome, cidade e estado
   const coletaMarkers = pontosColeta.map((ponto) => {
     const coordinates = getCityCoordinates(ponto.cidade, ponto.estado);
     return {
-      id: ponto.id,
+      uniqueId: `${ponto.nome}-${ponto.cidade}-${ponto.estado}`, // Unique and stable ID
       nome: ponto.nome,
       coordinates: coordinates,
       info: ponto,
@@ -125,6 +125,7 @@ function DoarUser() {
   // Função para fechar a tooltip ao clicar fora
   useEffect(() => {
     const handleClickOutside = (event) => {
+      // Se o tooltip estiver aberto e o clique não estiver dentro da tooltip
       if (
         tooltipRef.current &&
         !tooltipRef.current.contains(event.target)
@@ -138,6 +139,16 @@ function DoarUser() {
     };
   }, []);
 
+  // Função para fechar a tooltip ao clicar no contêiner do mapa
+  const handleMapClick = () => {
+    setActiveMarker(null);
+  };
+
+  // Adicione um log para verificar o activeMarker
+  useEffect(() => {
+    console.log(`Active Marker mudou para: ${activeMarker}`);
+  }, [activeMarker]);
+
   return (
     <div className={styles.container}>
       <HeaderUser /> {/* Integra o HeaderUser aqui */}
@@ -146,7 +157,10 @@ function DoarUser() {
           Mapa de Catástrofes e Pontos de Coleta
         </h1>
         {/* Contêiner para o Mapa */}
-        <div className={styles.mapContainer}>
+        <div
+          className={styles.mapContainer}
+          onClick={handleMapClick} // Adiciona o handler
+        >
           <ComposableMap
             projection="geoMercator"
             projectionConfig={{
@@ -205,7 +219,7 @@ function DoarUser() {
                 (marker) =>
                   marker.coordinates && (
                     <Marker
-                      key={`ponto-${marker.id}`} // Garante que a chave seja única
+                      key={`ponto-${marker.uniqueId}`} // Garante que a chave seja única
                       coordinates={marker.coordinates}
                     >
                       <circle
@@ -213,30 +227,36 @@ function DoarUser() {
                         fill="#0000FF" // Azul
                         stroke="#fff"
                         strokeWidth={1}
-                        onClick={() => {
-                          setActiveMarker(marker.id); // Define o marcador ativo
+                        onClick={(e) => {
+                          e.stopPropagation(); // Evita que o clique propague para o mapContainer
+                          console.log(`Marker clicado: ${marker.uniqueId}`);
+                          setActiveMarker(marker.uniqueId); // Define o marcador ativo
                         }}
-                        className={styles.marker}
+                        className={`${styles.marker} ${
+                          activeMarker === marker.uniqueId ? styles.selected : ""
+                        }`}
                         aria-label={`Ponto de coleta: ${marker.nome}`}
                         role="button"
                         tabIndex={0}
                         onKeyPress={(e) => {
                           if (e.key === "Enter") {
-                            setActiveMarker(marker.id);
+                            e.stopPropagation(); // Evita que o clique propague para o mapContainer
+                            setActiveMarker(marker.uniqueId);
                           }
                         }}
                       />
                       {/* Renderiza a tooltip personalizada */}
-                      {activeMarker === marker.id && (
+                      {activeMarker === marker.uniqueId && (
                         <foreignObject
-                          x={-5} // Ajusta a posição horizontal da tooltip
-                          y={-70} // Ajusta a posição vertical da tooltip
+                          x={-2} // Ajuste conforme necessário
+                          y={-55} // Ajuste conforme necessário
                           width={200}
                           height={150}
+                          onClick={(e) => e.stopPropagation()} // Evita que cliques na tooltip fechem a tooltip
                         >
                           <div
                             className={`${styles.customTooltip} ${
-                              activeMarker === marker.id ? styles.show : ""
+                              activeMarker === marker.uniqueId ? styles.show : ""
                             }`}
                             ref={tooltipRef}
                           >
@@ -257,12 +277,7 @@ function DoarUser() {
                               <strong>Doações:</strong>{" "}
                               {marker.info.doacoes.join(", ")}
                             </p>
-                            <button
-                              className={styles.closeButton}
-                              onClick={() => setActiveMarker(null)}
-                            >
-                              Fechar
-                            </button>
+                            {/* Botão "Fechar" removido */}
                           </div>
                         </foreignObject>
                       )}

@@ -1,57 +1,29 @@
-// src/context/DoacoesContext.js
-import React, { createContext, useState, useEffect } from "react";
 
-// Cria o contexto
+import React, { createContext, useState, useEffect } from 'react';
+
 export const DoacoesContext = createContext();
 
-// Cria o provedor do contexto
 export const DoacoesProvider = ({ children }) => {
-  const [doacoes, setDoacoes] = useState(() => {
-    const storedData = localStorage.getItem("doacoes");
-    return storedData ? JSON.parse(storedData) : [];
-  });
+    const [doacoes, setDoacoes] = useState([]);
 
-  useEffect(() => {
-    localStorage.setItem("doacoes", JSON.stringify(doacoes));
-  }, [doacoes]);
+    useEffect(() => {
+        const storedDoacoes = localStorage.getItem('doacoes');
+        if (storedDoacoes) {
+            setDoacoes(JSON.parse(storedDoacoes));
+        }
+    }, []);
 
-  // Função para adicionar uma doação
-  const adicionarDoacao = (novaDoacao) => {
-    const novoId = `DO${doacoes.length + 1}`; // Gera um ID único
-    setDoacoes([...doacoes, { ...novaDoacao, id: novoId }]);
-  };
+    useEffect(() => {
+        localStorage.setItem('doacoes', JSON.stringify(doacoes));
+    }, [doacoes]);
 
-  // Função para remover uma doação pelo ID
-  const removerDoacao = (id) => {
-    setDoacoes(doacoes.filter((doacao) => doacao.id !== id));
-  };
+    const addDoacao = (novaDoacao) => {
+        setDoacoes((prevDoacoes) => [...prevDoacoes, novaDoacao]);
+    };
 
-  // Função para atualizar uma doação pelo ID
-  const atualizarDoacao = (id, doacaoAtualizada) => {
-    setDoacoes(
-      doacoes.map((doacao) =>
-        doacao.id === id ? { ...doacao, ...doacaoAtualizada } : doacao
-      )
+    return (
+        <DoacoesContext.Provider value={{ doacoes, addDoacao }}>
+            {children}
+        </DoacoesContext.Provider>
     );
-  };
-
-  console.log("DoacoesContext Provider:", {
-    doacoes,
-    adicionarDoacao,
-    removerDoacao,
-    atualizarDoacao,
-  });
-
-  return (
-    <DoacoesContext.Provider
-      value={{
-        doacoes,
-        adicionarDoacao,
-        removerDoacao,
-        atualizarDoacao,
-      }}
-    >
-      {children}
-    </DoacoesContext.Provider>
-  );
 };
