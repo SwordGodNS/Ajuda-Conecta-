@@ -13,7 +13,6 @@ import Contate from './components/Contate';
 import Doacoes from './components/Doacoes';
 import DoarUser from './components/DoarUser';
 import Entregas from './components/Entregas';
-import UserMenu from './components/UserMenu';
 import AcompanharUser from './components/AcompanharUser';
 import DetalhesEntrega from './components/DetalhesEntrega';
 import Catastrofes from './components/Catastrofes';
@@ -42,7 +41,6 @@ function App() {
                                 <Route path="/doacoes" element={<Doacoes />} />
                                 <Route path="/doar-user" element={<DoarUser />} />
                                 <Route path="/entregas" element={<Entregas />} />
-                                <Route path="/usermenu" element={<UserMenu />} />
                                 <Route path="/acompanhar-user" element={<AcompanharUser />} />
                                 <Route path="/acompanhar/:id" element={<DetalhesEntrega />} />
                                 <Route path="/catastrofes" element={<Catastrofes />} />
