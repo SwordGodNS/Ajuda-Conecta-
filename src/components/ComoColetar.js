@@ -9,7 +9,7 @@ function ComoColetar() {
         <div className={styles.imgColetaFundo}>
             <div className={styles.colorColetaFundo}></div>
             <div className={styles.textColeta}>
-                <h1 className={styles.coletaTitle}>O modo prático de coletar.</h1>
+                <h1 className={styles.coletaTitle}>O modo prático de ajudar</h1>
                 <p className={styles.coletaP}>
                     Garanta a segurança e a eficiência das doações com pontos de coleta confiáveis e acompanhamento transparente para os usuários.
                 </p>

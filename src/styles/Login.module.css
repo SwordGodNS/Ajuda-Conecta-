@@ -10,7 +10,7 @@
 
 /* Seção esquerda */
 .left {
-    background-color: #84DA15;
+    background: linear-gradient(to bottom right, #84DA15, #58910e); 
     width: 45%;
     height: 100vh;
 }

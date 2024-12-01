@@ -9,11 +9,21 @@
     font-family: "Poppins", sans-serif;
 }
 
+@keyframes easeInAnimation {
+    from {
+      opacity: 0;
+      transform: translateY(0px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 body {
     
     background-color: #675757;
     position: relative;
-    overflow: hidden; 
+    overflow-x: hidden; 
 }
 
 
@@ -22,10 +32,11 @@ body {
     position: absolute;
     width: 65px;
     height: 65px;
-    background-color: #84DA15;
+    background: linear-gradient(to bottom right, #84DA15, #58910e); 
     border-radius: 50%;
     margin: 30px;
     z-index: 1;
+    animation: easeInAnimation 1s ease-in;
 }
 
 .imgLogo {
@@ -36,8 +47,9 @@ body {
     object-fit: cover; 
     z-index: 2; 
     opacity: 2;
-    margin-left: 1.4%;
-    margin-top: 1.4%;
+    margin-left: 1.5%;
+    margin-top: 1.5%;
+    animation: easeInAnimation 2s ease-in;
 }
 
 li a {
@@ -47,6 +59,7 @@ li a {
     text-decoration: none;
     font-size: 14px;
     z-index: 1;
+    animation: easeInAnimation 0.5s ease-in;
 }
 
 li {
@@ -56,11 +69,13 @@ li {
     padding: 40px;
     margin-left: 40px;
     text-align: left;
+    animation: easeInAnimation 2s ease-in;
 }
 
 li:first-child {
     margin-left:14%;
     margin-right: 5%;
+    
 }
 li:last-child{
     margin-left: 8%;
@@ -71,18 +86,6 @@ button {
     z-index: 1;
 }
 
-.loginButton {
-    width: 100px;
-    height: 30px;
-    font-weight: 600;
-    border-radius: 5px;
-    background-color: #ffffff;
-    color: black; 
-    position: absolute; 
-    top: 30px; 
-    right: 50px; 
-
-}
 
 .line {
     position: absolute;
@@ -93,6 +96,7 @@ button {
     margin-left: 10%;
     margin-top: -0.5%;
     z-index: 1;
+    animation: easeInAnimation 2s ease-in;
 }
 .imgHome{
     width: 100%;
@@ -116,6 +120,7 @@ button {
 }
 .h1Home, .p1, .donationButton, .subtitle {
     margin-left: 7%;
+    animation: easeInAnimation 2s ease-in;
 }
 
 .h1Home { 
@@ -139,6 +144,7 @@ button {
     margin-top: 5%;
     color: #FFFFFF;
     font-weight: 300;
+    animation: easeInAnimation 2s ease-in;
 }
 
 .donationButton {
@@ -149,8 +155,9 @@ button {
     border-radius: 50px;
     color: rgb(255, 255, 255);
     margin-top: 2%;
-    background-color: #84DA15;
+    background: linear-gradient(to bottom right, #84DA15, #58910e); 
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.10s, transform 0.30s;
 }
 
 .headerLogo, button {
@@ -164,13 +171,15 @@ button {
     font-weight: 500;
     color: #f7f5f5;
 }
-
-.loginButton:hover {
-    background-color: #000;
-    color: #ffffff;
-}
-
 a:hover {
     color: #84DA15;
     font-weight: 600;
+}
+.donationButton:hover{
+    background: linear-gradient(to bottom right, #84DA15, #58910e); 
+    transform: translateY(-5px);
+}
+
+.donationButton:active{
+    transform: translateY(0);
 }

@@ -1,4 +1,13 @@
-
+@keyframes easeInAnimation {
+    from {
+      opacity: 0;
+      transform: translateY(0px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 .imgColetaFundo{
     position: absolute;
     background-color: hsl(0, 0%, 36%);
@@ -15,11 +24,13 @@
 .coletaTitle{
     margin-top: 20%;
     font-size: 50px;
+    animation: easeInAnimation 1s ease-in;
 }
 .coletaP{
-    font-size: 20px;
+    font-size: 16px;
     width: 500px;
     margin-top: -1%;
+    animation: easeInAnimation 1s ease-in;
 }
 .coletaButton{
     border-radius: 3px;
@@ -36,6 +47,7 @@
     cursor: pointer;
     background-color: #84DA15;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    animation: easeInAnimation 1s ease-in;
 }
 .containersColeta{
     display: flex;
@@ -47,7 +59,7 @@
     justify-content: center;
     text-align: center;
     margin-left: 8%;
-    margin-top: 11%;
+    margin-top: 15%;
     border-radius: 5px;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
     border: 2px solid #84DA15;
@@ -119,9 +131,17 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
     color: #84DA15;
     background-color: #202020;
+    transition: background-color 0.60s, transform 0.80s;
 }
 .footer{
     margin-top: -04%;
     height: 1px;
     width: 100%;
+}
+
+/* ANIMATIONS */
+
+.finalButtonColeta:hover{
+    background: linear-gradient(to bottom right, #609e0f, #3a5f09); 
+    color: #fff;
 }

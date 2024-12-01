@@ -1,4 +1,26 @@
 /* src/styles/ComoDoar.module.css */
+
+
+@keyframes easeInAnimation {
+    from {
+      opacity: 0;
+      transform: translateY(0px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pular {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px); 
+    }
+  }
+
 .comoDoarContainer {
     height: 100vh;
     scroll-behavior: smooth;
@@ -17,7 +39,7 @@
     height: 100.2vh;
     object-fit: cover; 
     z-index: -2; 
-    margin-top: -47.5%;
+    margin-top: -47.2%;
     background-color: #675757;
 }
 .section {
@@ -35,6 +57,7 @@
     margin-top: -35%;
     margin-left: 42%;
     font-size: 100px;
+    animation: easeInAnimation 1s ease-in;
 }
 .comoDoarImgInfoP{
     color: #fff;
@@ -44,41 +67,50 @@
     font-size: 40px;
     justify-content: center;
     text-align: center;
+    animation: easeInAnimation 1s ease-in;
 }
 .comoDoarButton{
     width: 150px;
     height: 50px;
     border-radius: 10px;
-    background: linear-gradient(to bottom right, #84DA15, #66A910, #3B6109);
+    background: #84DA15;
     font-size: 18px;
     position: absolute;
     margin-top: -15%;
     margin-left: 35%;
     font-weight: 500;
+    transition: background-color 0.10s, transform 0.5s;
+    color: #fff;
+    animation: easeInAnimation 1s ease-in;
 }
 .acompanharButton{
     position: absolute;
     margin-top: -15%;
     margin-left: 55%;
     border-radius: 10px;
-    background: linear-gradient(to bottom right, #84DA15, #66A910, #3B6109);
+    background: #84DA15;
     font-size: 18px;
     width: 150px;
     height: 50px;
     font-weight: 500;
+    transition: background-color 0.10s, transform 0.5s;
+    color: #fff;
+    animation: easeInAnimation 1s ease-in;
 }
 .buttonNav{
     position: absolute;
     margin-left: 48%;
     margin-top: -8%;
     border-radius: 50%;
-    transform: rotate(90deg);
+    
     font-size: 80px;
     width: 100px;
     height: 100px;
     background-color: transparent;
     color: #84DA15;
     box-shadow: none;
+    animation: pular 6s infinite; /* Animação contínua */
+    transform: rotate(90deg);
 }
 .h1HowDonate {
     color: #000;
@@ -204,7 +236,7 @@
     position: absolute;
     width: 124vh;
     height: 50vh;
-    background: linear-gradient(to bottom right, #2a4b00, #66A910, #3B6109);
+    background: linear-gradient(to bottom right, #2a4b00 #66A910, #3B6109);
     margin-top: -28.5%;
     margin-left: 50%;
     z-index: -1;
@@ -335,4 +367,15 @@ h4{
 }
 .footer{
     height: 30px;
+}
+
+/* ANIMAÇÕES */
+
+.comoDoarButton:hover , .acompanharButton:hover{
+    background: linear-gradient(to bottom right, #84DA15, #58910e); 
+    transform: translateY(-12px);
+}
+
+.comoDoarButton:active , .acompanharButton:active {
+    transform: translateY(0);
 }

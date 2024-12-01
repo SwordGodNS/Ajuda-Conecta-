@@ -2,6 +2,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../styles/ComoDoar.module.css';
+import scripts from '../scripts/scrollButton';
 
 function ComoDoar() {
     const navigate = useNavigate();
@@ -30,7 +31,7 @@ function ComoDoar() {
                 Acompanhar
             </button>
 
-            <button className={styles.buttonNav}></button>
+            <button id='scrollButton' className={styles.buttonNav}></button>
             <div className={styles.section}>
                 <h1 className={styles.h1HowDonate}>POR QUE DOAR?</h1>
                 <div className={styles.row}>
@@ -120,6 +121,7 @@ function ComoDoar() {
                 </div>
             <div className={styles.footer}></div>
         </div>
+      
     );
 }
 
