@@ -49,8 +49,7 @@
     width: 150px;
     height: 50px;
     border-radius: 10px;
-    background-color: #84DA15;
-    border: solid 3px #84DA15;
+    background: linear-gradient(to bottom right, #84DA15, #66A910, #3B6109);
     font-size: 18px;
     position: absolute;
     margin-top: -15%;
@@ -62,8 +61,7 @@
     margin-top: -15%;
     margin-left: 55%;
     border-radius: 10px;
-    background-color: #84DA15;
-    border: solid 3px #84DA15;
+    background: linear-gradient(to bottom right, #84DA15, #66A910, #3B6109);
     font-size: 18px;
     width: 150px;
     height: 50px;
@@ -128,7 +126,7 @@
 .greyContainer{
     width: 130vh;
     height: 450px;
-    background-color: #373737;
+    background: linear-gradient(to bottom right, #575757, #4c4d4c, #252525);
     z-index: 2;
     text-align: center;
     align-items: center;
@@ -154,14 +152,14 @@
 .pGreyTitle{
     padding-top: 5cap;
     width: 700px;
-    padding-left: 4cap;
+    padding-left: 9cap;
     color: #fff;
     font-size: 14px;
 }
 .dotLine1{
     position: absolute;
     width: 50px;
-    background-color: #373737;
+    background-color: transparent;
     border-bottom: 8px dotted #9d9e9a;
     margin: 20px 0; /* Espaço ao redor da linha */
     font-size: 30px;
@@ -172,7 +170,7 @@
 .dotLine2{
     position: absolute;
     width: 50px;
-    background-color: #373737;
+    background-color: transparent;
     border-bottom: 8px dotted #9d9e9a;
     margin: 20px 0; /* Espaço ao redor da linha */
     font-size: 30px;
@@ -183,7 +181,7 @@
 .dotLine3{
     position: absolute;
     width: 50px;
-    background-color: #373737;
+    background-color: transparent;
     border-bottom: 8px dotted #9d9e9a;
     margin: 20px 0; /* Espaço ao redor da linha */
     font-size: 30px;
@@ -194,7 +192,7 @@
 .dotLine4{
     position: absolute;
     width: 50px;
-    background-color: #373737;
+    background-color: transparent;
     border-bottom: 8px dotted #9d9e9a;
     margin: 20px 0; /* Espaço ao redor da linha */
     font-size: 30px;
@@ -206,7 +204,7 @@
     position: absolute;
     width: 124vh;
     height: 50vh;
-    background: linear-gradient(to bottom right, #84DA15, #66A910, #3B6109);
+    background: linear-gradient(to bottom right, #2a4b00, #66A910, #3B6109);
     margin-top: -28.5%;
     margin-left: 50%;
     z-index: -1;
@@ -220,7 +218,7 @@
     margin-top: -28.5%;
     margin-left: 50%;
     z-index: -1;
-    opacity: 0.50;
+    opacity: 0.60;
 }
 .cardRow {
     display: flex;
@@ -240,7 +238,7 @@
     text-align: center;
     font-family: "Poppins", sans-serif;
     color: #333;
-    height: 220px;
+    height: 280px;
     margin-left: 5%;
 }
 
@@ -254,7 +252,7 @@
     font-size: 14px;
 }
 .donateButton {
-    background-color: #84DA15;
+    background: linear-gradient(to bottom right, #8fe222, #66A910, #8fe222);
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
@@ -280,7 +278,7 @@ h4{
     width: 100%;
     background-color: transparent;
     color: #fff;
-    height: 250px;
+    height: 300px;
 }
 .colorFinal{
     position: absolute;

@@ -68,7 +68,7 @@ function ComoDoar() {
             Com o código de rastreio fornecido, você pode monitorar todo o trajeto da sua contribuição, desde a entrega inicial até o destino final. Assim, garantimos que sua ajuda chegue a quem mais precisa, com segurança e confiança.</p>
             </div>
             <div className={styles.greenContainer}></div>
-            <img className={styles.imgGreenContainer} src='/img/imagem_2023-09-12_062244764.png'></img>
+            <img className={styles.imgGreenContainer} src=''></img>
             <div className={styles.section}>
                 <h2>O caminho da sua doação</h2>
                 <div className={styles.cardRow}>
@@ -96,7 +96,6 @@ function ComoDoar() {
             </div>
 
             <div className={styles.sectionFinal}>
-                <img className={styles.imgFinal} src='/img/doacoes-litoral-3-.webp'></img>
                 <div className={styles.colorFinal}></div>
                 <h4>SEJA UM DOADOR</h4>
                 <p>Milhares de famílias podem estar esperando sua ajuda</p>

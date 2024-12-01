@@ -51,7 +51,6 @@ function AcompanharUser() {
             className={styles.acompanharInput}
             value={codigoRastreio}
             onChange={handleInputChange}
-            placeholder="Código de Rastreio"
             required
           />
           {error && <p className={styles.errorMessage}>{error}</p>}

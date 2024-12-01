@@ -62,7 +62,9 @@ function Login() {
         <div className={styles.container}>
             <div className={styles.left}>
                 <div className={styles.logo}>
-                    <div className={styles.circle}></div>
+                    <div className={styles.circle}>
+                        <img className={styles.imgLogoLogin} src='/img/GroupGreen.png'></img>
+                    </div>
                     <span>AJUDA</span>
                     <span className={styles.subtext}>CONECTA</span>
                 </div>

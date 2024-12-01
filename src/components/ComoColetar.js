@@ -31,7 +31,7 @@ function ComoColetar() {
                     <p className={styles.dashboardColetaP}>
                         O sistema inclui funcionalidades completas de CRUD (Criar, Listar, Atualizar e Deletar) para gerenciar as principais entidades de doações, entregas e pontos de coleta.
                     </p>
-                    <Link to="/entidades" className={styles.dashboardButton}>Veja suas Entidades</Link>
+                    <Link to="/dashboard" className={styles.dashboardButton}>Veja suas Entidades</Link>
                 </div>
                 <div className={styles.containerColeta}>
                     <img className={styles.imgContainerColeta} src="/img/Map.png" alt="Mapeando" />
@@ -39,7 +39,7 @@ function ComoColetar() {
                     <p className={styles.dashboardColetaP}>
                         Você pode visualizar no mapa o ponto de coleta vinculado à sua administração. Nosso sistema foi projetado para facilitar sua gestão e trazer mais transparência ao processo.
                     </p>
-                    <Link to="/mapa" className={styles.dashboardButton}>Veja o Mapa</Link>
+                    <Link to="/doar-user" className={styles.dashboardButton}>Veja o Mapa</Link>
                 </div>
             </div>
             <div className={styles.containerFinalColeta}>
@@ -47,9 +47,11 @@ function ComoColetar() {
                 <p className={styles.finalPColeta}>
                     A Ajuda Conecta é uma plataforma inovadora que transforma a gestão de doações para catástrofes naturais, conectando solidariedade e eficiência.
                 </p>
-                <Link to="/cadastro" className={styles.finalButtonColeta}>Cadastrar</Link>
+                <Link to="/login#" className={styles.finalButtonColeta}>Cadastrar</Link>
             </div>
+            <div className={styles.footer}></div>
         </div>
+        
     );
 }
 

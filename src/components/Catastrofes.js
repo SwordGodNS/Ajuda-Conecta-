@@ -148,12 +148,12 @@ const Catastrofes = () => {
 
       <div className={styles.doacoesTopBoardContainer}>
         <nav>
-          <ul className={styles.navList}>
-            <li className={styles.navListItem}>Admin</li>
-            <li className={styles.navListItem}>
+          <div className={styles.navList}>
+            <p className={styles.navListItem}>Admin</p>
+            <p className={styles.navListItem}>
               <strong>Catástrofes</strong>
-            </li>
-          </ul>
+            </p>
+          </div>
         </nav>
         <h1 className={styles.headerTitleDoacoes}>Catástrofes</h1>
       </div>

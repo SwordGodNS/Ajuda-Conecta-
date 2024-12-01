@@ -188,12 +188,12 @@ const PontosColeta = () => {
       {/* Cabeçalho e Navegação */}
       <div className={styles.doacoesTopBoardContainer}>
         <nav>
-          <ul className={styles.navList}>
-            <li className={styles.navListItem}>Admin</li>
-            <li className={styles.navListItem}>
+          <div className={styles.navList}>
+            <p className={styles.navListItem}>Admin</p>
+            <p className={styles.navListItem}>
               <strong>Pontos de Coleta</strong>
-            </li>
-          </ul>
+            </p>
+          </div>
         </nav>
         <h1 className={styles.headerTitleDoacoes}>Pontos de Coleta</h1>
       </div>

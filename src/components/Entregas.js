@@ -152,12 +152,12 @@ function Entregas() {
 
       <div className={styles.entregasTopBoardContainer}>
         <nav>
-          <ul className={styles.entregasNavList}>
-            <li className={styles.entregasNavListItem}>Admin</li>
-            <li className={styles.entregasNavListItem}>
+          <div className={styles.entregasNavList}>
+            <p className={styles.entregasNavListItem}>Admin</p>
+            <p className={styles.entregasNavListItem}>
               <strong>Entregas</strong>
-            </li>
-          </ul>
+            </p>
+          </div>
         </nav>
         <h1 className={styles.entregasHeaderTitle}>Entregas</h1>
       </div>
@@ -229,12 +229,12 @@ function Entregas() {
                     required
                     placeholder="123.456.789-00"
                   >
-                    {(inputProps) => <input type="text" id="cpf" {...inputProps} />}
+                    {(inputProps) => <input className={styles.cpf12} type="text" id="cpf" {...inputProps} />}
                   </InputMask>
                 </div>
                 <div className={styles.entregasFormGroupInline}>
                   <label htmlFor="data">Data de Entrega:</label>
-                  <input
+                  <input className={styles.date12}
                     type="date"
                     id="data"
                     name="data"
@@ -317,14 +317,14 @@ function Entregas() {
               </div>
               <div className={styles.entregasModalButtons}>
                 <button type="submit" className={styles.entregasSaveButton}>
-                  {isEditing ? "Atualizar" : "Salvar"}
+                  {isEditing ? "Atualizar" : "Cadastrar"}
                 </button>
                 <button
                   type="button"
                   onClick={handleCloseForm}
                   className={styles.entregasCancelButton}
                 >
-                  Cancelar
+                  Fechar
                 </button>
               </div>
             </form>

@@ -15,7 +15,13 @@ body {
     margin-left: 35%;
     margin-top: -2%;
 }
-
+.dashboardLogoImg{
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    margin-top: -3%;
+    margin-left: -3%;
+}
 .dashboard-dashboardLine {
     background-color: #d1d1d1;
     height: 2px;
@@ -143,7 +149,7 @@ body {
     position: absolute;
     width: 182px;
     height: 36px;
-    margin-left: 75%;
+    margin-left: 73.5%;
     margin-top: -6%;
     border: 2px solid #84DA15;
     border-radius: 10px;
