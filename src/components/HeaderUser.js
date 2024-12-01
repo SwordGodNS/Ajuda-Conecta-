@@ -19,9 +19,9 @@ function HeaderUser() {
         <img className={styles.imgLogoUser} src="/img/GroupGreen.png" alt="Logo" />
         <nav>
             <ul>
-                <li><Link to="/como-doar">HOME</Link></li>
-                <li className={styles.liSecond}><Link to="/contate">DOAR </Link></li>
-                <li><Link to="/contate">ACOMPANHAR </Link></li>
+                <li><Link to="/">HOME</Link></li>
+                <li className={styles.liSecond}><Link to="/doar-user">DOAR </Link></li>
+                <li><Link to="/acompanhar-user">ACOMPANHAR </Link></li>
             </ul>
         </nav>
         <div className={styles.line}></div>

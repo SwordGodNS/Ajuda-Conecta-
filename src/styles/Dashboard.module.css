@@ -56,9 +56,9 @@ body {
 }
 
 .dashboard-nav {
-    width: 23px;
-    height: 23px;
-    padding-left: 0.65cap;
+    width: 30px;
+    height: 30px;
+    padding-left: 0.5cap;
     padding-top: 0.5cap;
 }
 
@@ -182,8 +182,8 @@ body {
 }
 
 .dashboard-today {
-    width: 30px;
-    height: 30px;
+    width: 38px;
+    height: 32px;
     padding-left: 0.7cap;
     padding-top: 0.5cap;
 }
@@ -385,8 +385,8 @@ body {
 }
 
 .dashboard-userIcon {
-    width: 30px;
-    height: 30px;
+    width: 38px;
+    height: 34px;
     padding-left: 0.8cap;
     padding-top: 0.8cap;
 }

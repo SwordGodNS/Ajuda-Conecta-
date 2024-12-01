@@ -5,7 +5,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import User from './components/User';
+import PontosColeta from './components/PontosColeta';
 import Dashboard from './components/Dashboard';
 import ComoDoar from './components/ComoDoar';
 import ComoColetar from './components/ComoColetar';
@@ -15,6 +15,7 @@ import DoarUser from './components/DoarUser';
 import Entregas from './components/Entregas';
 import UserMenu from './components/UserMenu';
 import AcompanharUser from './components/AcompanharUser';
+import DetalhesEntrega from './components/DetalhesEntrega';
 import Catastrofes from './components/Catastrofes';
 import { DoacoesProvider } from './context/DoacoesContext';
 import { EntregasProvider } from './context/EntregasContext';
@@ -33,7 +34,7 @@ function App() {
                                 <Route path="/" element={<Home />} />
                                 <Route path="/login" element={<Login />} />
                                 <Route path="/signup" element={<Signup />} />
-                                <Route path="/user" element={<User />} />
+                                <Route path="/pontos-coleta" element={<PontosColeta />} />
                                 <Route path="/dashboard" element={<Dashboard />} />
                                 <Route path="/como-doar" element={<ComoDoar />} />
                                 <Route path="/como-coletar" element={<ComoColetar />} />
@@ -43,6 +44,7 @@ function App() {
                                 <Route path="/entregas" element={<Entregas />} />
                                 <Route path="/usermenu" element={<UserMenu />} />
                                 <Route path="/acompanhar-user" element={<AcompanharUser />} />
+                                <Route path="/acompanhar/:id" element={<DetalhesEntrega />} />
                                 <Route path="/catastrofes" element={<Catastrofes />} />
                             </Routes>
                         </Router>

@@ -1,15 +1,14 @@
-/* src/styles/Catastrofes.module.css */
+/* src/styles/User.module.css */
 
-/* Importante: Atualize os nomes das classes para corresponderem aos de Doacoes.module.css */
-
-.catastrofesContainer {
+.doacoesContainer {
     margin: 20px;
     padding: 20px;
     font-family: 'Roboto', sans-serif;
     min-height: 100vh;
+    position: relative; /* Permite posicionamento absoluto das mensagens */
 }
 
-.doacoesTopBoardContainer { /* Renomeado para manter consistência */
+.doacoesTopBoardContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,7 +25,7 @@
 
 .navListItem {
     margin-right: 5px;
-    font-size: 14px;
+    font-size: 15px;
     color: #686868;
 }
 
@@ -39,8 +38,11 @@
     content: '';
 }
 
-.headerTitleDoacoes { /* Renomeado para manter consistência */
+.headerTitleDoacoes {
     position: absolute;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
 }
 
 .searchAndAddContainer {
@@ -87,7 +89,7 @@
     border-color: #72c30b;
 }
 
-.containerDoacoes { /* Renomeado para refletir catástrofes */
+.containerDoacoes {
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -97,7 +99,7 @@
     margin: 0 auto;
 }
 
-.doacoesListTitle { /* Renomeado para refletir catástrofes */
+.doacoesListTitle {
     font-size: 22px;
     font-weight: 600;
     color: #333;
@@ -105,7 +107,7 @@
     text-align: center;
 }
 
-.doacoesDataHeader { /* Renomeado para refletir catástrofes */
+.doacoesDataHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -117,7 +119,7 @@
     background-color: #f1f1f1;
 }
 
-.doacoesDataRow { /* Renomeado para refletir catástrofes */
+.doacoesDataRow {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -128,25 +130,25 @@
     transition: background-color 0.3s;
 }
 
-.doacoesDataRow:hover { /* Renomeado para refletir catástrofes */
+.doacoesDataRow:hover {
     background-color: #f9f9f9;
 }
 
-.doacoesDataColumn { /* Renomeado para refletir catástrofes */
+.doacoesDataColumn {
     flex: 1;
     text-align: center;
     padding: 0 10px;
     word-wrap: break-word;
 }
 
-.doacoesDataColumn:first-child { /* Renomeado para refletir catástrofes */
+.doacoesDataColumn:first-child {
     text-align: left;
     font-weight: 600;
     flex: 2;
 }
 
 /* Botões de Ação */
-.doacoesActionButtons { /* Renomeado para refletir catástrofes */
+.doacoesActionButtons {
     display: flex;
     flex-direction: column; /* Alinha os botões verticalmente */
     gap: 5px; /* Espaçamento entre os botões */
@@ -154,7 +156,8 @@
 }
 
 .editButton,
-.deleteButton {
+.deleteButton,
+.copyButton {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,6 +186,14 @@
 
 .deleteButton:hover {
     background-color: #d32f2f;
+}
+
+.copyButton {
+    background-color: #2196F3;
+}
+
+.copyButton:hover {
+    background-color: #1976D2;
 }
 
 /* Modal */
@@ -221,7 +232,7 @@
     text-align: left;
 }
 
-.formGroup label {
+.label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
@@ -232,7 +243,7 @@
 .input,
 .inputSelect,
 .inputDate {
-    width: 100%;
+    width: 85%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -241,13 +252,21 @@
     transition: border-color 0.3s;
 }
 
-.input:focus,
-.inputSelect:focus,
-.inputDate:focus {
-    border-color: #84DA15;
+.inputSelect {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+    height: auto;
+  }
+
+.inputDate {
+    height: 13px;
 }
 
-/* Estilo inline para CPF e Data */
 .formRow {
     display: flex;
     justify-content: space-between;
@@ -257,6 +276,66 @@
 
 .formRow .formGroup {
     flex: 1;
+}
+
+.inlineGroup {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.formGroupInline {
+    flex: 1;
+}
+
+.doacaoInputContainer {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.addDoacaoButton {
+    background-color: #84da15;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.addDoacaoButton:hover {
+    background-color: #72c212;
+}
+
+.doacoesList {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.doacaoItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 8px 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.removeDoacaoButton {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.removeDoacaoButton:hover {
+    background-color: #e53935;
 }
 
 .modalButtons {
@@ -300,13 +379,12 @@
     background-color: #d32f2f;
 }
 
-/* Mensagens */
 .successMessage {
     background-color: #4CAF50;
     color: white;
     padding: 10px;
     border-radius: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: center;
     font-weight: bold;
     animation: fadeIn 0.5s ease-in-out;
@@ -326,15 +404,17 @@
 @keyframes fadeIn {
     from {
         opacity: 0;
+        transform: scale(0.75);
     }
     to {
         opacity: 1;
+        transform: scale(1);
     }
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .doacoesTopBoardContainer { /* Renomeado para refletir catástrofes */
+    .doacoesTopBoardContainer {
         flex-direction: column;
         align-items: flex-start;
     }
@@ -352,41 +432,54 @@
 
     .searchInput {
         width: 100%;
+        margin-left: 0;
     }
 
     .addButton {
         align-self: flex-end;
+        position: static;
+        margin-top: 10px;
     }
 
     .formRow {
         flex-direction: column;
     }
+    
 
-    .doacoesDataHeader, /* Renomeado para refletir catástrofes */
-    .doacoesDataRow { /* Renomeado para refletir catástrofes */
+    .doacoesDataHeader,
+    .doacoesDataRow {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .doacoesDataColumn { /* Renomeado para refletir catástrofes */
+    .doacoesDataColumn {
         text-align: left;
         padding: 5px 0;
     }
 
-    .doacoesDataColumn:first-child { /* Renomeado para refletir catástrofes */
+    .doacoesDataColumn:first-child {
         font-weight: 600;
     }
 
-    .doacoesActionButtons { /* Renomeado para refletir catástrofes */
+    .doacoesActionButtons {
         flex-direction: row;
         justify-content: flex-start;
         gap: 5px;
     }
 
     .editButton,
-    .deleteButton {
+    .deleteButton,
+    .copyButton {
         width: auto;
         padding: 8px 12px;
         font-size: 12px;
+    }
+
+    .inlineGroup {
+        flex-direction: column;
+    }
+
+    .formGroupInline {
+        flex: 1 1 100%;
     }
 }

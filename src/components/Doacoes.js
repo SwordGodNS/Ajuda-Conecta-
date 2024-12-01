@@ -1,7 +1,10 @@
 // src/pages/Doacoes.js
+
 import React, { useState, useContext } from "react";
+import InputMask from 'react-input-mask'; // Importação do InputMask
+import { DoacoesContext } from "../context/DoacoesContext"; // Verifique se o caminho está correto
 import styles from "../styles/Doacoes.module.css";
-import { DoacoesContext } from "../context/DoacoesContext"; // Verifique o caminho
+import { FaEdit, FaTrash, FaPlus } from 'react-icons/fa'; // Importação dos ícones
 
 const Doacoes = () => {
   const {
@@ -9,7 +12,7 @@ const Doacoes = () => {
     adicionarDoacao,
     removerDoacao,
     atualizarDoacao,
-  } = useContext(DoacoesContext); // Acessa o contexto
+  } = useContext(DoacoesContext);
 
   // Estados para o modal de cadastro/edição
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,6 +31,10 @@ const Doacoes = () => {
   // Estados para o modal de confirmação de exclusão
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
   const [doacaoParaDeletar, setDoacaoParaDeletar] = useState(null);
+
+  // Estados para mensagens de sucesso e erro
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   // Função para abrir o modal de cadastro
   const handleOpenModal = () => {
@@ -59,6 +66,7 @@ const Doacoes = () => {
       destinatario: "",
       status: "",
     });
+    setErrorMessage('');
   };
 
   // Função para lidar com as mudanças nos campos do formulário
@@ -73,15 +81,21 @@ const Doacoes = () => {
   // Função para cadastrar uma nova doação
   const handleSubmit = (event) => {
     event.preventDefault();
-    adicionarDoacao(novaDoacao);
+    // Gerar um ID único (pode usar uuid ou outra lógica)
+    const idGerado = Date.now().toString();
+    adicionarDoacao({ ...novaDoacao, id: idGerado });
+    setSuccessMessage('Doação cadastrada com sucesso!');
     handleCloseModal();
+    setTimeout(() => setSuccessMessage(''), 5000); // Limpa a mensagem após 5 segundos
   };
 
   // Função para atualizar uma doação existente
   const handleUpdate = (event) => {
     event.preventDefault();
     atualizarDoacao(editingDoacao.id, novaDoacao);
+    setSuccessMessage('Doação atualizada com sucesso!');
     handleCloseModal();
+    setTimeout(() => setSuccessMessage(''), 5000); // Limpa a mensagem após 5 segundos
   };
 
   // Função para abrir o modal de edição com os dados da doação selecionada
@@ -101,8 +115,10 @@ const Doacoes = () => {
   const confirmDelete = () => {
     if (doacaoParaDeletar) {
       removerDoacao(doacaoParaDeletar.id);
+      setSuccessMessage('Doação removida com sucesso!');
       setDoacaoParaDeletar(null);
       setIsConfirmModalOpen(false);
+      setTimeout(() => setSuccessMessage(''), 5000); // Limpa a mensagem após 5 segundos
     }
   };
 
@@ -113,66 +129,61 @@ const Doacoes = () => {
   };
 
   return (
-    <div className={styles.doacoesDashboardsContainer}>
+    <div className={styles.doacoesContainer}>
+      {/* Mensagens de Sucesso e Erro */}
+      {successMessage && <div className={styles.successMessage}>{successMessage}</div>}
+      {errorMessage && <div className={styles.errorMessage}>{errorMessage}</div>}
+
       <div className={styles.doacoesTopBoardContainer}>
         <nav>
           <ul className={styles.navList}>
-            <li className={styles.navListItem}>Admin/</li>
+            <li className={styles.navListItem}>Admin</li>
             <li className={styles.navListItem}>
               <strong>Doações</strong>
             </li>
           </ul>
         </nav>
-        <h1 className={styles.headerTitleCatastrofes}>Doações</h1>
+        <h1 className={styles.headerTitleDoacoes}>Doações</h1>
       </div>
-      <input
-        type="text"
-        className={styles.searchInput}
-        placeholder="Pesquise aqui"
-      />
-      <button className={styles.addButton} onClick={handleOpenModal}>
-        <img
-          className={styles.imgButtonCatastrofes}
-          src="../img/Add User Male.svg"
-          alt="Adicionar Doação"
+      <div className={styles.searchAndAddContainer}>
+        <input
+          type="text"
+          className={styles.searchInput}
+          placeholder="Pesquise por ID, Doador ou CPF"
         />
-      </button>
+        <button className={styles.addButton} onClick={handleOpenModal} aria-label="Adicionar Doação">
+          <FaPlus size={24} color="#fff" />
+        </button>
+      </div>
 
-      {/* Lista de doações */}
-      <div className={styles.containerDoacoes1}>
-        <h2 className={styles.h2Doacoes}>Lista de Doações</h2>
-        <div className={styles.doacoesData}>
-          <p className={styles.doacoesDataBaseFirst}>ID Doação</p>
-          <p className={styles.doacoesDataBase}>Doador</p>
-          <p className={styles.doacoesDataBase}>Tipo</p>
-          <p className={styles.doacoesDataBase}>Data</p>
-          <p className={styles.doacoesDataBase}>Local da Entrega</p>
-          <p className={styles.doacoesDataBase}>Destinatário</p>
-          <p className={styles.doacoesDataBase}>Status</p>
-          <p className={styles.doacoesDataBase}>Ações</p> {/* Nova coluna */}
+      {/* Lista de Doações */}
+      <div className={styles.containerDoacoes}>
+        <h2 className={styles.doacoesListTitle}>Lista de Doações</h2>
+        <div className={styles.doacoesDataHeader}>
+          <p className={styles.doacoesDataColumn}>ID Doação</p>
+          <p className={styles.doacoesDataColumn}>Doador</p>
+          <p className={styles.doacoesDataColumn}>Tipo</p>
+          <p className={styles.doacoesDataColumn}>Data</p>
+          <p className={styles.doacoesDataColumn}>Local da Entrega</p>
+          <p className={styles.doacoesDataColumn}>Destinatário</p>
+          <p className={styles.doacoesDataColumn}>Status</p>
+          <p className={styles.doacoesDataColumn}>Ações</p>
         </div>
-        {/* Renderiza as doações cadastradas */}
         {doacoes.map((doacao) => (
-          <div key={doacao.id} className={styles.doacaoItem}>
-            <p className={styles.doacoesDataBaseFirst}>{doacao.id}</p>
-            <p className={styles.doacoesDataBase}>{doacao.doador}</p>
-            <p className={styles.doacoesDataBase}>{doacao.tipo}</p>
-            <p className={styles.doacoesDataBase}>{doacao.data}</p>
-            <p className={styles.doacoesDataBase}>{doacao.local}</p>
-            <p className={styles.doacoesDataBase}>{doacao.destinatario}</p>
-            <p className={styles.doacoesDataBase}>{doacao.status}</p>
-            <div className={styles.actionButtons}>
-              <button
-                onClick={() => handleEdit(doacao)}
-                className={styles.editButton}
-              >
-                Editar
+          <div key={doacao.id} className={styles.doacoesDataRow}>
+            <p className={styles.doacoesDataColumn}>{doacao.id}</p>
+            <p className={styles.doacoesDataColumn}>{doacao.doador}</p>
+            <p className={styles.doacoesDataColumn}>{doacao.tipo}</p>
+            <p className={styles.doacoesDataColumn}>{doacao.data}</p>
+            <p className={styles.doacoesDataColumn}>{doacao.local}</p>
+            <p className={styles.doacoesDataColumn}>{doacao.destinatario}</p>
+            <p className={styles.doacoesDataColumn}>{doacao.status}</p>
+            <div className={styles.doacoesActionButtons}>
+              <button onClick={() => handleEdit(doacao)} className={styles.editButton} aria-label="Editar Doação">
+                <FaEdit /> Editar
               </button>
-              <button
-                onClick={() => handleDelete(doacao)}
-                className={styles.deleteButton}
-              >
-                Excluir
+              <button onClick={() => handleDelete(doacao)} className={styles.deleteButton} aria-label="Excluir Doação">
+                <FaTrash /> Excluir
               </button>
             </div>
           </div>
@@ -181,11 +192,11 @@ const Doacoes = () => {
 
       {/* Modal de Cadastro e Edição */}
       {isModalOpen && (
-        <div className={styles.overlay}>
-          <div className={styles.modal}>
-            <h4 className={styles.modalTitle}>
+        <div className={styles.modalOverlay}>
+          <div className={styles.modalContent}>
+            <h2 className={styles.modalTitle}>
               {editingDoacao ? "Editar Doação" : "Cadastrar Nova Doação"}
-            </h4>
+            </h2>
             <form
               className={styles.form}
               onSubmit={editingDoacao ? handleUpdate : handleSubmit}
@@ -202,6 +213,7 @@ const Doacoes = () => {
                   value={novaDoacao.doador}
                   onChange={handleInputChange}
                   required
+                  placeholder="Nome do Doador"
                 />
               </div>
               <div className={styles.formRow}>
@@ -209,16 +221,17 @@ const Doacoes = () => {
                   <label htmlFor="cpf" className={styles.label}>
                     CPF
                   </label>
-                  <input
-                    className={styles.input}
-                    type="text"
-                    id="cpf"
+                  <InputMask
+                    mask="999.999.999-99"
+                    maskChar={null}
                     name="cpf"
-                    maxLength="14"
                     value={novaDoacao.cpf}
                     onChange={handleInputChange}
                     required
-                  />
+                    placeholder="123.456.789-00"
+                  >
+                    {(inputProps) => <input type="text" {...inputProps} className={styles.input} />}
+                  </InputMask>
                 </div>
                 <div className={styles.formGroup}>
                   <label htmlFor="data" className={styles.label}>
@@ -248,14 +261,10 @@ const Doacoes = () => {
                   required
                 >
                   <option value="">Selecione</option>
-                  <option value="Alimentos não perecíveis">
-                    Alimentos não perecíveis
-                  </option>
+                  <option value="Alimentos não perecíveis">Alimentos não perecíveis</option>
                   <option value="Água potável">Água potável</option>
                   <option value="Roupas e Calçados">Roupas e Calçados</option>
-                  <option value="Produtos de Higiene Pessoal">
-                    Produtos de Higiene Pessoal
-                  </option>
+                  <option value="Produtos de Higiene Pessoal">Produtos de Higiene Pessoal</option>
                 </select>
               </div>
               <div className={styles.formGroup}>
@@ -270,6 +279,7 @@ const Doacoes = () => {
                   value={novaDoacao.local}
                   onChange={handleInputChange}
                   required
+                  placeholder="Endereço de Entrega"
                 />
               </div>
               <div className={styles.formGroup}>
@@ -284,6 +294,7 @@ const Doacoes = () => {
                   value={novaDoacao.destinatario}
                   onChange={handleInputChange}
                   required
+                  placeholder="Nome do Destinatário"
                 />
               </div>
               <div className={styles.formGroup}>
@@ -305,7 +316,7 @@ const Doacoes = () => {
                   <option value="Cancelado">Cancelado</option>
                 </select>
               </div>
-              <div className={styles.formActions}>
+              <div className={styles.modalButtons}>
                 <button type="submit" className={styles.submitButton}>
                   {editingDoacao ? "Atualizar" : "Cadastrar"}
                 </button>
@@ -324,14 +335,14 @@ const Doacoes = () => {
 
       {/* Modal de Confirmação de Exclusão */}
       {isConfirmModalOpen && doacaoParaDeletar && (
-        <div className={styles.overlay}>
-          <div className={styles.modal}>
-            <h4 className={styles.modalTitle}>Confirmar Exclusão</h4>
+        <div className={styles.modalOverlay}>
+          <div className={styles.modalContent}>
+            <h2 className={styles.modalTitle}>Confirmar Exclusão</h2>
             <p>
               Você tem certeza que deseja excluir a doação de{" "}
               <strong>{doacaoParaDeletar.doador}</strong>?
             </p>
-            <div className={styles.formActions}>
+            <div className={styles.modalButtons}>
               <button
                 className={styles.submitButton}
                 onClick={confirmDelete}

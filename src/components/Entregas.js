@@ -1,7 +1,10 @@
-// src/pages/Entregas.js
+// src/components/Entregas.js
+
 import React, { useState, useContext } from "react";
+import InputMask from 'react-input-mask';
 import { EntregasContext } from "../context/EntregasContext";
 import styles from "../styles/Entregas.module.css";
+import { FaEdit, FaTrash, FaCopy, FaPlus } from 'react-icons/fa';
 
 function Entregas() {
   const [isRegistering, setIsRegistering] = useState(false);
@@ -21,6 +24,8 @@ function Entregas() {
 
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
   const [entregaParaDeletar, setEntregaParaDeletar] = useState(null);
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleAddClick = () => {
     setIsRegistering(true);
@@ -50,6 +55,7 @@ function Entregas() {
       data: "",
       status: "Pendente",
     });
+    setErrorMessage('');
   };
 
   const handleChange = (e) => {
@@ -59,12 +65,45 @@ function Entregas() {
 
   const handleSave = (e) => {
     e.preventDefault();
-    if (isEditing) {
-      editarEntrega(entregaSelecionada.id, novaEntrega);
-    } else {
-      adicionarEntrega(novaEntrega);
+    const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+    const cepRegex = /^\d{5}-\d{3}$/;
+
+    const cepDoadorTrimmed = novaEntrega.cepDoador.trim();
+    const cepDestinatarioTrimmed = novaEntrega.cepDestinatario.trim();
+
+    console.log("CPF:", novaEntrega.cpf);
+    console.log("CEP Doador Trimmed:", cepDoadorTrimmed);
+    console.log("CEP Destinatário Trimmed:", cepDestinatarioTrimmed);
+
+    if (!cpfRegex.test(novaEntrega.cpf)) {
+      setErrorMessage('CPF inválido.');
+      setSuccessMessage('');
+      return;
     }
+
+    if (!cepRegex.test(cepDoadorTrimmed) || !cepRegex.test(cepDestinatarioTrimmed)) {
+      setErrorMessage('CEP(s) inválido(s).');
+      setSuccessMessage('');
+      return;
+    }
+
+    const entregaAtualizada = {
+      ...novaEntrega,
+      cepDoador: cepDoadorTrimmed,
+      cepDestinatario: cepDestinatarioTrimmed,
+    };
+
+    if (isEditing) {
+      editarEntrega(entregaSelecionada.id, entregaAtualizada);
+      setSuccessMessage('Entrega atualizada com sucesso!');
+    } else {
+      const idGerado = Date.now().toString();
+      adicionarEntrega({ ...entregaAtualizada, id: idGerado });
+      setSuccessMessage(`Entrega adicionada com sucesso! Código de Rastreio: ${idGerado}`);
+    }
+    setErrorMessage('');
     handleCloseForm();
+    setTimeout(() => setSuccessMessage(''), 5000);
   };
 
   const handleEditClick = (entrega) => {
@@ -82,8 +121,11 @@ function Entregas() {
   const confirmDelete = () => {
     if (entregaParaDeletar) {
       removerEntrega(entregaParaDeletar.id);
+      setSuccessMessage('Entrega removida com sucesso!');
+      setErrorMessage('');
       setEntregaParaDeletar(null);
       setIsConfirmModalOpen(false);
+      setTimeout(() => setSuccessMessage(''), 5000);
     }
   };
 
@@ -92,15 +134,26 @@ function Entregas() {
     setIsConfirmModalOpen(false);
   };
 
-  // Log para verificar as funções do contexto
-  console.log("Funções do contexto:", { adicionarEntrega, removerEntrega, editarEntrega });
+  const handleCopyClick = (id) => {
+    navigator.clipboard.writeText(id)
+      .then(() => {
+        alert("Código de rastreio copiado para a área de transferência!");
+      })
+      .catch(err => {
+        console.error("Erro ao copiar o código:", err);
+      });
+  };
 
   return (
     <div className={styles.entregasContainer}>
+      {/* Mensagens de Sucesso e Erro */}
+      {successMessage && <div className={styles.successMessage}>{successMessage}</div>}
+      {errorMessage && <div className={styles.errorMessage}>{errorMessage}</div>}
+
       <div className={styles.entregasTopBoardContainer}>
         <nav>
           <ul className={styles.entregasNavList}>
-            <li className={styles.entregasNavListItem}>Admin/</li>
+            <li className={styles.entregasNavListItem}>Admin</li>
             <li className={styles.entregasNavListItem}>
               <strong>Entregas</strong>
             </li>
@@ -108,18 +161,16 @@ function Entregas() {
         </nav>
         <h1 className={styles.entregasHeaderTitle}>Entregas</h1>
       </div>
-      <input
-        type="text"
-        className={styles.entregasSearchInput}
-        placeholder="Pesquise aqui"
-      />
-      <button className={styles.entregasAddButton} onClick={handleAddClick}>
-        <img
-          className={styles.entregasImgButton}
-          src="../img/Add User Male.svg"
-          alt="Adicionar Entrega"
+      <div className={styles.searchAndAddContainer}>
+        <input
+          type="text"
+          className={styles.entregasSearchInput}
+          placeholder="Pesquisar por ID, CPF ou CEP"
         />
-      </button>
+        <button className={styles.entregasAddButton} onClick={handleAddClick} aria-label="Adicionar Entrega">
+          <FaPlus size={24} color="#fff" />
+        </button>
+      </div>
 
       {/* Lista de Entregas */}
       <div className={styles.entregasListContainer}>
@@ -133,9 +184,8 @@ function Entregas() {
           <p className={styles.entregasDataColumn}>Lote</p>
           <p className={styles.entregasDataColumn}>Data</p>
           <p className={styles.entregasDataColumn}>Status</p>
-          <p className={styles.entregasDataColumn}>Ações</p> {/* Nova coluna */}
+          <p className={styles.entregasDataColumn}>Ações</p>
         </div>
-        {/* Renderiza as entregas cadastradas */}
         {entregas.map((entrega) => (
           <div key={entrega.id} className={styles.entregasDataRow}>
             <p className={styles.entregasDataColumn}>{entrega.id}</p>
@@ -147,17 +197,14 @@ function Entregas() {
             <p className={styles.entregasDataColumn}>{entrega.data}</p>
             <p className={styles.entregasDataColumn}>{entrega.status}</p>
             <div className={styles.entregasActionButtons}>
-              <button
-                onClick={() => handleEditClick(entrega)}
-                className={styles.editButton}
-              >
-                Editar
+              <button onClick={() => handleEditClick(entrega)} className={styles.editButton} aria-label="Editar Entrega">
+                <FaEdit /> Editar
               </button>
-              <button
-                onClick={() => handleDeleteClick(entrega)}
-                className={styles.deleteButton}
-              >
-                Excluir
+              <button onClick={() => handleDeleteClick(entrega)} className={styles.deleteButton} aria-label="Excluir Entrega">
+                <FaTrash /> Excluir
+              </button>
+              <button onClick={() => handleCopyClick(entrega.id)} className={styles.copyButton} aria-label="Copiar ID">
+                <FaCopy /> Copiar ID
               </button>
             </div>
           </div>
@@ -170,80 +217,103 @@ function Entregas() {
           <div className={styles.entregasModalContent}>
             <h2>{isEditing ? "Editar Entrega" : "Cadastrar Nova Entrega"}</h2>
             <form onSubmit={handleSave}>
-              {/* Removido o campo de ID */}
-              <div className={styles.entregasFormGroup}>
-                <label>CPF:</label>
-                <input
-                  type="text"
-                  name="cpf"
-                  value={novaEntrega.cpf}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className={styles.entregasFormGroup}>
-                <label>CEP Doador:</label>
-                <input
-                  type="text"
-                  name="cepDoador"
-                  value={novaEntrega.cepDoador}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className={styles.entregasFormGroup}>
-                <label>CEP Destinatário:</label>
-                <input
-                  type="text"
-                  name="cepDestinatario"
-                  value={novaEntrega.cepDestinatario}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className={styles.entregasFormGroup}>
-                <label>Itens:</label>
-                <input
-                  type="text"
-                  name="itens"
-                  value={novaEntrega.itens}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className={styles.entregasFormGroup}>
-                <label>Lote:</label>
-                <input
-                  type="text"
-                  name="lote"
-                  value={novaEntrega.lote}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
               <div className={styles.entregasInlineGroup}>
                 <div className={styles.entregasFormGroupInline}>
-                  <label>Data de Entrega:</label>
+                  <label htmlFor="cpf">CPF:</label>
+                  <InputMask
+                    mask="999.999.999-99"
+                    maskChar={null}
+                    name="cpf"
+                    value={novaEntrega.cpf}
+                    onChange={handleChange}
+                    required
+                    placeholder="123.456.789-00"
+                  >
+                    {(inputProps) => <input type="text" id="cpf" {...inputProps} />}
+                  </InputMask>
+                </div>
+                <div className={styles.entregasFormGroupInline}>
+                  <label htmlFor="data">Data de Entrega:</label>
                   <input
                     type="date"
+                    id="data"
                     name="data"
                     value={novaEntrega.data}
                     onChange={handleChange}
                     required
                   />
                 </div>
-                <div className={styles.entregasFormGroupInline}>
-                  <label>Status:</label>
-                  <select
-                    name="status"
-                    value={novaEntrega.status}
-                    onChange={handleChange}
-                    required
-                  >
-                    <option value="Pendente">Pendente</option>
-                    <option value="Entregue">Entregue</option>
-                  </select>
-                </div>
+              </div>
+              <div className={styles.entregasFormGroup}>
+                <label htmlFor="cepDoador">CEP Doador:</label>
+                <InputMask
+                  mask="99999-999"
+                  maskChar={null}
+                  name="cepDoador"
+                  value={novaEntrega.cepDoador}
+                  onChange={handleChange}
+                  required
+                  placeholder="88032-300"
+                >
+                  {(inputProps) => <input type="text" id="cepDoador" {...inputProps} />}
+                </InputMask>
+              </div>
+              <div className={styles.entregasFormGroup}>
+                <label htmlFor="cepDestinatario">CEP Destinatário:</label>
+                <InputMask
+                  mask="99999-999"
+                  maskChar={null}
+                  name="cepDestinatario"
+                  value={novaEntrega.cepDestinatario}
+                  onChange={handleChange}
+                  required
+                  placeholder="12345-678"
+                >
+                  {(inputProps) => <input type="text" id="cepDestinatario" {...inputProps} />}
+                </InputMask>
+              </div>
+              <div className={styles.entregasFormGroup}>
+                <label htmlFor="itens">Itens:</label>
+                <select
+                  name="itens"
+                  id="itens"
+                  value={novaEntrega.itens}
+                  onChange={handleChange}
+                  required
+                  className={styles.entregasSelect}
+                >
+                  <option value="" disabled>Selecione um item</option>
+                  <option value="Alimentos não perecíveis">Alimentos não perecíveis</option>
+                  <option value="Água potável">Água potável</option>
+                  <option value="Roupas e Calçados">Roupas e Calçados</option>
+                  <option value="Produtos de Higiene Pessoal">Produtos de Higiene Pessoal</option>
+                </select>
+              </div>
+              <div className={styles.entregasFormGroup}>
+                <label htmlFor="lote">Lote:</label>
+                <input
+                  type="text"
+                  id="lote"
+                  name="lote"
+                  value={novaEntrega.lote}
+                  onChange={handleChange}
+                  required
+                  placeholder="Ex: 2"
+                />
+              </div>
+              <div className={styles.entregasFormGroup}>
+                <label htmlFor="status">Status:</label>
+                <select
+                  name="status"
+                  id="status"
+                  value={novaEntrega.status}
+                  onChange={handleChange}
+                  required
+                  className={styles.entregasStatusSelect}
+                >
+                  <option value="Pendente">Pendente</option>
+                  <option value="Entregue">Entregue</option>
+                </select>
               </div>
               <div className={styles.entregasModalButtons}>
                 <button type="submit" className={styles.entregasSaveButton}>

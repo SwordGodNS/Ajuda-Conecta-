@@ -17,7 +17,7 @@ import {
 import styles from '../styles/Dashboard.module.css';
 
 // Importação dos componentes das páginas
-import User from './User';
+import User from './PontosColeta';
 import Catastrofes from './Catastrofes';
 import Doacoes from './Doacoes';
 import Entregas from './Entregas';

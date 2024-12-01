@@ -17,18 +17,16 @@
   color: #333;
 }
 
-/* Novo Contêiner Quadrado para o Mapa */
 .mapContainer {
-  width: 700px; /* Largura fixa do contêiner */
-  height: 500px; /* Altura fixa do contêiner */
-  margin: 0 auto; /* Centraliza o contêiner horizontalmente */
-  border: 2px solid #ccc; /* Opcional: adiciona uma borda para visualizar os limites */
-  border-radius: 8px; /* Opcional: bordas arredondadas */
-  overflow: hidden; /* Impede que o mapa se expanda além do contêiner */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Opcional: adiciona sombra para destaque */
+  width: 700px;
+  height: 500px;
+  margin: 0 auto;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo para os alfinetes de pontos de coleta */
 .marker {
   cursor: pointer;
   transition: transform 0.3s;
@@ -38,7 +36,6 @@
   transform: scale(1.2);
 }
 
-/* Animação para o marcador selecionado */
 .selected {
   animation: ripple 1.5s infinite;
 }
@@ -64,48 +61,55 @@
   }
 }
 
-/* Estilo para o conteúdo da tooltip personalizada */
+/* Estilos para o tooltip personalizado */
 .customTooltip {
-  background-color: rgba(0, 0, 0, 0.85);
-  color: #fff;
-  padding: 10px 12px;
-  border-radius: 8px;
-  font-size: 0px;
-  width: 140px;
-  height: auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  transform: translateY(-10px) scale(0.8);
-  transition: opacity 0.3s ease, transform 0.3s ease;
   position: absolute;
-  z-index: 10;
-  pointer-events: auto;
-}
-
-/* Classe para mostrar a tooltip */
-.customTooltip.show {
-  opacity: 1;
-  transform: translateY(px) scale(1);
-}
-
-/* Estilização dos títulos e parágrafos dentro da tooltip */
-.customTooltip h2 {
-  margin: 0 0 5px 0;
-  font-size: 14px;
-  color: #fff;
-}
-
-.customTooltip p {
-  margin: 4px 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #ffffff;
+  padding: 12px 15px;
+  border-radius: 5px;
   font-size: 12px;
-  color: #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 200px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  word-wrap: break-word;
+  z-index: 10;
 }
 
-.closeButton:hover {
-  background-color: #ff7875;
+.customTooltipVisible {
+  opacity: 1;
 }
 
-/* Label dos estados */
+/* Estilo do conteúdo do tooltip */
+.tooltipTitle {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #f9a826;
+}
+
+.tooltipText {
+  margin: 4px 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.tooltipStrong {
+  color: #f9a826;
+}
+
+.tooltipLink {
+  color: #f9a826;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.tooltipLink:hover {
+  text-decoration: underline;
+}
+
 .markerText {
   font-size: 6px;
   font-weight: bold;
@@ -113,4 +117,3 @@
   pointer-events: none;
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
 }
-
